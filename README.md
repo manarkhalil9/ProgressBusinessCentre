@@ -1,6 +1,6 @@
-# Progress Business Center 🏢
+# Progress Business Centre 🏢
 
-Progress Business Center is a modern business center management web application developed with **Python** and **Django**. The platform allows entrepreneurs, startups, and businesses to explore office solutions, register their businesses, arrange visits, browse available services, and connect with Progress Business Center through an intuitive and professional interface.
+Progress Business Centre is a modern business centre management web application developed with **Python** and **Django**. The platform allows entrepreneurs, startups, and businesses to explore office solutions, register their businesses, arrange visits, browse available services, and connect with Progress Business Centre through an intuitive and professional interface.
 
 The system is designed to simplify the customer journey by providing information about office solutions, meeting rooms, company branches, business events, and registration services, while giving administrators complete control over the website's content through Django's administration panel.
 
@@ -62,7 +62,7 @@ The system is designed to simplify the customer journey by providing information
 
 ### 🎨 Wireframes
 
-Progress Business Center Website
+Progress Business Centre Website
 
 https://www.progressoffices.com/
 
