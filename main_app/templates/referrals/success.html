@@ -4,17 +4,23 @@
 {% block content %}
 
 
-<section class="success-hero">
+<section class="success-hero engage-success-hero">
             {% include 'hero_social.html' %}
     <div class="hero-content">
+        <span class="engage-hero-shape" aria-hidden="true"></span>
         <h1>{% trans "Referral Dashboard" %}</h1>
         <p>{% trans "Thank you for helping our community grow." %}</p>
     </div>
 </section>
 
 
-<div class="referral-container">
-    <div class="success-card">
+<main class="engage-success-page">
+<div class="referral-container engage-success-container">
+    <section class="success-card engage-success-card">
+        <svg class="engage-success-curve" viewBox="0 0 700 180" preserveAspectRatio="none" aria-hidden="true">
+            <path class="engage-success-blue" d="M20 125 C 170 25, 320 175, 470 78 S 620 42, 680 90"></path>
+            <path class="engage-success-coral" d="M470 78 C 535 35, 585 42, 630 68"></path>
+        </svg>
         <div class="success-icon">✓</div>
 
         <h2>{% trans "Referral Submitted!" %}</h2>
@@ -32,7 +38,8 @@
                 {% trans "Back Home" %}
             </a>
         </div>
-    </div>
+    </section>
 </div>
+</main>
 
 {% endblock %}

@@ -3,55 +3,74 @@
 
 {% block content %}
 
-
-<div class="office-hero">
-            {% include 'hero_social.html' %}
+<section class="office-hero office-detail-hero">
+    {% include 'hero_social.html' %}
     <div class="hero-content">
         <span class="hero-badge">{% trans "Office Details" %}</span>
         <h1>{{ office.name }}</h1>
         <p>{% trans "Professional serviced offices ready for immediate business operations." %}</p>
     </div>
-</div>
+</section>
 
+<main class="office-detail-container serviced-office-detail">
+    <a href="{% url 'offices' %}" class="office-back-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M19 12H5"></path>
+            <path d="m11 18-6-6 6-6"></path>
+        </svg>
+        <span>{% trans "Back to Offices" %}</span>
+    </a>
 
-<div class="office-detail-container">
-    <section class="detail-card">
-
+    <article class="office-detail-card">
         {% if office.image %}
-            <div class="detail-image-wrapper">
-                <img class="office-image detail-office-image" src="{{ office.image.url }}" alt="{{ office.name }}">
-            </div>
+        <div class="office-detail-media">
+            <img class="office-image detail-office-image" src="{{ office.image.url }}" alt="{{ office.name }}">
+        </div>
         {% endif %}
 
-        <div class="detail-body">
-            <p class="detail-description">{{ office.description }}</p>
+        <div class="office-detail-layout">
+            <div class="office-detail-info">
+                <p class="office-detail-description">{{ office.description }}</p>
 
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <h3>{% trans "Location" %}</h3>
-                    <p>{{ office.branch.name }}</p>
-                </div>
-                <div class="feature-card">
-                    <h3>{% trans "Starting from" %}</h3>
-                    <p class="price-val">{{ office.price_per_month }} BHD / {% trans "mo" %}</p>
+                <div class="office-detail-meta">
+                    <div class="office-detail-meta-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"></path>
+                            <circle cx="12" cy="10" r="2.5"></circle>
+                        </svg>
+                        <span>
+                            <small>{% trans "Location" %}</small>
+                            <strong>{{ office.branch.name }}</strong>
+                        </span>
+                    </div>
+
+                    <div class="office-detail-meta-item office-detail-price">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M20.59 13.41 11 3.83V3H4v7h.83l9.58 9.59a2 2 0 0 0 2.82 0l3.36-3.36a2 2 0 0 0 0-2.82Z"></path>
+                            <circle cx="7.5" cy="6.5" r=".5" fill="currentColor"></circle>
+                        </svg>
+                        <span>
+                            <small>{% trans "Starting from" %}</small>
+                            <strong>{{ office.price_per_month }} BHD / {% trans "mo" %}</strong>
+                        </span>
+                    </div>
                 </div>
             </div>
 
-
-            <section class="availability-section">
-                <h2>{% trans "Availability & Booking" %}</h2>
-                <p class="info-text">
-                    {% trans "View real‑time availability and book your preferred dates using the calendar." %}
-                </p>
-                <div class="cta-buttons">
-                    <a href="{% url 'book' 'office' office.pk %}" class="btn btn-cta">
-                        {% trans "Check Availability & Book" %}
-                    </a>
+            <aside class="office-booking-panel">
+                <span class="office-booking-eyebrow">{% trans "Availability & Booking" %}</span>
+                <div class="office-booking-price">
+                    <small>{% trans "Starting from" %}</small>
+                    <strong>{{ office.price_per_month }} BHD</strong>
+                    <span>{% trans "/ mo" %}</span>
                 </div>
-            </section>
+                <p>{% trans "View real‑time availability and book your preferred dates using the calendar." %}</p>
+                <a href="{% url 'book' 'office' office.pk %}" class="btn office-booking-button">
+                    {% trans "Check Availability & Book" %}
+                </a>
+            </aside>
         </div>
-
-    </section>
-</div>
+    </article>
+</main>
 
 {% endblock %}

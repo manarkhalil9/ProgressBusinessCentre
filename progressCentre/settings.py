@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 import os
 from dotenv import load_dotenv
 from pathlib import Path
+from django.core.exceptions import ImproperlyConfigured
 from django.utils.translation import gettext_lazy as _
 
 LANGUAGES = (
@@ -24,6 +25,17 @@ MODELTRANSLATION_DEFAULT_LANGUAGE = "en"
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Load local/production configuration before any environment-backed setting.
+load_dotenv(BASE_DIR / '.env')
+
+
+def env_bool(name, default=False):
+    return os.getenv(name, str(default)).strip().lower() in {'1', 'true', 'yes', 'on'}
+
+
+def env_list(name, default=''):
+    return [value.strip() for value in os.getenv(name, default).split(',') if value.strip()]
+
 LOCALE_PATHS = [
     BASE_DIR / 'locale',
 ]
@@ -31,12 +43,26 @@ LOCALE_PATHS = [
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-qbk@%#&9($g1c@*dmsgm+he9bf7&t*49ggv4=r_r3o8-2(**#$'
+DEBUG = env_bool('DEBUG', True)
 
-DEBUG = True
+# Local development gets a non-production fallback. Production fails fast if
+# SECRET_KEY is missing instead of silently starting with an unsafe key.
+SECRET_KEY = os.getenv('SECRET_KEY')
+if not SECRET_KEY:
+    if DEBUG:
+        SECRET_KEY = 'django-insecure-local-development-only-change-me'
+    else:
+        raise ImproperlyConfigured('SECRET_KEY must be set when DEBUG=False.')
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'manar.pythonanywhere.com']
+ALLOWED_HOSTS = env_list(
+    'ALLOWED_HOSTS',
+    'localhost,127.0.0.1',
+)
+
+CSRF_TRUSTED_ORIGINS = env_list(
+    'CSRF_TRUSTED_ORIGINS',
+    '',
+)
 
 # Application definition
 
@@ -113,7 +139,7 @@ AUTH_PASSWORD_VALIDATORS = []
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'UTC'
 
@@ -123,10 +149,8 @@ USE_TZ = True
 
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
-
-# Source assets live in main_app/static. Configure STATIC_ROOT only when
-# deploying with collectstatic.
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'static'
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
@@ -142,10 +166,6 @@ LOGOUT_REDIRECT_URL = '/'
 LANGUAGE_COOKIE_NAME = 'django_language'
 
 # EMAIL CONFIGURATION
-
-# Load the .env file
-# Load the .env file
-load_dotenv(BASE_DIR / '.env')
 
 # Real Emails
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -196,3 +216,11 @@ SOCIALACCOUNT_EMAIL_AUTHENTICATION = True
 SOCIALACCOUNT_EMAIL_AUTHENTICATION_AUTO_CONNECT = True
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
+
+# PythonAnywhere terminates HTTPS before forwarding requests to Django. HTTPS
+# redirection itself should be enabled in the PythonAnywhere Web tab to avoid
+# application-level proxy redirect loops.
+SESSION_COOKIE_SECURE = not DEBUG
+CSRF_COOKIE_SECURE = not DEBUG
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_HSTS_SECONDS = int(os.getenv('SECURE_HSTS_SECONDS', '3600' if not DEBUG else '0'))

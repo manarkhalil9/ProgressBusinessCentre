@@ -4,20 +4,21 @@
 {% block content %}
 
 
-<section class="gallery-hero">
+<section class="gallery-hero gallery-hero-refined gallery-detail-hero">
             {% include 'hero_social.html' %}
     <div class="hero-content">
-
+        <span class="gallery-hero-shape" aria-hidden="true"></span>
         <h1>{{ image.title }}</h1>
         <p>{% trans "A closer look at our workspace and facilities." %}</p>
     </div>
 </section>
 
 
-<section class="gallery-detail-container">
+<main class="gallery-detail-page">
+<section class="gallery-detail-container gallery-detail-view">
 
 
-    <a href="{% url 'gallery' %}" class="back-link">
+    <a href="{% url 'gallery' %}" class="back-link gallery-back-link">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="19" y1="12" x2="5" y2="12"></line>
             <polyline points="12 19 5 12 12 5"></polyline>
@@ -26,7 +27,7 @@
     </a>
 
 
-    <div class="gallery-detail-card">
+    <div class="gallery-detail-card gallery-detail-frame">
         <div class="gallery-detail-image-wrapper">
             <img src="{{ image.image.url }}" alt="{{ image.title }}" class="gallery-detail-image">
         </div>
@@ -38,5 +39,6 @@
     </div>
 
 </section>
+</main>
 
 {% endblock %}

@@ -4,49 +4,58 @@
 {% block content %}
 
 
-<section class="gallery-hero">
+<section class="gallery-hero gallery-hero-refined">
             {% include 'hero_social.html' %}
     <div class="hero-content">
+        <span class="gallery-hero-shape" aria-hidden="true"></span>
         <h1>{% trans "Gallery" %}</h1>
         <p>{% trans "Explore our workspace, facilities, and events through our image collection." %}</p>
     </div>
 </section>
 
 
-<div class="gallery-container gallery-showcase">
+<main class="gallery-page">
+<div class="gallery-container gallery-showcase gallery-page-inner">
     <div class="gallery-intro">
         <span class="section-badge">{% trans "Inside Progress" %}</span>
         <h2>{% trans "Spaces made for ambitious work" %}</h2>
         <p>{% trans "A closer look at the spaces, details, and atmosphere behind your next business address." %}</p>
     </div>
-    <section class="gallery-grid">
+    <div class="gallery-grid-wrap">
+        <svg class="gallery-grid-connector" viewBox="0 0 1300 260" preserveAspectRatio="none" aria-hidden="true">
+            <path class="gallery-connector-blue" d="M20 190 C 230 35, 410 250, 620 105 S 1030 45, 1280 160"></path>
+            <path class="gallery-connector-coral" d="M612 109 C 720 42, 805 40, 892 76"></path>
+        </svg>
+    <section class="gallery-grid gallery-showcase-grid">
         {% for image in gallery %}
-            <a href="{% url 'gallery_detail' image.id %}" class="gallery-card gallery-card-{{ forloop.counter }}">
+            <a href="{% url 'gallery_detail' image.id %}" class="gallery-card gallery-item gallery-card-{{ forloop.counter }}">
                 <div class="gallery-image-wrapper">
                     <img src="{{ image.image.url }}" alt="{{ image.title }}">
 
-                    <div class="gallery-overlay">
+                    <div class="gallery-overlay gallery-item-action">
                         <span class="gallery-view-icon" aria-hidden="true">
                             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
                                 <path d="M15 3h6v6"></path><path d="M21 3l-7 7"></path>
                                 <path d="M9 21H3v-6"></path><path d="M3 21l7-7"></path>
                             </svg>
                         </span>
-                        <span class="btn-view">{% trans "View Image" %}</span>
+                        <span class="btn-view sr-only">{% trans "View Image" %}</span>
                     </div>
                 </div>
                 <div class="gallery-card-content">
-                    <span class="gallery-index">0{{ forloop.counter }}</span>
+                    <span class="gallery-index">{{ forloop.counter|stringformat:"02d" }}</span>
                     <h3>{{ image.title }}</h3>
                 </div>
             </a>
         {% empty %}
 
-            <div class="empty-state" style="grid-column: 1 / -1;">
+            <div class="empty-state gallery-empty-state">
                 <p>{% trans "No images available yet." %}</p>
             </div>
         {% endfor %}
     </section>
+    </div>
 </div>
+</main>
 
 {% endblock %}

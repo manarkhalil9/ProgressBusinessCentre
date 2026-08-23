@@ -4,23 +4,26 @@
 {% block content %}
 
 
-<section class="referral-hero">
+<section class="referral-hero engage-hero engage-referral-hero">
             {% include 'hero_social.html' %}
     <div class="hero-content">
+        <span class="engage-hero-shape" aria-hidden="true"></span>
         <h1>{% trans "Refer a Business" %}</h1>
         <p>{% trans "Know someone looking for a professional workspace? Refer them to us!" %}</p>
     </div>
 </section>
 
 
-<div class="referral-container">
-    <div class="form-card">
+<main class="engage-page">
+<div class="referral-container engage-container">
+    <section class="form-card engage-form-card">
         <div class="form-header">
+            <span class="engage-form-eyebrow">{% trans "Business Referral" %}</span>
             <h2>{% trans "Referral Details" %}</h2>
             <p>{% trans "Fill out the information below to introduce a new business to our network." %}</p>
         </div>
 
-        <form method="post" novalidate>
+        <form method="post" novalidate class="engage-form">
             {% csrf_token %}
 
             {% for field in form %}
@@ -39,9 +42,14 @@
                 </div>
             {% endfor %}
 
+            {% if form.non_field_errors %}
+                <div class="engage-error-summary" role="alert">{{ form.non_field_errors }}</div>
+            {% endif %}
+
             <button type="submit" class="btn-submit">{% trans "Submit Referral" %}</button>
         </form>
-    </div>
+    </section>
 </div>
+</main>
 
 {% endblock %}

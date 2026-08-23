@@ -4,17 +4,21 @@
 {% block content %}
 
 
-<div class="success-header">
-            {% include 'hero_social.html' %}
+<section class="success-header booking-success-hero">
+    {% include 'hero_social.html' %}
     <div class="success-header-container">
         <span class="success-badge">{% trans "Confirmation" %}</span>
         <h1>{% trans "Booking Confirmation" %}</h1>
     </div>
-</div>
+</section>
 
 
-<div class="success-container">
-    <section class="success-card">
+<main class="success-container booking-success-container">
+    <section class="success-card booking-success-card">
+        <svg class="success-card-curve" viewBox="0 0 700 180" preserveAspectRatio="none" aria-hidden="true">
+            <path class="success-curve-blue" d="M25 120 C 180 20, 310 175, 470 75 S 620 45, 680 90"></path>
+            <path class="success-curve-coral" d="M470 75 C 535 35, 585 42, 625 66"></path>
+        </svg>
         <div class="success-icon-wrapper">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="20 6 9 17 4 12"></polyline>
@@ -27,11 +31,11 @@
             {% trans "Thank you. Our team will review your booking request and contact you shortly." %}
         </p>
 
-        <a class="btn btn-cta" href="{% url 'home' %}">
-    {% trans "Back to Home" %}
-</a>
+        <a class="btn booking-success-button" href="{% url 'home' %}">
+            {% trans "Back to Home" %}
+        </a>
 
     </section>
-</div>
+</main>
 
 {% endblock %}

@@ -2,40 +2,78 @@
 {% load i18n %}
 
 {% block content %}
-
-
-<section class="auth-hero">
-            {% include 'hero_social.html' %}
+<section class="auth-hero auth-hero-refined auth-hero-compact">
+    {% include 'hero_social.html' %}
     <div class="hero-content">
+        <span class="engage-hero-shape" aria-hidden="true"></span>
         <h1>{% trans "Welcome Back" %}</h1>
         <p>{% trans "Sign in to access your dashboard, manage office bookings, and review registration progress." %}</p>
     </div>
 </section>
 
-
-<div class="auth-container">
-    <div class="form-card">
-        <div class="form-header">
-            <h2>{% trans "Account Login" %}</h2>
-            <p>{% trans "Enter your credentials to continue." %}</p>
-        </div>
-
-        <form method="post" novalidate>
-            {% csrf_token %}
-
-            <div class="custom-form-p">
-                {{ form.as_p }}
+<main class="auth-experience">
+    <div class="auth-shell">
+        <section class="auth-form-card">
+            <div class="auth-card-heading">
+                <span class="auth-eyebrow">{% trans "Secure Account Access" %}</span>
+                <h2>{% trans "Account Login" %}</h2>
+                <p>{% trans "Enter your credentials to continue." %}</p>
             </div>
 
-            <button class="btn-submit" type="submit">
-                {% trans "Login" %}
-            </button>
-        </form>
+            {% include 'registration/_social_auth.html' %}
 
-        <div class="auth-footer-link">
-            <p>{% trans "Don't have an account?" %} <a href="{% url 'signup' %}">{% trans "Sign up" %}</a></p>
-        </div>
+            <div class="auth-divider"><span>{% trans "OR" %}</span></div>
+
+            <form method="post" class="auth-form" novalidate>
+                {% csrf_token %}
+                {% if next %}
+                    <input type="hidden" name="next" value="{{ next }}">
+                {% endif %}
+
+                {% if form.non_field_errors %}
+                    <div class="auth-error-alert" role="alert">{{ form.non_field_errors }}</div>
+                {% endif %}
+
+                <div class="auth-field">
+                    <label for="{{ form.username.id_for_label }}">{% trans "Username / Email" %}</label>
+                    <div class="auth-input-wrap">
+                        <input type="text"
+                               name="{{ form.username.html_name }}"
+                               id="{{ form.username.id_for_label }}"
+                               value="{{ form.username.value|default:'' }}"
+                               autocomplete="username"
+                               required>
+                    </div>
+                    {% for error in form.username.errors %}<span class="auth-field-error">{{ error }}</span>{% endfor %}
+                </div>
+
+                <div class="auth-field">
+                    <div class="auth-label-row">
+                        <label for="{{ form.password.id_for_label }}">{% trans "Password" %}</label>
+                        <a href="{% url 'account_reset_password' %}" class="auth-forgot-link">{% trans "Forgot password?" %}</a>
+                    </div>
+                    <div class="auth-input-wrap auth-password-wrap">
+                        <input type="password"
+                               name="{{ form.password.html_name }}"
+                               id="{{ form.password.id_for_label }}"
+                               autocomplete="current-password"
+                               required>
+                        <button type="button" class="auth-password-toggle" aria-label="{% trans 'Show password' %}" aria-pressed="false">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z"></path><circle cx="12" cy="12" r="2.8"></circle></svg>
+                        </button>
+                    </div>
+                    {% for error in form.password.errors %}<span class="auth-field-error">{{ error }}</span>{% endfor %}
+                </div>
+
+                <button class="auth-primary-button" type="submit">{% trans "Login" %}</button>
+            </form>
+
+            <div class="auth-cross-link">
+                <p>{% trans "Don't have an account?" %} <a href="{% url 'signup' %}{% if next %}?next={{ next|urlencode }}{% endif %}">{% trans "Sign up" %}</a></p>
+            </div>
+        </section>
     </div>
-</div>
+</main>
 
+{% include 'registration/_password_toggle_script.html' %}
 {% endblock %}

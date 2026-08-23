@@ -4,23 +4,26 @@
 {% block content %}
 
 
-<section class="business-hero">
+<section class="business-hero engage-hero engage-business-hero">
             {% include 'hero_social.html' %}
     <div class="hero-content">
+        <span class="engage-hero-shape" aria-hidden="true"></span>
         <h1>{% trans "Professional Business Registration Services" %}</h1>
         <p>{% trans "Get your professional business address and office presence without the need for a physical office. Ideal for startups, entrepreneurs, and remote businesses." %}</p>
     </div>
 </section>
 
 
-<div class="business-container">
-    <div class="form-card">
+<main class="engage-page">
+<div class="business-container engage-container">
+    <section class="form-card engage-form-card engage-business-form">
         <div class="form-header">
+            <span class="engage-form-eyebrow">{% trans "Business Registration" %}</span>
             <h2>{% trans "Application Form" %}</h2>
             <p>{% trans "Please provide your corporate and personal details below to initiate your setup." %}</p>
         </div>
 
-        <form method="POST" enctype="multipart/form-data" novalidate>
+        <form method="POST" enctype="multipart/form-data" novalidate class="engage-form">
             {% csrf_token %}
 
             <div class="form-group">
@@ -47,7 +50,7 @@
                 <label><b>{{ form.commercial_registration.label }}</b></label>
                 {{ form.commercial_registration }}
                 {% if form.commercial_registration.help_text %}
-                    <small class="help-text-gray" style="display: block; margin-top: 5px;">{{ form.commercial_registration.help_text }}</small>
+                    <small class="help-text-gray">{{ form.commercial_registration.help_text }}</small>
                 {% endif %}
             </div>
 
@@ -69,18 +72,19 @@
                 <div class="custom-file-wrapper">
                     {{ form.passport_document }}
                 </div>
-                <small style="display: block; margin-top: 5px; color: var(--color-text-muted);">{% trans "Please upload clear copies of your CPR and Passport." %}</small>
+                <small class="engage-help-text">{% trans "Please upload clear copies of your CPR and Passport." %}</small>
             </div>
 
             {% if form.errors %}
-                <div class="error-text" style="color: #d62828; margin-bottom: 20px; font-weight: 600;">
+                <div class="error-text engage-error-summary" role="alert">
                     {% trans "Please correct the errors above." %}
                 </div>
             {% endif %}
 
             <button type="submit" class="btn-submit">{% trans "Submit Legal Application" %}</button>
         </form>
-    </div>
+    </section>
 </div>
+</main>
 
 {% endblock %}

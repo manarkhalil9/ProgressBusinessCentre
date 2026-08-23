@@ -1,9 +1,12 @@
 # Environment variables
 .env
+.env.*
+!.env.example
 
 # Virtual environments
 .venv/
 .venv-1/
+venv/
 
 # Python
 __pycache__/
@@ -16,10 +19,14 @@ db_broken_translation.sqlite3
 # Media
 media/
 
+# Collected production static files (source files remain in main_app/static/)
+/static/
+
 # VS Code
 .vscode/
 
-.env
 
-venv
-staticfiles/
+# IDE and operating-system files
+.idea/
+.DS_Store
+Thumbs.db

@@ -4,54 +4,75 @@
 {% block content %}
 
 
-<div class="office-hero">
-            {% include 'hero_social.html' %}
+<section class="office-hero offices-list-hero">
+    {% include 'hero_social.html' %}
     <div class="hero-content">
         <span class="hero-badge">{% trans "Workspaces" %}</span>
         <h1>{% trans "Private Serviced Offices" %}</h1>
         <p>{% trans "Discover fully furnished offices with flexible lease options, premium facilities and professional business support." %}</p>
     </div>
-</div>
+</section>
 
 
-<div class="office-container">
-    <section class="office-grid">
+<section class="office-container offices-listing-section">
+    <div class="offices-listing-header">
+        <span class="offices-eyebrow">{% trans "Workspaces" %}</span>
+    </div>
+    <div class="office-list-grid">
+        <svg class="office-grid-connectors" viewBox="0 0 1200 760" preserveAspectRatio="none" aria-hidden="true">
+            <path class="office-grid-connector office-grid-connector-blue" d="M40 185 C 225 55, 355 300, 535 178 S 865 80, 1160 205"></path>
+            <path class="office-grid-connector office-grid-connector-coral" d="M85 570 C 300 430, 430 700, 650 555 S 925 455, 1140 585"></path>
+        </svg>
         {% for office in offices %}
-            <div class="service-card">
-
+            <article class="office-list-card">
+                <div class="office-card-media">
                 {% if office.image %}
-                    <div class="card-image-wrapper">
-                        <img class="office-image" src="{{ office.image.url }}" alt="{{ office.name }}">
-                    </div>
+                    <img class="office-image" src="{{ office.image.url }}" alt="{{ office.name }}">
                 {% endif %}
 
-                <div class="card-body">
-                    <h2>{{ office.name }}</h2>
-                    <p class="card-desc">{{ office.description|truncatechars:120 }}</p>
-
-                    <div class="feature-mini-grid">
-                        <div class="feature-card">
-                            <span class="feature-title">{% trans "Location" %}</span>
-                            <span class="feature-val">{{ office.branch.name }}</span>
-                        </div>
-                        <div class="feature-card">
-                            <span class="feature-title">{% trans "Starting from" %}</span>
-                            <span class="feature-val price-val">{{ office.price_per_month }} BHD</span>
-                        </div>
+                    <div class="office-price-badge">
+                        <span>{% trans "Starting from" %}</span>
+                        <strong>{{ office.price_per_month }} BHD</strong>
+                        <small>{% trans "/ mo" %}</small>
                     </div>
-
-                    <a class="btn btn-cta" href="{% url 'office_detail' office.pk %}">
-                        {% trans "View Office" %}
-                    </a>
                 </div>
 
-            </div>
+                <div class="office-card-content">
+                    <h2>{{ office.name }}</h2>
+                    <p class="office-card-description">{{ office.description }}</p>
+
+                    <div class="office-card-meta">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"></path>
+                            <circle cx="12" cy="10" r="2.5"></circle>
+                        </svg>
+                        <span>
+                            <small>{% trans "Location" %}</small>
+                            <strong>{{ office.branch.name }}</strong>
+                        </span>
+                    </div>
+
+                    <div class="office-card-action">
+                        <a class="btn office-card-button" href="{% url 'office_detail' office.pk %}">
+                            {% trans "View Office" %}
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M5 12h14"></path>
+                                <path d="m13 6 6 6-6 6"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+            </article>
         {% empty %}
-            <div class="empty-state">
+            <div class="office-empty-state">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                    <path d="M3 21h18M5 21V7l7-4 7 4v14M9 10h2M13 10h2M9 14h2M13 14h2"></path>
+                </svg>
                 <p>{% trans "No offices are currently available." %}</p>
             </div>
         {% endfor %}
-    </section>
-</div>
+    </div>
+</section>
 
 {% endblock %}

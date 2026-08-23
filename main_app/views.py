@@ -14,6 +14,7 @@ from .forms import (
 )
 from django.db.models import Q
 from django.http import Http404
+from django.utils.http import url_has_allowed_host_and_scheme
 from django.core.mail import send_mail, EmailMessage
 from django.conf import settings
 from datetime import date, datetime, timedelta
@@ -449,7 +450,10 @@ class BookingCreateView(LoginRequiredMixin, CreateView):
             context["unavailable_dates"] = set()
 
         if isinstance(resource, MeetingRoom):
-            context["available_slots"] = resource.get_available_time_slots(selected_start_date)
+            context["available_slots"] = resource.get_available_time_slots(
+                selected_start_date,
+                interval_minutes=60,
+            )
         else:
             context["available_slots"] = None
 
@@ -552,11 +556,36 @@ def booking_success(request):
 
 # ---------- SIGNUP ----------
 def signup(request):
+    next_url = request.POST.get("next") or request.GET.get("next")
+
+    if request.user.is_authenticated:
+        if next_url and url_has_allowed_host_and_scheme(
+            next_url,
+            allowed_hosts={request.get_host()},
+            require_https=request.is_secure(),
+        ):
+            return redirect(next_url)
+        return redirect("business_register")
+
     form = UserCreationForm()
     if request.method == "POST":
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
-            login(request, user)
+            login(
+                request,
+                user,
+                backend="django.contrib.auth.backends.ModelBackend",
+            )
+            if next_url and url_has_allowed_host_and_scheme(
+                next_url,
+                allowed_hosts={request.get_host()},
+                require_https=request.is_secure(),
+            ):
+                return redirect(next_url)
             return redirect("business_register")
-    return render(request, "registration/signup.html", {"form": form})
+    return render(
+        request,
+        "registration/signup.html",
+        {"form": form, "next": next_url},
+    )

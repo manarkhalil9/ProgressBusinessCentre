@@ -3,27 +3,35 @@
 {% load static %}
 
 {% block content %}
-<section class="faq-hero">
+<section class="faq-hero faq-hero-refined">
     {% include 'hero_social.html' %}
     <div class="hero-container">
         <div class="hero-left">
-            <h1 class="hero-title">{% trans "FAQ" %}</h1>
-            <div class="hero-line"></div>
-            <nav class="breadcrumbs">
-                <a href="/">{% trans "Home" %}</a>
-                <span class="separator">›</span>
-                <span class="current">{% trans "FAQ" %}</span>
-            </nav>
+            <div class="faq-hero-title-wrap">
+                <span class="faq-hero-shape" aria-hidden="true"></span>
+                <h1 class="hero-title">{% trans "FAQ" %}</h1>
+            </div>
         </div>
-        <div class="hero-right">
+        <div class="hero-right faq-hero-copy">
             <h2>{% trans "Quick Answers" %}</h2>
             <p>{% trans "Explore flexible office solutions and booking procedures at Progress Business Centre." %}</p>
         </div>
     </div>
 </section>
 
-<div class="faq-container">
-    <div class="faq-list">
+<main class="faq-page">
+    <div class="faq-container faq-page-inner">
+        <div class="faq-section-heading">
+            <span>{% trans "Frequently Asked Questions" %}</span>
+        </div>
+
+        <div class="faq-accordion-wrap">
+            <svg class="faq-connector" viewBox="0 0 180 760" preserveAspectRatio="none" aria-hidden="true">
+                <path class="faq-connector-blue" d="M126 20 C 20 145, 165 230, 58 350 S 30 570, 142 730"></path>
+                <path class="faq-connector-coral" d="M62 347 C 35 390, 31 440, 52 478"></path>
+            </svg>
+
+            <div class="faq-list faq-accordion">
         {% for faq in faqs %}
         <details class="faq-item" {% if forloop.first %}open{% endif %}>
             <summary class="faq-summary">
@@ -37,14 +45,19 @@
             </div>
         </details>
         {% empty %}
-        <div class="empty-state"><p>{% trans "No questions available." %}</p></div>
+                <div class="empty-state faq-empty-state"><p>{% trans "No questions available." %}</p></div>
         {% endfor %}
-    </div>
+            </div>
+        </div>
 
-    <div class="support-box">
-        <h3>{% trans "Still have questions?" %}</h3>
-        <p>{% trans "Reach out to our support team for personalized assistance." %}</p>
-        <a href="{% url 'contact' %}" class="btn-cta">{% trans "Contact Support" %}</a>
+        <div class="support-box faq-support-panel">
+            <span class="faq-support-orbit" aria-hidden="true"></span>
+            <div class="faq-support-copy">
+                <h3>{% trans "Still have questions?" %}</h3>
+                <p>{% trans "Reach out to our support team for personalized assistance." %}</p>
+            </div>
+            <a href="{% url 'contact' %}" class="btn-cta">{% trans "Contact Support" %}</a>
+        </div>
     </div>
-</div>
+</main>
 {% endblock %}

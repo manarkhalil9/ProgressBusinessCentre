@@ -4,28 +4,42 @@
 {% block content %}
 
 
-<section class="meeting-hero">
+<section class="meeting-hero engage-hero engage-visit-hero">
             {% include 'hero_social.html' %}
     <div class="hero-content">
+        <span class="engage-hero-shape" aria-hidden="true"></span>
         <h1>{% trans "Arrange a Meeting" %}</h1>
         <p>{% trans "Complete the form below and choose your preferred meeting date and time." %}</p>
     </div>
 </section>
 
 
-<div class="meeting-container">
-    <section class="form-card">
+<main class="engage-page">
+<div class="meeting-container engage-container">
+    <section class="form-card engage-form-card">
 
         <div class="form-header">
+            <span class="engage-form-eyebrow">{% trans "Book a Visit" %}</span>
             <h2>{% trans "Schedule Your Visit" %}</h2>
             <p>{% trans "We look forward to showing you our workspace solutions." %}</p>
         </div>
 
-        <form method="POST" class="custom-form">
+        <form method="POST" class="custom-form engage-form">
             {% csrf_token %}
 
 
-            {{ form.as_p }}
+            {% for field in form %}
+                <div class="form-group">
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    <div class="field-wrapper">{{ field }}</div>
+                    {% if field.help_text %}<small class="engage-help-text">{{ field.help_text }}</small>{% endif %}
+                    {% if field.errors %}<span class="error-msg">{{ field.errors.0 }}</span>{% endif %}
+                </div>
+            {% endfor %}
+
+            {% if form.non_field_errors %}
+                <div class="engage-error-summary" role="alert">{{ form.non_field_errors }}</div>
+            {% endif %}
 
             <button type="submit" class="btn-submit">
                 {% trans "Arrange Meeting" %}
@@ -34,5 +48,6 @@
 
     </section>
 </div>
+</main>
 
 {% endblock %}

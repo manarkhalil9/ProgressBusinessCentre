@@ -6,7 +6,6 @@
 
 <section class="booking-hero">
             {% include 'hero_social.html' %}
-    <div class="hero-overlay"></div>
     <div class="hero-content">
         <span class="badge-type">
             {% if resource_type == "room" %}
@@ -16,8 +15,8 @@
             {% endif %}
         </span>
         <h1>{% trans "Complete Your Booking" %}</h1>
-        <p class="resource-name">{{ resource.name }} &bull; {{ resource.branch.name }}</p>
-        <div class="price-badge">
+        <p class="resource-name booking-resource-name">{{ resource.name }} &bull; {{ resource.branch.name }}</p>
+        <div class="price-badge booking-hero-price">
             <span class="price-label">{% trans "Starting from" %}</span>
             <span class="price-amount">
                 {% if resource_type == "room" %}
@@ -31,10 +30,12 @@
 </section>
 
 
-<section class="booking-container">
-    <div class="form-card">
-        <form method="post" novalidate>
+<section class="booking-container booking-experience">
+    <form method="post" novalidate class="booking-form-shell">
             {% csrf_token %}
+
+        <div class="booking-page-layout">
+            <div class="booking-form-main">
 
 
             {% if form.errors or form.non_field_errors %}
@@ -55,8 +56,8 @@
 
 
             <div class="form-section">
-                <div class="section-header">
-                    <span class="step-number">1</span>
+                <div class="section-header booking-step-header">
+                    <span class="booking-step-label">{% trans "Step 01" %}</span>
                     <h3>{% trans "Your Contact Information" %}</h3>
                 </div>
 
@@ -99,8 +100,8 @@
 
 
             <div class="form-section">
-                <div class="section-header">
-                    <span class="step-number">2</span>
+                <div class="section-header booking-step-header">
+                    <span class="booking-step-label">{% trans "Step 02" %}</span>
                     <h3>
                         {% if resource_type == "room" %}
                             {% trans "Select Date & Time Slot" %}
@@ -168,7 +169,12 @@
                             {% if available_slots %}
                                 <ul class="slot-list">
                                     {% for start, end in available_slots %}
-                                        <li data-start="{{ start|time:'H:i' }}" data-end="{{ end|time:'H:i' }}">
+                                        <li class="booking-slot"
+                                            data-start="{{ start|time:'H:i' }}"
+                                            data-end="{{ end|time:'H:i' }}"
+                                            role="button"
+                                            tabindex="0"
+                                            aria-pressed="false">
                                             <span>{{ start|time:"H:i" }}</span> – <span>{{ end|time:"H:i" }}</span>
                                         </li>
                                     {% endfor %}
@@ -304,13 +310,52 @@
             </div>
 
 
-            <div class="form-actions">
-                <button type="submit" class="btn btn-cta btn-full">
+            </div>
+
+            <aside class="booking-summary-card">
+                <span class="booking-summary-eyebrow">{% trans "Booking Summary" %}</span>
+                <h2>{{ resource.name }}</h2>
+
+                <div class="booking-summary-item">
+                    <small>{% trans "Location" %}</small>
+                    <strong>{{ resource.branch.name }}</strong>
+                </div>
+
+                <div class="booking-summary-item booking-summary-price">
+                    <small>{% trans "Starting from" %}</small>
+                    <strong>
+                        {% if resource_type == "room" %}
+                            {{ resource.price_per_hour }} BHD <span>/ {% trans "hour" %}</span>
+                        {% else %}
+                            {{ resource.price_per_month }} BHD <span>/ {% trans "month" %}</span>
+                        {% endif %}
+                    </strong>
+                </div>
+
+                {% if resource_type == "room" %}
+                <div class="booking-summary-item">
+                    <small>{% trans "Selected Date" %}</small>
+                    <strong id="booking_summary_start">{{ selected_start_date|date:"Y-m-d" }}</strong>
+                </div>
+                {% else %}
+                <div class="booking-summary-dates">
+                    <div class="booking-summary-item">
+                        <small>{% trans "Start Date" %}</small>
+                        <strong id="booking_summary_start">{{ selected_start_date|date:"Y-m-d" }}</strong>
+                    </div>
+                    <div class="booking-summary-item">
+                        <small>{% trans "End Date" %}</small>
+                        <strong id="booking_summary_end">{{ selected_end_date|date:"Y-m-d" }}</strong>
+                    </div>
+                </div>
+                {% endif %}
+
+                <button type="submit" class="btn booking-submit-button">
                     {% trans "Confirm & Submit Booking Request" %}
                 </button>
-            </div>
-        </form>
-    </div>
+            </aside>
+        </div>
+    </form>
 </section>
 
 <script>
@@ -319,6 +364,41 @@
         const startCalendarCells = document.querySelectorAll('.start-calendar .selectable-date');
         const startInput = document.getElementById('id_start_date');
         const startDisplay = document.getElementById('display_start_date');
+        const summaryStartDisplay = document.getElementById('booking_summary_start');
+        const slotItems = document.querySelectorAll('.booking-slot[data-start][data-end]');
+        const startTimeInput = document.getElementById('id_start_time');
+        const endTimeInput = document.getElementById('id_end_time');
+
+        function selectTimeSlot(slot) {
+            slotItems.forEach(item => {
+                item.classList.remove('selected');
+                item.setAttribute('aria-pressed', 'false');
+            });
+
+            slot.classList.add('selected');
+            slot.setAttribute('aria-pressed', 'true');
+
+            if (startTimeInput) startTimeInput.value = slot.dataset.start;
+            if (endTimeInput) endTimeInput.value = slot.dataset.end;
+        }
+
+        slotItems.forEach(slot => {
+            slot.addEventListener('click', () => selectTimeSlot(slot));
+            slot.addEventListener('keydown', event => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    selectTimeSlot(slot);
+                }
+            });
+        });
+
+        if (startTimeInput && endTimeInput) {
+            const currentSlot = Array.from(slotItems).find(slot =>
+                slot.dataset.start === startTimeInput.value &&
+                slot.dataset.end === endTimeInput.value
+            );
+            if (currentSlot) selectTimeSlot(currentSlot);
+        }
 
         if (startInput && startInput.value) {
             const activeCell = document.querySelector(`.start-calendar .selectable-date[data-date="${startInput.value}"]`);
@@ -338,12 +418,14 @@
                 const selectedDate = this.getAttribute('data-date');
                 if (startInput) startInput.value = selectedDate;
                 if (startDisplay) startDisplay.innerText = selectedDate;
+                if (summaryStartDisplay) summaryStartDisplay.innerText = selectedDate;
             });
         });
 
         // --- 2. END CALENDAR LOGIC (Offices Only) ---
         const endCalendarCells = document.querySelectorAll('.end-calendar .selectable-date');
         const endInputDateBox = document.getElementById('id_end_date');
+        const summaryEndDisplay = document.getElementById('booking_summary_end');
 
         if (endInputDateBox && endInputDateBox.value) {
             const activeEndCell = document.querySelector(`.end-calendar .selectable-date[data-date="${endInputDateBox.value}"]`);
@@ -362,6 +444,9 @@
 
                 if (endInputDateBox) {
                     endInputDateBox.value = this.getAttribute('data-date');
+                }
+                if (summaryEndDisplay) {
+                    summaryEndDisplay.innerText = this.getAttribute('data-date');
                 }
             });
         });
