@@ -19,8 +19,8 @@ db_broken_translation.sqlite3
 # Media
 media/
 
-# Collected production static files (source files remain in main_app/static/)
-/static/
+# Collected production static files
+/staticfiles/
 
 # VS Code
 .vscode/
