@@ -85,6 +85,7 @@
         <a href="{% url 'contact' %}">{% trans "Contact Us" %}</a>
 
         {% if user.is_authenticated %}
+        <a href="{% url 'dashboard' %}">{% trans "My Bookings" %}</a>
         <details class="nav-more">
             <summary>{% trans "Engage" %}</summary>
             <div class="nav-more-menu">
@@ -150,6 +151,7 @@
         <a href="{% url 'contact' %}">{% trans "Contact Us" %}</a>
 
         {% if user.is_authenticated %}
+        <a href="{% url 'dashboard' %}">{% trans "My Bookings" %}</a>
         <details class="nav-more">
             <summary>{% trans "Engage" %}</summary>
             <div class="nav-more-menu">

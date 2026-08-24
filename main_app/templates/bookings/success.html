@@ -8,7 +8,7 @@
     {% include 'hero_social.html' %}
     <div class="success-header-container">
         <span class="success-badge">{% trans "Confirmation" %}</span>
-        <h1>{% trans "Booking Confirmation" %}</h1>
+        <h1>{% trans "Booking Request Received" %}</h1>
     </div>
 </section>
 
@@ -28,11 +28,11 @@
         <h2>{% trans "Booking Request Submitted" %}</h2>
 
         <p>
-            {% trans "Thank you. Our team will review your booking request and contact you shortly." %}
+            {% trans "Your booking request has been received and is Pending. Our team will review it and send you an email when its status changes." %}
         </p>
 
-        <a class="btn booking-success-button" href="{% url 'home' %}">
-            {% trans "Back to Home" %}
+        <a class="btn booking-success-button" href="{% url 'dashboard' %}">
+            {% trans "View My Dashboard" %}
         </a>
 
     </section>

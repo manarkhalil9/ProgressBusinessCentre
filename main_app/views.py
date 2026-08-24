@@ -132,6 +132,7 @@ class VisitCreateView(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.user = self.request.user
+        form.instance.status = "pending"
         response = super().form_valid(form)
         visit = self.object
 
@@ -163,12 +164,13 @@ class VisitCreateView(LoginRequiredMixin, CreateView):
 
         # 2. Client Confirmation Email
         if user_email:
-            client_subject = "Visit Request Confirmation - Progress Center"
+            client_subject = "Visit Request Received - Progress Business Centre"
             client_message = (
                 f"Dear {client_name},\n\n"
                 f"Thank you for arranging a visit to Progress Business Centre.\n\n"
                 f"We have received your meeting request for {preferred_date} at {preferred_time}.\n"
-                f"Our team will review your preferred schedule and reach out to you shortly to confirm.\n\n"
+                f"Your request is pending confirmation. Our team will review your preferred schedule and reach out to you shortly.\n\n"
+                f"Status: Pending\n\n"
                 f"Best regards,\nThe Progress Center Team"
             )
 
@@ -262,6 +264,7 @@ class BusinessRegistrationCreateView(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.user = self.request.user
+        form.instance.status = "pending"
         
         # super().form_valid(form) saves the object to the database, 
         # which means the files are now successfully uploaded and accessible.
@@ -310,11 +313,12 @@ class BusinessRegistrationCreateView(LoginRequiredMixin, CreateView):
 
         # 2. Client Confirmation Email (Can remain as send_mail since there are no attachments)
         if user_email:
-            client_subject = "Business Registration Received - Progress Center"
+            client_subject = "Business Registration Received - Progress Business Centre"
             client_message = (
                 f"Dear {client_name},\n\n"
                 f"Thank you for submitting your business registration request for {company_name}.\n\n"
-                f"Our corporate setup specialists will review your application and reach out to you shortly to assist with the next steps.\n\n"
+                f"Your application is pending review. Our corporate setup specialists will reach out to assist with the next steps.\n\n"
+                f"Status: Pending / Under Review\n\n"
                 f"Best regards,\nThe Progress Center Team"
             )
 
@@ -473,7 +477,6 @@ class BookingCreateView(LoginRequiredMixin, CreateView):
                 form.cleaned_data["end_time"],
             )
 
-            is_free = resource.is_available(start_dt, end_dt)
             duration_info = f"Time: {form.cleaned_data['start_time'].strftime('%I:%M %p')} to {form.cleaned_data['end_time'].strftime('%I:%M %p')}"
 
         else:
@@ -481,10 +484,11 @@ class BookingCreateView(LoginRequiredMixin, CreateView):
             end_date = form.cleaned_data.get("end_date") or start_date
             form.instance.end_date = end_date
 
-            is_free = resource.is_available(start_date, end_date)
             duration_info = f"Duration: {start_date} to {end_date}"
 
-        form.instance.status = "approved" if is_free else "pending"
+        # Availability controls whether the request may be submitted; staff approval
+        # is always a separate manual decision in Django Admin.
+        form.instance.status = "pending"
 
         response = super().form_valid(form)
         booking = self.object
@@ -492,16 +496,21 @@ class BookingCreateView(LoginRequiredMixin, CreateView):
         contact_number = getattr(booking, 'phone', 'Not provided')
         admin_subject = f"New Booking Request: {booking.client_name}"
         admin_message = (
-            f"A new booking request has been submitted.\n\n"
+            f"A new space booking request requires review.\n\n"
             f"--- Client Information ---\n"
             f"Name: {booking.client_name}\n"
             f"Email: {booking.email}\n"
             f"Contact Number: {contact_number}\n\n"
+            f"Commercial Registration: {booking.commercial_registration or 'Not provided'}\n"
+            f"Business Type: {booking.business_type}\n"
+            f"Reason for Booking: {booking.reason_for_booking}\n\n"
             f"--- Booking Details ---\n"
             f"Resource: {booking.meeting_room or booking.office}\n"
+            f"Resource Type: {'Meeting Room' if booking.meeting_room else 'Office'}\n"
+            f"Branch: {(booking.meeting_room or booking.office).branch if (booking.meeting_room or booking.office) else 'Not provided'}\n"
             f"Start Date: {booking.start_date}\n"
             f"{duration_info}\n"
-            f"System Status: {booking.status.title()}\n"
+            f"Status: Pending\n"
         )
 
         send_mail(
@@ -512,24 +521,16 @@ class BookingCreateView(LoginRequiredMixin, CreateView):
             fail_silently=True,
         )
 
-        if booking.status == "approved":
-            client_subject = "Booking Confirmation - Progress Center"
-            client_message = (
-                f"Dear {booking.client_name},\n\n"
-                f"Thank you for choosing Progress Center. Your booking for "
-                f"{booking.meeting_room or booking.office} has been successfully reserved.\n\n"
-                f"Our management team will contact you shortly to discuss final details and pricing.\n\n"
-                f"Best regards,\nThe Progress Center Team"
-            )
-        else:
-            client_subject = "Booking Request Received - Progress Center"
-            client_message = (
-                f"Dear {booking.client_name},\n\n"
-                f"Thank you for your interest in Progress Center. We have received your booking request for "
-                f"{booking.meeting_room or booking.office}.\n\n"
-                f"Our team will contact you shortly to confirm availability and discuss pricing.\n\n"
-                f"Best regards,\nThe Progress Center Team"
-            )
+        client_subject = "Booking Request Received - Progress Business Centre"
+        client_message = (
+            f"Dear {booking.client_name},\n\n"
+            f"Thank you for submitting your booking request for {booking.meeting_room or booking.office}.\n\n"
+            "Your request has been received and is currently pending review by our team.\n\n"
+            "Submitting a request does not confirm the booking. Our team will review the requested dates, "
+            "intended use, availability, and final pricing before approval.\n\n"
+            "You will receive another email once your request has been approved or rejected.\n\n"
+            "Status: Pending\n\nBest regards,\nProgress Business Centre"
+        )
 
         send_mail(
             subject=client_subject,
@@ -552,6 +553,34 @@ class BookingCreateView(LoginRequiredMixin, CreateView):
 
 def booking_success(request):
     return render(request, "bookings/success.html")
+
+
+# ---------- USER DASHBOARD ----------
+class UserDashboardView(LoginRequiredMixin, ListView):
+    model = Booking
+    template_name = "dashboard/index.html"
+    context_object_name = "bookings"
+
+    def get_queryset(self):
+        return Booking.objects.filter(user=self.request.user).select_related(
+            "meeting_room__branch", "office__branch"
+        ).order_by("-created_at")
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        registrations = BusinessRegistration.objects.filter(user=self.request.user).order_by("-submitted_at")
+        visits = VisitRequest.objects.filter(user=self.request.user).order_by("-submitted_at")
+        bookings = context["bookings"]
+        all_statuses = list(bookings.values_list("status", flat=True)) + list(registrations.values_list("status", flat=True)) + list(visits.values_list("status", flat=True))
+        context.update({
+            "registrations": registrations,
+            "visits": visits,
+            "total_requests": len(all_statuses),
+            "pending_count": all_statuses.count("pending"),
+            "approved_count": all_statuses.count("approved") + all_statuses.count("active"),
+            "rejected_count": all_statuses.count("rejected"),
+        })
+        return context
 
 
 # ---------- SIGNUP ----------

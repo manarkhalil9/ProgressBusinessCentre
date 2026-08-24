@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from decimal import Decimal, ROUND_HALF_UP
 from datetime import datetime, timedelta, date
+from django.utils.translation import gettext_lazy as _
 
 # Create your models here.
 
@@ -149,10 +150,10 @@ class Office(models.Model):
 # booking
 class Booking(models.Model):
     STATUS_CHOICES = [
-        ("pending", "Pending"),
-        ("approved", "Approved"),
-        ("rejected", "Rejected"),
-        ("cancelled", "Cancelled"),
+        ("pending", _("Pending")),
+        ("approved", _("Approved")),
+        ("rejected", _("Rejected")),
+        ("cancelled", _("Cancelled")),
     ]
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -177,6 +178,10 @@ class Booking(models.Model):
     phone = models.CharField(max_length=20)
     email = models.EmailField()
     commercial_registration = models.CharField(max_length=100, blank=True)
+    # Blank-compatible for historical production rows; BookingForm requires both
+    # fields for every new client submission.
+    business_type = models.CharField(max_length=200, blank=True)
+    reason_for_booking = models.TextField(blank=True)
 
     start_date = models.DateField()
     end_date = models.DateField(null=True, blank=True)
@@ -314,6 +319,12 @@ class Contact(models.Model):
     
 # visit requests
 class VisitRequest(models.Model):
+    STATUS_CHOICES = [
+        ("pending", _("Pending")),
+        ("approved", _("Approved")),
+        ("rejected", _("Rejected")),
+    ]
+
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     full_name = models.CharField(max_length=100)
     email = models.EmailField()
@@ -321,6 +332,7 @@ class VisitRequest(models.Model):
     preferred_date = models.DateField()
     preferred_time = models.TimeField()
     notes = models.TextField(blank=True)
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default="pending")
     submitted_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -330,9 +342,9 @@ class VisitRequest(models.Model):
 # business registrations
 class BusinessRegistration(models.Model):
     STATUS_CHOICES = [
-        ("pending", "Pending Government Approval"),
-        ("active", "Active CR"),
-        ("rejected", "Application Rejected"),
+        ("pending", _("Pending Government Approval")),
+        ("active", _("Active CR")),
+        ("rejected", _("Application Rejected")),
     ]
     
     REQUEST_TYPE = [('new', 'New Registration'), ('renewal', 'CR Renewal')]

@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+<section class="dashboard-hero client-dashboard-hero">
+    {% include 'hero_social.html' %}
+    <div class="hero-content">
+        <span class="hero-badge">{% trans "Client Portal" %}</span>
+        <h1>{% trans "My Bookings" %}</h1>
+        <p>{% trans "Track your workspace, business registration, and visit requests in one place." %}</p>
+    </div>
+</section>
+
+<main class="client-dashboard">
+    <section class="dashboard-stats" aria-label="{% trans 'Request summary' %}">
+        <article><span>{% trans "Total Requests" %}</span><strong>{{ total_requests }}</strong></article>
+        <article><span>{% trans "Pending" %}</span><strong>{{ pending_count }}</strong></article>
+        <article><span>{% trans "Approved / Active" %}</span><strong>{{ approved_count }}</strong></article>
+        <article><span>{% trans "Rejected" %}</span><strong>{{ rejected_count }}</strong></article>
+    </section>
+
+    <section class="dashboard-request-section">
+        <header><span>{% trans "Space Bookings" %}</span><h2>{% trans "Meeting Rooms & Offices" %}</h2></header>
+        <div class="dashboard-request-grid">
+            {% for booking in bookings %}
+            <article class="dashboard-request-card">
+                <div class="dashboard-card-heading">
+                    <div><small>{% if booking.meeting_room %}{% trans "Meeting Room" %}{% else %}{% trans "Office" %}{% endif %}</small><h3>{{ booking.meeting_room|default:booking.office }}</h3></div>
+                    <span class="request-status status-{{ booking.status }}">{{ booking.get_status_display }}</span>
+                </div>
+                <dl>
+                    <div><dt>{% trans "Branch" %}</dt><dd>{% if booking.meeting_room %}{{ booking.meeting_room.branch.name }}{% else %}{{ booking.office.branch.name }}{% endif %}</dd></div>
+                    <div><dt>{% trans "Requested Date" %}</dt><dd>{{ booking.start_date }}{% if booking.end_date and booking.end_date != booking.start_date %} – {{ booking.end_date }}{% endif %}</dd></div>
+                    {% if booking.meeting_room %}<div><dt>{% trans "Time" %}</dt><dd>{{ booking.start_time }} – {{ booking.end_time }}</dd></div>{% endif %}
+                    <div><dt>{% trans "Business Type" %}</dt><dd>{% if booking.business_type %}{{ booking.business_type }}{% else %}{% trans "Not provided" %}{% endif %}</dd></div>
+                    <div><dt>{% trans "Submitted" %}</dt><dd>{{ booking.created_at|date:"M j, Y" }}</dd></div>
+                </dl>
+            </article>
+            {% empty %}
+            <div class="dashboard-empty"><h3>{% trans "No booking requests yet." %}</h3><div><a href="{% url 'rooms' %}" class="btn">{% trans "Explore Meeting Rooms" %}</a><a href="{% url 'offices' %}" class="dashboard-outline-link">{% trans "Explore Offices" %}</a></div></div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="dashboard-request-section">
+        <header><span>{% trans "Business Services" %}</span><h2>{% trans "CR Applications" %}</h2></header>
+        <div class="dashboard-request-grid">
+            {% for registration in registrations %}
+            <article class="dashboard-request-card">
+                <div class="dashboard-card-heading"><div><small>{{ registration.get_request_type_display }}</small><h3>{{ registration.company_name }}</h3></div><span class="request-status status-{{ registration.status }}">{{ registration.get_status_display }}</span></div>
+                <dl><div><dt>{% trans "Business Type" %}</dt><dd>{{ registration.business_type }}</dd></div><div><dt>{% trans "Submitted" %}</dt><dd>{{ registration.submitted_at|date:"M j, Y" }}</dd></div></dl>
+            </article>
+            {% empty %}<div class="dashboard-empty"><h3>{% trans "No business registration applications yet." %}</h3><a href="{% url 'business_register' %}" class="btn">{% trans "Start Business Registration" %}</a></div>{% endfor %}
+        </div>
+    </section>
+
+    <section class="dashboard-request-section">
+        <header><span>{% trans "Visits" %}</span><h2>{% trans "Visit Requests" %}</h2></header>
+        <div class="dashboard-request-grid">
+            {% for visit in visits %}
+            <article class="dashboard-request-card">
+                <div class="dashboard-card-heading"><div><small>{% trans "Visit Request" %}</small><h3>{{ visit.preferred_date }}</h3></div><span class="request-status status-{{ visit.status }}">{{ visit.get_status_display }}</span></div>
+                <dl><div><dt>{% trans "Preferred Time" %}</dt><dd>{{ visit.preferred_time }}</dd></div><div><dt>{% trans "Submitted" %}</dt><dd>{{ visit.submitted_at|date:"M j, Y" }}</dd></div></dl>
+            </article>
+            {% empty %}<div class="dashboard-empty"><h3>{% trans "No visit requests yet." %}</h3><a href="{% url 'visit' %}" class="btn">{% trans "Arrange a Visit" %}</a></div>{% endfor %}
+        </div>
+    </section>
+</main>
+{% endblock %}

@@ -64,7 +64,7 @@
                             <circle cx="7.5" cy="6.5" r=".5" fill="currentColor"></circle>
                         </svg>
                         <span>
-                            <small>{% trans "Starting from" %}</small>
+                            <small>{% trans "Indicative rate" %}</small>
                             <strong>{{ room.price_per_hour }} BHD</strong>
                         </span>
                     </div>
@@ -74,13 +74,14 @@
             <aside class="room-booking-panel">
                 <span class="room-booking-eyebrow">{% trans "Availability" %}</span>
                 <div class="room-booking-price">
-                    <small>{% trans "Starting from" %}</small>
+                    <small>{% trans "Flexible pricing" %}</small>
                     <strong>{{ room.price_per_hour }} BHD</strong>
                     <span>{% trans "/ hour" %}</span>
                 </div>
+                <p class="flexible-pricing-note">{% trans "Rates may vary based on duration and requirements. Final pricing will be confirmed by our team after reviewing your request." %}</p>
                 <p>{% trans "View real‑time availability and book your preferred time slot using the calendar." %}</p>
                 <a href="{% url 'book' 'room' room.pk %}" class="btn room-booking-button">
-                    {% trans "Check Availability & Book" %}
+                    {% trans "Request This Space" %}
                 </a>
             </aside>
         </div>

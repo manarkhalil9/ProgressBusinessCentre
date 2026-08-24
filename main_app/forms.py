@@ -61,6 +61,26 @@ class VisitRequestForm(forms.ModelForm):
 
 
 class BookingForm(forms.ModelForm):
+    business_type = forms.CharField(
+        required=True,
+        label=_("Business Type"),
+        help_text=_("Describe your business or activity."),
+        widget=forms.TextInput(attrs={
+            "class": "booking-text-control",
+            "placeholder": _("e.g. Consulting, Technology, Trading, Marketing"),
+        }),
+    )
+    reason_for_booking = forms.CharField(
+        required=True,
+        label=_("Reason for Booking"),
+        help_text=_("Tell us briefly how you plan to use the space."),
+        widget=forms.Textarea(attrs={
+            "class": "booking-text-control booking-reason-control",
+            "rows": 4,
+            "placeholder": _("Tell us briefly how you plan to use the space."),
+        }),
+    )
+
     class Meta:
         model = Booking
         fields = [
@@ -68,6 +88,8 @@ class BookingForm(forms.ModelForm):
             "phone",
             "email",
             "commercial_registration",
+            "business_type",
+            "reason_for_booking",
             "start_date",
             "end_date",
             "start_time",

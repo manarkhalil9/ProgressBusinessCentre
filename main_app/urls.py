@@ -45,6 +45,9 @@ urlpatterns = [
     # bookings
     path("book/<str:resource_type>/<int:pk>/", views.BookingCreateView.as_view(), name="book"),
     path("book/success/", views.booking_success, name="booking_success"),
+
+    # client portal
+    path("dashboard/", views.UserDashboardView.as_view(), name="dashboard"),
     
     # payment page
     # path("booking/<int:pk>/payment/", views.booking_payment, name="booking_payment"),

@@ -50,7 +50,7 @@
                             <circle cx="7.5" cy="6.5" r=".5" fill="currentColor"></circle>
                         </svg>
                         <span>
-                            <small>{% trans "Starting from" %}</small>
+                            <small>{% trans "Indicative rate" %}</small>
                             <strong>{{ office.price_per_month }} BHD / {% trans "mo" %}</strong>
                         </span>
                     </div>
@@ -60,13 +60,14 @@
             <aside class="office-booking-panel">
                 <span class="office-booking-eyebrow">{% trans "Availability & Booking" %}</span>
                 <div class="office-booking-price">
-                    <small>{% trans "Starting from" %}</small>
+                    <small>{% trans "Flexible pricing" %}</small>
                     <strong>{{ office.price_per_month }} BHD</strong>
                     <span>{% trans "/ mo" %}</span>
                 </div>
+                <p class="flexible-pricing-note">{% trans "Rates may vary based on duration and requirements. Final pricing will be confirmed by our team after reviewing your request." %}</p>
                 <p>{% trans "View real‑time availability and book your preferred dates using the calendar." %}</p>
                 <a href="{% url 'book' 'office' office.pk %}" class="btn office-booking-button">
-                    {% trans "Check Availability & Book" %}
+                    {% trans "Request This Space" %}
                 </a>
             </aside>
         </div>
