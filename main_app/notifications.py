@@ -34,7 +34,8 @@ def notify_booking_status(booking):
             f"Dear {booking.client_name},\n\n"
             f"Your booking request for {resource} has been approved.\n\n"
             f"Requested schedule: {schedule}\nStatus: Approved\n\n"
-            "Our management team may contact you regarding final arrangements and pricing.\n\n"
+            "Your booking request has been approved. Our team will contact you regarding the final "
+            "arrangements and pricing. Final pricing is flexible and will be confirmed by our team.\n\n"
             "Best regards,\nProgress Business Centre"
         )
     elif booking.status == "rejected":
@@ -52,6 +53,15 @@ def notify_booking_status(booking):
             f"Dear {booking.client_name},\n\nYour booking request for {resource} is pending review.\n\n"
             "Our team will contact you after reviewing the request.\n\nBest regards,\nProgress Business Centre"
         )
+    elif booking.status == "cancelled":
+        subject = "Booking Request Cancelled - Progress Business Centre"
+        message = (
+            f"Dear {booking.client_name},\n\n"
+            f"Your booking request for {resource} has been cancelled.\n\n"
+            f"Requested schedule: {schedule}\nStatus: Cancelled\n\n"
+            "If you would like to submit a new request or discuss alternative dates or spaces, "
+            "please contact our team.\n\nBest regards,\nProgress Business Centre"
+        )
     else:
         return
     send_client_email(subject, message, booking.email)
@@ -62,7 +72,10 @@ def notify_registration_status(registration):
     name = registration.user.get_full_name() or registration.owner_name
     if registration.status == "approved":
         subject = "CR Support Request Approved - Progress Business Centre"
-        body = f"Your request for {registration.company_name} has been approved for CR support."
+        body = (
+            f"Your request for {registration.company_name} has been approved for CR support. "
+            "Our team will assist you with the process of obtaining or renewing your Commercial Registration (CR)."
+        )
     elif registration.status == "in_progress":
         subject = "CR Support in Progress - Progress Business Centre"
         body = f"Our team has started providing CR support for {registration.company_name}."
@@ -70,10 +83,10 @@ def notify_registration_status(registration):
         subject = "CR Support Completed - Progress Business Centre"
         body = f"Our CR support work for {registration.company_name} has been completed."
     elif registration.status == "rejected":
-        subject = "Business Registration Update - Progress Business Centre"
+        subject = "CR Support Request Update - Progress Business Centre"
         body = f"After reviewing the support request for {registration.company_name}, we are unable to proceed at this time. Please contact our team for assistance."
     elif registration.status == "pending":
-        subject = "Business Registration Under Review - Progress Business Centre"
+        subject = "CR Support Request Under Review - Progress Business Centre"
         body = f"Your CR support request for {registration.company_name} is pending review."
     else:
         return

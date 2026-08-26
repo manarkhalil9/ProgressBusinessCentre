@@ -8,6 +8,7 @@ from django.urls import reverse
 
 from .forms import BookingForm
 from .models import Branch, Booking, BusinessRegistration, MeetingRoom, Office, VisitRequest
+from .admin import approve_bookings, progress_registrations, reject_visits
 
 
 @override_settings(EMAIL_BACKEND="django.core.mail.backends.locmem.EmailBackend")
@@ -69,6 +70,8 @@ class RequestWorkflowTests(TestCase):
         self.assertEqual(len(mail.outbox), 2)
         self.assertIn("requires review", mail.outbox[0].body)
         self.assertIn("pending review", mail.outbox[1].body)
+        self.assertEqual(mail.outbox[1].to, ["client@example.com"])
+        self.assertEqual(mail.outbox[1].subject, "Booking Request Received - Progress Business Centre")
 
     def test_pending_and_approved_block_but_rejected_and_cancelled_release_slot(self):
         booking = self.booking()
@@ -84,33 +87,140 @@ class RequestWorkflowTests(TestCase):
             datetime.combine(start, time(10)),
         ))
 
-    def test_status_email_only_on_actual_transition(self):
+    def test_booking_status_emails_cover_every_transition_without_duplicates(self):
         booking = self.booking()
         mail.outbox.clear()
-        booking.status = "approved"
-        booking.save(update_fields=["status"])
-        self.assertEqual(len(mail.outbox), 1)
-        self.assertIn("Approved", mail.outbox[0].subject)
-        booking.save(update_fields=["status"])
-        self.assertEqual(len(mail.outbox), 1)
+        expected = [
+            ("approved", "Booking Request Approved - Progress Business Centre", "final arrangements and pricing"),
+            ("rejected", "Booking Request Update - Progress Business Centre", "unable to approve"),
+            ("cancelled", "Booking Request Cancelled - Progress Business Centre", "has been cancelled"),
+            ("pending", "Booking Request Under Review - Progress Business Centre", "pending review"),
+        ]
+        for index, (status, subject, body_text) in enumerate(expected, start=1):
+            booking.status = status
+            booking.save(update_fields=["status"])
+            self.assertEqual(len(mail.outbox), index)
+            self.assertEqual(mail.outbox[-1].to, [booking.email])
+            self.assertEqual(mail.outbox[-1].subject, subject)
+            self.assertIn(body_text, mail.outbox[-1].body)
 
-    def test_visit_and_registration_status_transitions_email_once(self):
-        visit = VisitRequest.objects.create(
-            user=self.user, full_name="Client", email="client@example.com", phone="1",
-            preferred_date=date.today() + timedelta(days=3), preferred_time=time(10), status="pending"
-        )
+        booking.client_name = "Updated Client"
+        booking.save(update_fields=["client_name"])
+        self.assertEqual(len(mail.outbox), len(expected))
+        booking.save(update_fields=["status"])
+        self.assertEqual(len(mail.outbox), len(expected))
+
+    def test_cr_support_initial_submission_emails_admin_and_client(self):
+        self.client.force_login(self.user)
+        mail.outbox.clear()
+        response = self.client.post(reverse("business_register"), {
+            "request_type": "new",
+            "company_name": "Example CR",
+            "owner_name": "Client",
+            "commercial_registration": "",
+            "business_type": "Consulting",
+            "cpr_number": "",
+        })
+        self.assertRedirects(response, reverse("business_success"))
+        registration = BusinessRegistration.objects.get(company_name="Example CR")
+        self.assertEqual(registration.status, "pending")
+        self.assertEqual(len(mail.outbox), 2)
+        self.assertIn("New CR Support Request", mail.outbox[0].subject)
+        self.assertEqual(mail.outbox[1].to, [self.user.email])
+        self.assertEqual(mail.outbox[1].subject, "CR Support Request Received - Progress Business Centre")
+        self.assertIn("does not issue or authorize", mail.outbox[1].body)
+
+    def test_cr_support_status_emails_cover_every_transition_without_duplicates(self):
         registration = BusinessRegistration.objects.create(
             user=self.user, company_name="Example", owner_name="Client", business_type="Consulting"
         )
         mail.outbox.clear()
-        visit.status = "approved"
-        visit.save(update_fields=["status"])
-        registration.status = "completed"
+        expected = [
+            ("approved", "CR Support Request Approved - Progress Business Centre", "assist you with the process"),
+            ("in_progress", "CR Support in Progress - Progress Business Centre", "started providing CR support"),
+            ("completed", "CR Support Completed - Progress Business Centre", "has been completed"),
+            ("rejected", "CR Support Request Update - Progress Business Centre", "unable to proceed"),
+            ("pending", "CR Support Request Under Review - Progress Business Centre", "pending review"),
+        ]
+        for index, (status, subject, body_text) in enumerate(expected, start=1):
+            registration.status = status
+            registration.save(update_fields=["status"])
+            self.assertEqual(len(mail.outbox), index)
+            self.assertEqual(mail.outbox[-1].to, [self.user.email])
+            self.assertEqual(mail.outbox[-1].subject, subject)
+            self.assertIn(body_text, mail.outbox[-1].body)
+
+        registration.owner_name = "Updated Owner"
+        registration.save(update_fields=["owner_name"])
         registration.save(update_fields=["status"])
+        self.assertEqual(len(mail.outbox), len(expected))
+
+    def test_visit_initial_submission_emails_admin_and_client(self):
+        self.client.force_login(self.user)
+        mail.outbox.clear()
+        response = self.client.post(reverse("visit"), {
+            "full_name": "Client",
+            "email": "visit@example.com",
+            "phone": "123",
+            "preferred_date": (date.today() + timedelta(days=5)).isoformat(),
+            "preferred_time": "10:00",
+            "notes": "Tour",
+        })
+        self.assertRedirects(response, reverse("visit_success"))
+        visit = VisitRequest.objects.get(email="visit@example.com")
+        self.assertEqual(visit.status, "pending")
         self.assertEqual(len(mail.outbox), 2)
+        self.assertIn("New Visit Request", mail.outbox[0].subject)
+        self.assertEqual(mail.outbox[1].to, ["visit@example.com"])
+        self.assertEqual(mail.outbox[1].subject, "Visit Request Received - Progress Business Centre")
+        self.assertIn("visit request", mail.outbox[1].body)
+
+    def test_visit_status_emails_cover_every_transition_without_duplicates(self):
+        visit = VisitRequest.objects.create(
+            user=self.user, full_name="Client", email="client@example.com", phone="1",
+            preferred_date=date.today() + timedelta(days=3), preferred_time=time(10), status="pending"
+        )
+        mail.outbox.clear()
+        expected = [
+            ("approved", "Visit Request Approved - Progress Business Centre", "has been approved"),
+            ("rejected", "Visit Request Update - Progress Business Centre", "unable to approve"),
+            ("pending", "Visit Request Under Review - Progress Business Centre", "pending confirmation"),
+        ]
+        for index, (status, subject, body_text) in enumerate(expected, start=1):
+            visit.status = status
+            visit.save(update_fields=["status"])
+            self.assertEqual(len(mail.outbox), index)
+            self.assertEqual(mail.outbox[-1].to, [visit.email])
+            self.assertEqual(mail.outbox[-1].subject, subject)
+            self.assertIn(body_text, mail.outbox[-1].body)
+
+        visit.notes = "Updated"
+        visit.save(update_fields=["notes"])
         visit.save(update_fields=["status"])
-        registration.save(update_fields=["status"])
-        self.assertEqual(len(mail.outbox), 2)
+        self.assertEqual(len(mail.outbox), len(expected))
+
+    def test_admin_bulk_actions_use_save_and_trigger_status_notifications(self):
+        booking = self.booking(start_date=date.today() + timedelta(days=30))
+        registration = BusinessRegistration.objects.create(
+            user=self.user, company_name="Bulk CR", owner_name="Client", business_type="Trading"
+        )
+        visit = VisitRequest.objects.create(
+            user=self.user, full_name="Client", email="client@example.com", phone="1",
+            preferred_date=date.today() + timedelta(days=31), preferred_time=time(11)
+        )
+        mail.outbox.clear()
+        approve_bookings(None, None, Booking.objects.filter(pk=booking.pk))
+        progress_registrations(None, None, BusinessRegistration.objects.filter(pk=registration.pk))
+        reject_visits(None, None, VisitRequest.objects.filter(pk=visit.pk))
+        self.assertEqual(len(mail.outbox), 3)
+        self.assertEqual(
+            {message.subject for message in mail.outbox},
+            {
+                "Booking Request Approved - Progress Business Centre",
+                "CR Support in Progress - Progress Business Centre",
+                "Visit Request Update - Progress Business Centre",
+            },
+        )
 
     def test_dashboard_requires_login_and_never_exposes_other_users_requests(self):
         mine = self.booking()

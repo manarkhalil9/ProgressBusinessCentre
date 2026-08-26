@@ -168,10 +168,10 @@ class VisitCreateView(LoginRequiredMixin, CreateView):
             client_message = (
                 f"Dear {client_name},\n\n"
                 f"Thank you for arranging a visit to Progress Business Centre.\n\n"
-                f"We have received your meeting request for {preferred_date} at {preferred_time}.\n"
+                f"We have received your visit request for {preferred_date} at {preferred_time}.\n"
                 f"Your request is pending confirmation. Our team will review your preferred schedule and reach out to you shortly.\n\n"
                 f"Status: Pending\n\n"
-                f"Best regards,\nThe Progress Center Team"
+                f"Best regards,\nProgress Business Centre"
             )
 
             send_mail(
@@ -276,14 +276,13 @@ class BusinessRegistrationCreateView(LoginRequiredMixin, CreateView):
         company_name = getattr(registration, 'company_name', 'Business Setup Request')
 
         # 1. Admin Email (Updated to use EmailMessage for attachments)
-        admin_subject = f"New Business Registration: {company_name}"
+        admin_subject = f"New CR Support Request: {company_name}"
         admin_message = (
-            f"A new business registration application has been submitted.\n\n"
+            f"A new request for assistance with obtaining or renewing a Commercial Registration (CR) has been submitted.\n\n"
             f"--- Client Information ---\n"
             f"Name: {client_name}\n"
             f"Company / Activity: {company_name}\n"
             f"Email: {user_email}\n"
-            f"Phone: {getattr(registration, 'phone', 'Not provided')}\n"
         )
 
         # Initialize the EmailMessage object
@@ -313,13 +312,15 @@ class BusinessRegistrationCreateView(LoginRequiredMixin, CreateView):
 
         # 2. Client Confirmation Email (Can remain as send_mail since there are no attachments)
         if user_email:
-            client_subject = "Business Registration Received - Progress Business Centre"
+            client_subject = "CR Support Request Received - Progress Business Centre"
             client_message = (
                 f"Dear {client_name},\n\n"
-                f"Thank you for submitting your business registration request for {company_name}.\n\n"
-                f"Your application is pending review. Our corporate setup specialists will reach out to assist with the next steps.\n\n"
-                f"Status: Pending / Under Review\n\n"
-                f"Best regards,\nThe Progress Center Team"
+                f"Thank you for submitting your CR support request for {company_name}.\n\n"
+                "Your request is pending review. Progress Business Centre provides support and assistance "
+                "with the process of obtaining or renewing a Commercial Registration (CR); it does not issue "
+                "or authorize the CR. Our team will contact you regarding the next steps.\n\n"
+                f"Status: Pending Review\n\n"
+                f"Best regards,\nProgress Business Centre"
             )
 
             send_mail(
