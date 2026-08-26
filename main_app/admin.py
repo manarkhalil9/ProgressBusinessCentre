@@ -37,10 +37,24 @@ class BookingAdmin(admin.ModelAdmin):
         return "Meeting Room" if obj.meeting_room else "Office"
 
 
-@admin.action(description="Mark selected applications active")
-def activate_registrations(modeladmin, request, queryset):
-    for registration in queryset.exclude(status="active"):
-        registration.status = "active"
+@admin.action(description="Approve selected for CR support")
+def approve_registrations(modeladmin, request, queryset):
+    for registration in queryset.exclude(status="approved"):
+        registration.status = "approved"
+        registration.save(update_fields=["status"])
+
+
+@admin.action(description="Mark selected CR support in progress")
+def progress_registrations(modeladmin, request, queryset):
+    for registration in queryset.exclude(status="in_progress"):
+        registration.status = "in_progress"
+        registration.save(update_fields=["status"])
+
+
+@admin.action(description="Mark selected CR support completed")
+def complete_registrations(modeladmin, request, queryset):
+    for registration in queryset.exclude(status="completed"):
+        registration.status = "completed"
         registration.save(update_fields=["status"])
 
 
@@ -57,7 +71,7 @@ class BusinessRegistrationAdmin(admin.ModelAdmin):
     list_filter = ("status", "request_type", "submitted_at")
     search_fields = ("company_name", "owner_name", "commercial_registration", "business_type", "user__email")
     readonly_fields = ("submitted_at",)
-    actions = (activate_registrations, reject_registrations)
+    actions = (approve_registrations, progress_registrations, complete_registrations, reject_registrations)
 
 
 @admin.action(description="Approve selected visits")

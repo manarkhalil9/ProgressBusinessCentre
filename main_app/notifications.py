@@ -60,15 +60,21 @@ def notify_booking_status(booking):
 def notify_registration_status(registration):
     recipient = registration.user.email
     name = registration.user.get_full_name() or registration.owner_name
-    if registration.status == "active":
-        subject = "Business Registration Approved - Progress Business Centre"
-        body = f"Your application for {registration.company_name} has been approved and is now active."
+    if registration.status == "approved":
+        subject = "CR Support Request Approved - Progress Business Centre"
+        body = f"Your request for {registration.company_name} has been approved for CR support."
+    elif registration.status == "in_progress":
+        subject = "CR Support in Progress - Progress Business Centre"
+        body = f"Our team has started providing CR support for {registration.company_name}."
+    elif registration.status == "completed":
+        subject = "CR Support Completed - Progress Business Centre"
+        body = f"Our CR support work for {registration.company_name} has been completed."
     elif registration.status == "rejected":
         subject = "Business Registration Update - Progress Business Centre"
-        body = f"After reviewing the application for {registration.company_name}, we are unable to approve it at this time. Please contact our team for assistance."
+        body = f"After reviewing the support request for {registration.company_name}, we are unable to proceed at this time. Please contact our team for assistance."
     elif registration.status == "pending":
         subject = "Business Registration Under Review - Progress Business Centre"
-        body = f"Your application for {registration.company_name} is pending review."
+        body = f"Your CR support request for {registration.company_name} is pending review."
     else:
         return
     send_client_email(subject, f"Dear {name},\n\n{body}\n\nBest regards,\nProgress Business Centre", recipient)

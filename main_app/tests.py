@@ -105,7 +105,7 @@ class RequestWorkflowTests(TestCase):
         mail.outbox.clear()
         visit.status = "approved"
         visit.save(update_fields=["status"])
-        registration.status = "active"
+        registration.status = "completed"
         registration.save(update_fields=["status"])
         self.assertEqual(len(mail.outbox), 2)
         visit.save(update_fields=["status"])

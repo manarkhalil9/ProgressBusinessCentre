@@ -342,9 +342,11 @@ class VisitRequest(models.Model):
 # business registrations
 class BusinessRegistration(models.Model):
     STATUS_CHOICES = [
-        ("pending", _("Pending Government Approval")),
-        ("active", _("Active CR")),
-        ("rejected", _("Application Rejected")),
+        ("pending", _("Pending Review")),
+        ("approved", _("Approved for CR Support")),
+        ("in_progress", _("CR Support in Progress")),
+        ("completed", _("Completed")),
+        ("rejected", _("Rejected")),
     ]
     
     REQUEST_TYPE = [('new', 'New Registration'), ('renewal', 'CR Renewal')]

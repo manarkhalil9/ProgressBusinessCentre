@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Progress Business Centre\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-24 12:04+0300\n"
+"POT-Creation-Date: 2026-08-26 11:35+0300\n"
 "PO-Revision-Date: 2026-08-23 11:40+0300\n"
 "Last-Translator: Progress Business Centre\n"
 "Language-Team: Arabic\n"
@@ -54,8 +54,14 @@ msgstr "الوقت المفضل"
 msgid "Notes"
 msgstr "ملاحظات"
 
+msgid "Describe your business or activity."
+msgstr "صف نشاطك التجاري أو مجال عملك."
+
 msgid "e.g. Consulting, Technology, Trading, Marketing"
 msgstr "مثال: الاستشارات، التقنية، التجارة، التسويق"
+
+msgid "Reason for Booking"
+msgstr "سبب الحجز"
 
 msgid "Tell us briefly how you plan to use the space."
 msgstr "أخبرنا باختصار كيف تخطط لاستخدام المساحة."
@@ -65,9 +71,6 @@ msgstr "اسم العميل"
 
 msgid "Commercial Registration (CR)"
 msgstr "السجل التجاري (CR)"
-
-msgid "Reason for Booking"
-msgstr "سبب الحجز"
 
 msgid "Start Date"
 msgstr "تاريخ البداية"
@@ -80,9 +83,6 @@ msgstr "وقت البداية"
 
 msgid "End Time"
 msgstr "وقت النهاية"
-
-msgid "Describe your business or activity."
-msgstr "صف نشاطك التجاري أو مجال عملك."
 
 msgid "This time slot is already booked."
 msgstr "هذه الفترة الزمنية محجوزة بالفعل."
@@ -123,14 +123,17 @@ msgstr "مرفوض"
 msgid "Cancelled"
 msgstr "ملغى"
 
-msgid "Pending Government Approval"
-msgstr "بانتظار الموافقة الحكومية"
+msgid "Pending Review"
+msgstr "قيد المراجعة"
 
-msgid "Active CR"
-msgstr "سجل تجاري نشط"
+msgid "Approved for CR Support"
+msgstr "تمت الموافقة على دعم السجل التجاري"
 
-msgid "Application Rejected"
-msgstr "تم رفض الطلب"
+msgid "CR Support in Progress"
+msgstr "دعم السجل التجاري قيد التنفيذ"
+
+msgid "Completed"
+msgstr "مكتمل"
 
 msgid "About Us"
 msgstr "من نحن"
@@ -1048,6 +1051,15 @@ msgstr "تم إرسال طلب الاجتماع"
 
 msgid "Thank you for your submission. Our team will contact you shortly to confirm your booking details."
 msgstr "شكراً لتقديمك. سيتواصل معك فريقنا قريباً لتأكيد تفاصيل حجزك."
+
+#~ msgid "Pending Government Approval"
+#~ msgstr "بانتظار الموافقة الحكومية"
+
+#~ msgid "Active CR"
+#~ msgstr "سجل تجاري نشط"
+
+#~ msgid "Application Rejected"
+#~ msgstr "تم رفض الطلب"
 
 #~ msgid "My Requests"
 #~ msgstr "طلباتي"

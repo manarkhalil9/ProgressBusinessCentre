@@ -80,7 +80,8 @@
 .dashboard-card-heading h3 { margin: .2rem 0 0; color: #34495E; font-size: 1.1rem; }
 .request-status { flex: 0 0 auto; padding: .38rem .65rem; border-radius: 999px; font-size: .69rem; font-weight: 800; }
 .status-pending { color: #9a5a19; background: #fff4df; }
-.status-approved,.status-active { color: #28634d; background: #e7f6ef; }
+.status-approved,.status-active,.status-completed { color: #28634d; background: #e7f6ef; }
+.status-in_progress { color: #315f82; background: #e8f2f8; }
 .status-rejected,.status-cancelled { color: #9b4939; background: rgba(231,124,98,.12); }
 .dashboard-request-card dl { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .9rem 1rem; margin: 1rem 0 0; }
 .dashboard-request-card dl div { min-width: 0; }

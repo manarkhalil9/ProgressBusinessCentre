@@ -577,7 +577,7 @@ class UserDashboardView(LoginRequiredMixin, ListView):
             "visits": visits,
             "total_requests": len(all_statuses),
             "pending_count": all_statuses.count("pending"),
-            "approved_count": all_statuses.count("approved") + all_statuses.count("active"),
+            "approved_count": all_statuses.count("approved") + all_statuses.count("in_progress") + all_statuses.count("completed"),
             "rejected_count": all_statuses.count("rejected"),
         })
         return context
