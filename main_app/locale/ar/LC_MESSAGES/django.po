@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Progress Business Centre\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-26 11:35+0300\n"
+"POT-Creation-Date: 2026-08-26 14:22+0300\n"
 "PO-Revision-Date: 2026-08-23 11:40+0300\n"
 "Last-Translator: Progress Business Centre\n"
 "Language-Team: Arabic\n"
@@ -267,8 +267,8 @@ msgstr "زيارة"
 msgid "Referral"
 msgstr "الإحالة"
 
-msgid "CR Registration"
-msgstr "تسجيل السجل التجاري"
+msgid "CR Support"
+msgstr "دعم السجل التجاري"
 
 msgid "Logout"
 msgstr "تسجيل الخروج"
@@ -288,8 +288,8 @@ msgstr "نساعد الشركات على التأسيس والنمو في الب
 msgid "Quick Links"
 msgstr "روابط سريعة"
 
-msgid "Business Setup"
-msgstr "تأسيس الأعمال"
+msgid "CR & Business Setup Support"
+msgstr "دعم السجل التجاري وتأسيس الأعمال"
 
 msgid "Contact"
 msgstr "اتصل بنا"
@@ -405,8 +405,8 @@ msgstr "التاريخ المحدد"
 msgid "Submit Booking Request"
 msgstr "إرسال طلب الحجز"
 
-msgid "Final pricing is subject to confirmation after our team reviews your requirements."
-msgstr "يخضع السعر النهائي للتأكيد بعد مراجعة فريقنا لمتطلباتك."
+msgid "Pricing is flexible. Final rates will be confirmed after our team reviews your request."
+msgstr "الأسعار مرنة، وسيؤكد فريقنا الأسعار النهائية بعد مراجعة طلبك."
 
 msgid "Confirmation"
 msgstr "تأكيد"
@@ -423,14 +423,11 @@ msgstr "تم استلام طلب الحجز وهو قيد المراجعة. سي
 msgid "View My Dashboard"
 msgstr "عرض لوحة طلباتي"
 
-msgid "Professional Business Registration Services"
-msgstr "خدمات تسجيل الأعمال الاحترافية"
+msgid "Professional CR & Business Setup Support"
+msgstr "دعم احترافي للسجل التجاري وتأسيس الأعمال"
 
-msgid "Get your professional business address and office presence without the need for a physical office. Ideal for startups, entrepreneurs, and remote businesses."
-msgstr "احصل على عنوان عمل احترافي وحضور مكتبي دون الحاجة إلى مكتب فعلي. مثالي للشركات الناشئة ورواد الأعمال والأعمال عن بُعد."
-
-msgid "Business Registration"
-msgstr "تسجيل الأعمال"
+msgid "We assist with new Commercial Registration applications, CR renewals, and flexible monthly workspace solutions for businesses in Bahrain."
+msgstr "نساعد في طلبات إصدار سجلات تجارية جديدة وتجديد السجلات التجارية، ونوفر حلول مساحات عمل شهرية مرنة للشركات في البحرين."
 
 msgid "Application Form"
 msgstr "نموذج الطلب"
@@ -438,14 +435,17 @@ msgstr "نموذج الطلب"
 msgid "Please provide your corporate and personal details below to initiate your setup."
 msgstr "يرجى تقديم تفاصيل شركتك وتفاصيلك الشخصية أدناه لبدء عملية التأسيس."
 
+msgid "Progress Business Centre provides support and assistance with obtaining or renewing a Commercial Registration (CR). We are not a government authority, and final decisions remain with the relevant authorities."
+msgstr "يقدم مركز بروغرس للأعمال الدعم والمساعدة في الحصول على سجل تجاري أو تجديده. ولسنا جهة حكومية، وتبقى القرارات النهائية من اختصاص الجهات المعنية."
+
 msgid "Please upload clear copies of your CPR and Passport."
 msgstr "يرجى تحميل نسخ واضحة من البطاقة الشخصية وجواز السفر."
 
 msgid "Please correct the errors above."
 msgstr "يرجى تصحيح الأخطاء أعلاه."
 
-msgid "Submit Legal Application"
-msgstr "تقديم الطلب القانوني"
+msgid "Submit CR Support Request"
+msgstr "إرسال طلب دعم السجل التجاري"
 
 msgid "Virtual Office Application Received!"
 msgstr "تم استلام طلب المكتب الافتراضي!"
@@ -678,8 +678,8 @@ msgstr "عنوان متميز في السيف، وخط هاتف مخصص، وم�
 msgid "Serviced Suites"
 msgstr "المكاتب المخدومة"
 
-msgid "Fully furnished, private executive suites with high-speed Wi-Fi, daily maintenance, and utility coverage included."
-msgstr "مكاتب تنفيذية خاصة ومفروشة بالكامل تشمل إنترنت عالي السرعة وصيانة يومية وتغطية المرافق."
+msgid "Fully furnished private suites with flexible monthly options, high-speed Wi-Fi, maintenance, and utilities included."
+msgstr "أجنحة خاصة مفروشة بالكامل بخيارات شهرية مرنة، تشمل الإنترنت عالي السرعة والصيانة والمرافق."
 
 msgid "Meeting & Boardrooms"
 msgstr "غرف الاجتماعات ومجالس الإدارة"
@@ -693,8 +693,8 @@ msgstr "طريقة بروجريس"
 msgid "Business Made Simple from Day One"
 msgstr "أعمال أبسط منذ اليوم الأول"
 
-msgid "Flexible workspaces and professional support that help your business start faster, operate smoothly, and grow with confidence."
-msgstr "مساحات عمل مرنة ودعم مهني يساعدان أعمالك على الانطلاق بسرعة والعمل بسلاسة والنمو بثقة."
+msgid "From CR support to flexible monthly workspaces, we help businesses start faster, operate smoothly, and grow with confidence."
+msgstr "من دعم السجل التجاري إلى مساحات العمل الشهرية المرنة، نساعد الشركات على الانطلاق بسرعة والعمل بسلاسة والنمو بثقة."
 
 msgid "Prime Location"
 msgstr "موقع متميز"
@@ -705,8 +705,8 @@ msgstr "مساحة عمل احترافية في منطقة السيف التجا
 msgid "Business Support"
 msgstr "دعم الأعمال"
 
-msgid "Reception, call handling, and administrative assistance when you need it."
-msgstr "خدمات استقبال وإدارة مكالمات ومساعدة إدارية عند الحاجة."
+msgid "Practical support with new CR applications, renewals, and day-to-day administration."
+msgstr "دعم عملي لطلبات السجل التجاري الجديدة والتجديدات والإدارة اليومية."
 
 msgid "Ready to Operate"
 msgstr "جاهز لبدء العمل"
@@ -782,11 +782,11 @@ msgstr "مساحات العمل"
 msgid "Private Serviced Offices"
 msgstr "المكاتب الخاصة المخدومة"
 
-msgid "Discover fully furnished offices with flexible lease options, premium facilities and professional business support."
-msgstr "اكتشف مكاتب مفروشة بالكامل مع خيارات تأجير مرنة ومرافق متميزة ودعم تجاري احترافي."
+msgid "Discover fully furnished offices with flexible monthly options, premium facilities, and professional business support."
+msgstr "اكتشف مكاتب مفروشة بالكامل بخيارات شهرية مرنة ومرافق متميزة ودعم مهني للأعمال."
 
-msgid "Final pricing is subject to confirmation."
-msgstr ""
+msgid "Rates may vary based on duration, space, and requirements. Final pricing will be confirmed by our team."
+msgstr "قد تختلف الأسعار حسب المدة والمساحة والمتطلبات، وسيؤكد فريقنا السعر النهائي."
 
 msgid "View Office"
 msgstr "عرض المكتب"
@@ -944,8 +944,8 @@ msgstr "خدماتنا"
 msgid "Flexible Solutions for Every Stage of Business"
 msgstr "حلول مرنة لكل مرحلة من مراحل الأعمال"
 
-msgid "From establishing your presence to finding the right workspace, our services are designed to make business in Bahrain simpler."
-msgstr "من تأسيس حضورك التجاري إلى اختيار مساحة العمل المناسبة، صُممت خدماتنا لتجعل ممارسة الأعمال في البحرين أكثر سهولة."
+msgid "From CR and business setup support to flexible monthly workspaces, our services are designed to make operating in Bahrain simpler."
+msgstr "من دعم السجل التجاري وتأسيس الأعمال إلى مساحات العمل الشهرية المرنة، صُممت خدماتنا لتسهيل مزاولة الأعمال في البحرين."
 
 msgid "Business Solution"
 msgstr "حل أعمال"
@@ -1051,6 +1051,24 @@ msgstr "تم إرسال طلب الاجتماع"
 
 msgid "Thank you for your submission. Our team will contact you shortly to confirm your booking details."
 msgstr "شكراً لتقديمك. سيتواصل معك فريقنا قريباً لتأكيد تفاصيل حجزك."
+
+#~ msgid "CR Registration"
+#~ msgstr "تسجيل السجل التجاري"
+
+#~ msgid "Business Setup"
+#~ msgstr "تأسيس الأعمال"
+
+#~ msgid "Get your professional business address and office presence without the need for a physical office. Ideal for startups, entrepreneurs, and remote businesses."
+#~ msgstr "احصل على عنوان عمل احترافي وحضور مكتبي دون الحاجة إلى مكتب فعلي. مثالي للشركات الناشئة ورواد الأعمال والأعمال عن بُعد."
+
+#~ msgid "Business Registration"
+#~ msgstr "تسجيل الأعمال"
+
+#~ msgid "Submit Legal Application"
+#~ msgstr "تقديم الطلب القانوني"
+
+#~ msgid "Reception, call handling, and administrative assistance when you need it."
+#~ msgstr "خدمات استقبال وإدارة مكالمات ومساعدة إدارية عند الحاجة."
 
 #~ msgid "Pending Government Approval"
 #~ msgstr "بانتظار الموافقة الحكومية"

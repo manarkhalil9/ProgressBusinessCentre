@@ -8,8 +8,8 @@
             {% include 'hero_social.html' %}
     <div class="hero-content">
         <span class="engage-hero-shape" aria-hidden="true"></span>
-        <h1>{% trans "Professional Business Registration Services" %}</h1>
-        <p>{% trans "Get your professional business address and office presence without the need for a physical office. Ideal for startups, entrepreneurs, and remote businesses." %}</p>
+        <h1>{% trans "Professional CR & Business Setup Support" %}</h1>
+        <p>{% trans "We assist with new Commercial Registration applications, CR renewals, and flexible monthly workspace solutions for businesses in Bahrain." %}</p>
     </div>
 </section>
 
@@ -18,9 +18,10 @@
 <div class="business-container engage-container">
     <section class="form-card engage-form-card engage-business-form">
         <div class="form-header">
-            <span class="engage-form-eyebrow">{% trans "Business Registration" %}</span>
+            <span class="engage-form-eyebrow">{% trans "CR Support" %}</span>
             <h2>{% trans "Application Form" %}</h2>
             <p>{% trans "Please provide your corporate and personal details below to initiate your setup." %}</p>
+            <p class="cr-support-disclaimer">{% trans "Progress Business Centre provides support and assistance with obtaining or renewing a Commercial Registration (CR). We are not a government authority, and final decisions remain with the relevant authorities." %}</p>
         </div>
 
         <form method="POST" enctype="multipart/form-data" novalidate class="engage-form">
@@ -81,7 +82,7 @@
                 </div>
             {% endif %}
 
-            <button type="submit" class="btn-submit">{% trans "Submit Legal Application" %}</button>
+            <button type="submit" class="btn-submit">{% trans "Submit CR Support Request" %}</button>
         </form>
     </section>
 </div>

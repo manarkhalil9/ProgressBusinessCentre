@@ -5094,3 +5094,63 @@ html[dir=rtl] { direction: rtl; }
     left: auto;
   }
 }
+
+/* ==========================================================================
+   DESKTOP BALANCE — intentionally isolated from mobile layouts
+   ========================================================================== */
+@media (min-width: 992px) {
+  .services-section,
+  .why-bahrain-section {
+    padding-block: 6.25rem;
+  }
+
+  .home-card-grid,
+  .two-card-grid {
+    gap: 1.5rem;
+  }
+
+  .home-card {
+    padding: 2.15rem;
+  }
+
+  .rooms-listing-section,
+  .offices-listing-section,
+  .booking-experience {
+    padding-block: 6rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .navbar {
+    min-height: 100px;
+    padding-block: 1.3rem;
+  }
+
+  .logo-img {
+    width: clamp(205px,12vw,225px);
+  }
+
+  .hero {
+    padding-top: 168px;
+  }
+
+  .hero-copy h1 {
+    max-width: 720px;
+    font-size: clamp(3.4rem,5vw,5.05rem);
+  }
+}
+
+.cr-support-disclaimer {
+  margin-top: 1rem;
+  padding: .85rem 1rem;
+  border-inline-start: 3px solid var(--color-cta);
+  border-radius: 0 9px 9px 0;
+  background: rgba(237,246,247,.78);
+  color: var(--color-text-muted);
+  font-size: .84rem;
+  line-height: 1.65;
+}
+
+[dir="rtl"] .cr-support-disclaimer {
+  border-radius: 9px 0 0 9px;
+}
