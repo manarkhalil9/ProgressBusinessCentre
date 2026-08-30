@@ -24,7 +24,14 @@
             <p class="cr-support-disclaimer">{% trans "Progress Business Centre provides support and assistance with obtaining or renewing a Commercial Registration (CR). We are not a government authority, and final decisions remain with the relevant authorities." %}</p>
         </div>
 
-        <form method="POST" enctype="multipart/form-data" novalidate class="engage-form">
+            <div class="cr-support-process" aria-label="{% trans 'How CR support works' %}">
+                <div><span>01</span><strong>{% trans "Submit your request" %}</strong></div>
+                <div><span>02</span><strong>{% trans "Our team reviews your requirements" %}</strong></div>
+                <div><span>03</span><strong>{% trans "We assist with the appropriate process" %}</strong></div>
+                <div><span>04</span><strong>{% trans "Track progress through your dashboard" %}</strong></div>
+            </div>
+
+            <form method="POST" enctype="multipart/form-data" novalidate class="engage-form">
             {% csrf_token %}
 
             <div class="form-group">

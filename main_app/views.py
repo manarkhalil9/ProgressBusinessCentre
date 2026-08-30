@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, TemplateView
 from .models import (
     Service, Feature, Branch, MeetingRoom, Event, GalleryImage,
     FAQ, Contact, VisitRequest, BusinessRegistration, Referral,
@@ -12,23 +12,30 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import (
     BusinessRegistrationForm, VisitRequestForm, BookingForm, ReferralForm
 )
-from django.db.models import Q
 from django.http import Http404
 from django.utils.http import url_has_allowed_host_and_scheme
 from django.core.mail import send_mail, EmailMessage
 from django.conf import settings
 from datetime import date, datetime, timedelta
 import calendar
+import re
 
 
 # ---------- HOME ----------
 def home(request):
-
-    all_images = GalleryImage.objects.all() 
-
-    context = {'all_images' : all_images,}
-
-    return render(request, 'index.html', context)
+    gallery_images = GalleryImage.objects.all().order_by("uploaded_at")
+    available_services = Service.objects.filter(available=True).order_by("pk")
+    virtual_service = available_services.filter(title__icontains="virtual").first()
+    context = {
+        "all_images": gallery_images,
+        "why_image": gallery_images.first(),
+        "services": available_services[:4],
+        "virtual_service": virtual_service,
+        "featured_rooms": MeetingRoom.objects.select_related("branch").order_by("branch__name", "name")[:2],
+        "featured_offices": Office.objects.select_related("branch").order_by("branch__name", "name")[:2],
+        "branches": Branch.objects.all().order_by("pk"),
+    }
+    return render(request, "index.html", context)
 
 
 # ---------- ABOUT ----------
@@ -49,12 +56,64 @@ class ServiceList(ListView):
     template_name = 'services/index.html'
     context_object_name = 'services'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["virtual_service"] = self.get_queryset().filter(
+            title__icontains="virtual"
+        ).first()
+        return context
 
-# ---------- MEETING ROOMS ----------
-class MeetingRoomListView(ListView):
-    model = MeetingRoom
-    template_name = 'rooms/index.html'
-    context_object_name = 'rooms'
+
+# ---------- OUR SPACES ----------
+class SpacesListView(TemplateView):
+    template_name = "spaces/index.html"
+
+    @staticmethod
+    def _normalise_branch_name(name):
+        return re.sub(r"[^\w]+", "", name.casefold(), flags=re.UNICODE)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        branches = list(Branch.objects.all().order_by("pk"))
+        offices = list(Office.objects.select_related("branch").order_by("branch__name", "name"))
+
+        al_raya_branch = next(
+            (
+                branch for branch in branches
+                if any(alias in self._normalise_branch_name(branch.name) for alias in ("alraya", "alrayya", "الراية"))
+            ),
+            None,
+        )
+        head_office_branch = next(
+            (
+                branch for branch in branches
+                if any(alias in self._normalise_branch_name(branch.name) for alias in ("headoffice", "mainoffice", "الرئيسي"))
+            ),
+            None,
+        )
+
+        # With the current two-branch data, a non-Al Raya branch is the safest
+        # fallback if the Head Office display name is adjusted in Admin.
+        if head_office_branch is None:
+            head_office_branch = next(
+                (branch for branch in branches if branch != al_raya_branch),
+                None,
+            )
+
+        context.update({
+            "rooms": MeetingRoom.objects.select_related("branch").order_by("branch__name", "name"),
+            "head_office_branch": head_office_branch,
+            "head_office_offices": [
+                office for office in offices
+                if head_office_branch and office.branch_id == head_office_branch.pk
+            ],
+            "al_raya_branch": al_raya_branch,
+            "al_raya_offices": [
+                office for office in offices
+                if al_raya_branch and office.branch_id == al_raya_branch.pk
+            ],
+        })
+        return context
 
 
 class MeetingRoomDetailView(DetailView):
@@ -68,16 +127,6 @@ class MeetingRoomDetailView(DetailView):
         return context
 
 
-# ---------- OFFICES ----------
-class OfficeListView(ListView):
-    model = Office
-    template_name = "offices/index.html"
-    context_object_name = "offices"
-
-    def get_queryset(self):
-        return Office.objects.select_related("branch")
-
-
 class OfficeDetailView(DetailView):
     model = Office
     template_name = "offices/detail.html"
@@ -87,13 +136,6 @@ class OfficeDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         context['today'] = date.today()
         return context
-
-
-# ---------- GALLERY ----------
-class GalleryListView(ListView):
-    model = GalleryImage
-    template_name = 'gallery/index.html'
-    context_object_name = 'gallery'
 
 
 class GalleryDetailView(DetailView):
@@ -255,12 +297,12 @@ def referral_success(request):
     return render(request, "referrals/success.html")
 
 
-# ---------- BUSINESS REGISTRATION ----------
+# ---------- CR SUPPORT ----------
 class BusinessRegistrationCreateView(LoginRequiredMixin, CreateView):
     model = BusinessRegistration
     form_class = BusinessRegistrationForm
     template_name = "business/register.html"
-    success_url = reverse_lazy("business_success")
+    success_url = reverse_lazy("cr_support_success")
 
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -334,7 +376,7 @@ class BusinessRegistrationCreateView(LoginRequiredMixin, CreateView):
         return response
 
 
-def business_success(request):
+def cr_support_success(request):
     return render(request, 'business/success.html')
 
 
@@ -595,7 +637,7 @@ def signup(request):
             require_https=request.is_secure(),
         ):
             return redirect(next_url)
-        return redirect("business_register")
+        return redirect("cr_support")
 
     form = UserCreationForm()
     if request.method == "POST":
@@ -613,7 +655,7 @@ def signup(request):
                 require_https=request.is_secure(),
             ):
                 return redirect(next_url)
-            return redirect("business_register")
+            return redirect("cr_support")
     return render(
         request,
         "registration/signup.html",

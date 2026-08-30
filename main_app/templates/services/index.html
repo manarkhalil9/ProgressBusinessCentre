@@ -6,38 +6,35 @@
 
 
 <section class="page-header page-header-services">
-    {% include 'hero_social.html' %}
     <div class="page-header-container">
-
-        <div class="hero-left">
-            <h1 class="page-title">{% trans "Services" %}</h1>
-            <div class="accent-bar"></div>
-        </div>
-
-
-        <div class="hero-right">
-            <span class="services-hero-accent" aria-hidden="true"></span>
-            <h2>{% trans "Workspace & Corporate Solutions in Bahrain" %}</h2>
-            <p>{% trans "Flexible, premium environments engineered for global enterprises, startups, and agile founders." %}</p>
-        </div>
-    </div>
-</section>
-
-<section class="services-intro">
-    <div class="services-intro-inner">
-        <span class="section-badge">{% trans "Our Services" %}</span>
-        <h2>{% trans "Flexible Solutions for Every Stage of Business" %}</h2>
+        <span class="section-badge">{% trans "Services" %}</span>
+        <h1 class="page-title">{% trans "What We Offer" %}</h1>
         <p>{% trans "From CR and business setup support to flexible monthly workspaces, our services are designed to make operating in Bahrain simpler." %}</p>
     </div>
 </section>
 
 <div class="services-journey-container" id="services-showcase">
-    <svg class="services-connectors" viewBox="0 0 1200 520" preserveAspectRatio="none" aria-hidden="true">
-        <path class="services-connector services-connector-blue" d="M80 170 C 230 55, 315 300, 455 185"></path>
-        <path class="services-connector services-connector-coral" d="M405 325 C 560 430, 650 90, 795 210"></path>
-        <path class="services-connector services-connector-blue" d="M750 335 C 900 430, 1000 120, 1140 225"></path>
-    </svg>
+    {% if virtual_service %}
+    <article class="services-featured-service">
+        <div class="services-featured-copy">
+            <span class="service-eyebrow">{% trans "Featured Service" %}</span>
+            <h2>{% trans "Virtual Office" %}</h2>
+            <p>{{ virtual_service.description }}</p>
+            <ul class="service-benefit-list">
+                <li>{% trans "Professional business presence" %}</li>
+                <li>{% trans "Mail and call handling support" %}</li>
+                <li>{% trans "Flexible monthly arrangements" %}</li>
+                <li>{% trans "Access to workspace solutions" %}</li>
+            </ul>
+            <a href="{% url 'contact' %}" class="btn">{% trans "Enquire About Virtual Office" %}</a>
+        </div>
+        <div class="services-featured-image">
+            <img src="{% static 'images/core-impact.png' %}" alt="{{ virtual_service.title }}" loading="lazy">
+        </div>
+    </article>
+    {% endif %}
     {% for service in services %}
+    {% if not virtual_service or service.pk != virtual_service.pk %}
     <div class="service-card-horizontal">
 
 
@@ -83,19 +80,24 @@
 
 
                 <div class="card-action">
-                    {% if "Virtual" in service.title or "افتراضي" in service.title or "CR" in service.title %}
-                        <a href="{% url 'business_register' %}" class="btn">
+                    {% if "CR" in service.title or "Registration" in service.title or "تسجيل" in service.title %}
+                        <a href="{% url 'cr_support' %}" class="btn">
                             <span>{% trans "Start Application" %}</span>
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path></svg>
                         </a>
+                    {% elif "Virtual" in service.title or "افتراضي" in service.title %}
+                        <a href="{% url 'contact' %}" class="btn">
+                            <span>{% trans "Contact Us" %}</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path></svg>
+                        </a>
                     {% elif "Meeting" in service.title or "اجتماعات" in service.title %}
-                        <a href="{% url 'rooms' %}" class="btn">
-                            <span>{% trans "Book a Room" %}</span>
+                        <a href="{% url 'spaces' %}" class="btn">
+                            <span>{% trans "Explore Our Spaces" %}</span>
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path></svg>
                         </a>
                     {% elif "Office" in service.title or "Private" in service.title or "مكاتب" in service.title or "خاصة" in service.title %}
-                        <a href="{% url 'offices' %}" class="btn">
-                            <span>{% trans "Browse Offices" %}</span>
+                        <a href="{% url 'spaces' %}" class="btn">
+                            <span>{% trans "Explore Our Spaces" %}</span>
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path></svg>
                         </a>
                     {% else %}
@@ -108,6 +110,7 @@
             </div>
         </div>
     </div>
+    {% endif %}
     {% empty %}
         <p>{% trans "No services are available at the moment." %}</p>
     {% endfor %}
@@ -134,7 +137,7 @@
         <p>{% trans "Tell us what you need and our team will help you choose the right workspace or support service." %}</p>
         <div class="services-cta-actions">
             <a href="{% url 'contact' %}" class="btn-solid-coral">{% trans "Contact Our Team" %}</a>
-            <a href="{% url 'business_register' %}" class="btn-outline-white">{% trans "Establish Your Presence" %}</a>
+            <a href="{% url 'cr_support' %}" class="btn-outline-white">{% trans "Establish Your Presence" %}</a>
         </div>
     </div>
 </section>

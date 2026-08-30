@@ -2,19 +2,12 @@
 {% load i18n %}
 
 {% block content %}
-
-
-<section class="success-header booking-success-hero">
-    {% include 'hero_social.html' %}
-    <div class="success-header-container">
-        <span class="success-badge">{% trans "Confirmation" %}</span>
-        <h1>{% trans "Booking Request Received" %}</h1>
-    </div>
-</section>
-
-
-<main class="success-container booking-success-container">
+<main class="success-container booking-success-container booking-success-page-standalone">
     <section class="success-card booking-success-card">
+        <header class="engage-success-heading booking-success-heading">
+            <span class="success-badge">{% trans "Confirmation" %}</span>
+            <h1>{% trans "Booking Request Received" %}</h1>
+        </header>
         <svg class="success-card-curve" viewBox="0 0 700 180" preserveAspectRatio="none" aria-hidden="true">
             <path class="success-curve-blue" d="M25 120 C 180 20, 310 175, 470 75 S 620 45, 680 90"></path>
             <path class="success-curve-coral" d="M470 75 C 535 35, 585 42, 625 66"></path>

@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+
+<section class="rooms-hero spaces-hero">
+    <div class="hero-content spaces-hero-content">
+        <span class="hero-badge">{% trans "Workspace Collection" %}</span>
+        <h1>{% trans "Our Spaces" %}</h1>
+        <p>{% trans "Explore flexible meeting rooms and workspace solutions across our branches, designed to support businesses at every stage." %}</p>
+        <p class="spaces-hero-pricing">{% trans "Flexible spaces. Flexible terms. Pricing tailored to your requirements." %}</p>
+    </div>
+</section>
+
+<main class="spaces-page">
+    <section class="spaces-section spaces-meeting-section">
+        <div class="spaces-section-heading">
+            <div>
+                <span class="spaces-eyebrow">{% trans "Across Our Locations" %}</span>
+                <h2>{% trans "Meeting Rooms" %}</h2>
+                <p>{% trans "Professional meeting spaces available across both Progress Business Centre locations." %}</p>
+            </div>
+            <p class="spaces-pricing-note">{% trans "Final pricing may vary based on duration and requirements." %}</p>
+        </div>
+
+        <div class="spaces-grid spaces-grid-rooms">
+            {% for room in rooms %}
+            <article class="space-card space-card-room">
+                <div class="space-card-media">
+                    {% if room.image %}
+                    <img src="{{ room.image.url }}" alt="{{ room.name }}" loading="lazy">
+                    {% else %}
+                    <div class="space-image-placeholder" aria-hidden="true"></div>
+                    {% endif %}
+                    <span class="space-branch-badge">{{ room.branch.name }}</span>
+                    <div class="space-price-badge">
+                        <small>{% trans "Starting from" %}</small>
+                        <strong>{{ room.price_per_hour }} BHD</strong>
+                        <span>{% trans "/ hour" %}</span>
+                    </div>
+                </div>
+                <div class="space-card-content">
+                    <h3>{{ room.name }}</h3>
+                    {% if room.description %}<p>{{ room.description }}</p>{% endif %}
+                    <div class="space-card-meta">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                        </svg>
+                        <span><small>{% trans "Capacity" %}</small><strong>{{ room.capacity }} {% trans "People" %}</strong></span>
+                    </div>
+                    <a class="btn space-card-action" href="{% url 'room_detail' room.pk %}">
+                        {% trans "View Space" %}
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg>
+                    </a>
+                </div>
+            </article>
+            {% empty %}
+            <div class="spaces-empty-state"><p>{% trans "No meeting rooms are currently available." %}</p></div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="spaces-section spaces-branch-section spaces-branch-head">
+        <div class="spaces-section-heading">
+            <div>
+                <span class="spaces-eyebrow">{% if head_office_branch %}{{ head_office_branch.name }}{% else %}{% trans "Head Office" %}{% endif %}</span>
+                <h2>{% trans "Head Office Spaces" %}</h2>
+                <p>{% trans "Professional private workspaces with flexible monthly arrangements at our Head Office." %}</p>
+            </div>
+            <p class="spaces-pricing-note">{% trans "Final pricing is confirmed after reviewing your requirements." %}</p>
+        </div>
+
+        <div class="spaces-grid spaces-grid-offices">
+            {% for office in head_office_offices %}
+                {% include 'spaces/_office_card.html' with office=office %}
+            {% empty %}
+            <div class="spaces-empty-state"><p>{% trans "No Head Office spaces are currently available." %}</p></div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="spaces-section spaces-branch-section spaces-branch-raya">
+        <div class="spaces-section-heading">
+            <div>
+                <span class="spaces-eyebrow">{% if al_raya_branch %}{{ al_raya_branch.name }}{% else %}{% trans "Al Raya Branch" %}{% endif %}</span>
+                <h2>{% trans "Al Raya Branch Spaces" %}</h2>
+                <p>{% trans "Flexible private workspace solutions designed for focused, professional day-to-day operations." %}</p>
+            </div>
+            <p class="spaces-pricing-note">{% trans "Final pricing is confirmed after reviewing your requirements." %}</p>
+        </div>
+
+        <div class="spaces-grid spaces-grid-offices">
+            {% for office in al_raya_offices %}
+                {% include 'spaces/_office_card.html' with office=office %}
+            {% empty %}
+            <div class="spaces-empty-state"><p>{% trans "No Al Raya Branch spaces are currently available." %}</p></div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="spaces-final-cta">
+        <div>
+            <span>{% trans "Personal Guidance" %}</span>
+            <h2>{% trans "Not sure which space is right for you?" %}</h2>
+            <p>{% trans "Our team can help you find a workspace or meeting solution that fits your business needs." %}</p>
+        </div>
+        <a href="{% url 'contact' %}" class="btn-solid-coral">{% trans "Contact Us" %}</a>
+    </section>
+</main>
+
+{% endblock %}

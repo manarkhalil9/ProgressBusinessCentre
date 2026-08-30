@@ -3,27 +3,14 @@
 {% load static %}
 
 {% block content %}
-<section class="faq-hero faq-hero-refined">
-    {% include 'hero_social.html' %}
-    <div class="hero-container">
-        <div class="hero-left">
-            <div class="faq-hero-title-wrap">
-                <span class="faq-hero-shape" aria-hidden="true"></span>
-                <h1 class="hero-title">{% trans "FAQ" %}</h1>
-            </div>
-        </div>
-        <div class="hero-right faq-hero-copy">
-            <h2>{% trans "Quick Answers" %}</h2>
-            <p>{% trans "Explore flexible office solutions and booking procedures at Progress Business Centre." %}</p>
-        </div>
-    </div>
-</section>
-
 <main class="faq-page">
     <div class="faq-container faq-page-inner">
-        <div class="faq-section-heading">
+        <header class="faq-page-intro">
             <span>{% trans "Frequently Asked Questions" %}</span>
-        </div>
+            <h1>{% trans "FAQ" %}</h1>
+            <h2>{% trans "Quick Answers" %}</h2>
+            <p>{% trans "Explore flexible office solutions and booking procedures at Progress Business Centre." %}</p>
+        </header>
 
         <div class="faq-accordion-wrap">
             <svg class="faq-connector" viewBox="0 0 180 760" preserveAspectRatio="none" aria-hidden="true">

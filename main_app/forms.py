@@ -171,7 +171,7 @@ class ReferralForm(forms.ModelForm):
         }
         widgets = {
             'full_name': forms.TextInput(attrs={'placeholder': _('Enter full name')}),
-            'email': forms.EmailInput(attrs={'placeholder': _('name@example.com')}),
-            'phone': forms.TextInput(attrs={'placeholder': _('+973 ...')}),
+            'email': forms.EmailInput(attrs={'placeholder': 'name@example.com'}),
+            'phone': forms.TextInput(attrs={'placeholder': '+973 ...'}),
             'referred_company': forms.TextInput(attrs={'placeholder': _('Enter company name')}),
         }

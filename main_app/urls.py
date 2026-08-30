@@ -1,4 +1,5 @@
 from django.urls import path
+from django.views.generic import RedirectView
 from . import views
 
 urlpatterns = [
@@ -12,16 +13,17 @@ urlpatterns = [
     # services
     path('services/', views.ServiceList.as_view(), name='services'),
 
-    # rooms
-    path('rooms/', views.MeetingRoomListView.as_view(), name='rooms'),
+    # spaces
+    path('spaces/', views.SpacesListView.as_view(), name='spaces'),
+    path('rooms/', RedirectView.as_view(pattern_name='spaces', permanent=True), name='rooms'),
     path('rooms/<int:pk>/', views.MeetingRoomDetailView.as_view(), name='room_detail'),
 
-    # offices
-    path("offices/", views.OfficeListView.as_view(), name="offices"),
+    # legacy office listing redirect and current detail route
+    path("offices/", RedirectView.as_view(pattern_name='spaces', permanent=True), name="offices"),
     path("offices/<int:pk>/", views.OfficeDetailView.as_view(), name="office_detail"),
 
-    # gallery
-    path('gallery/', views.GalleryListView.as_view(), name='gallery'),
+    # legacy public gallery redirect; images are now presented on the homepage
+    path('gallery/', RedirectView.as_view(pattern_name='home', permanent=True), name='gallery'),
     path('gallery/<int:pk>/', views.GalleryDetailView.as_view(), name='gallery_detail'),
 
     # faq
@@ -38,9 +40,11 @@ urlpatterns = [
     path('referral/', views.ReferralCreateView.as_view(), name='referral_create'),
     path('referral/success/', views.referral_success, name='referral_success'),
 
-    # business
-    path('register/', views.BusinessRegistrationCreateView.as_view(), name='business_register'),
-    path('register/success/', views.business_success, name='business_success'),
+    # CR support
+    path('cr-support/', views.BusinessRegistrationCreateView.as_view(), name='cr_support'),
+    path('cr-support/success/', views.cr_support_success, name='cr_support_success'),
+    path('register/', RedirectView.as_view(pattern_name='cr_support', permanent=True), name='business_register'),
+    path('register/success/', RedirectView.as_view(pattern_name='cr_support_success', permanent=True), name='business_success'),
 
     # bookings
     path("book/<str:resource_type>/<int:pk>/", views.BookingCreateView.as_view(), name="book"),

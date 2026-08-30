@@ -2,22 +2,13 @@
 {% load i18n %}
 
 {% block content %}
-
-
-<section class="meeting-hero success-hero engage-success-hero">
-    {% include 'hero_social.html' %}
-    <div class="hero-content">
-        <span class="engage-hero-shape" aria-hidden="true"></span>
-
-        <h1>{% trans "Request Received" %}</h1>
-        <p>{% trans "You're one step closer to your new workspace." %}</p>
-    </div>
-</section>
-
-
-<main class="engage-success-page">
+<main class="engage-success-page engage-success-page-standalone">
 <div class="meeting-container engage-success-container">
     <section class="success-card engage-success-card">
+        <header class="engage-success-heading">
+            <h1>{% trans "Request Received" %}</h1>
+            <p>{% trans "You're one step closer to your new workspace." %}</p>
+        </header>
         <svg class="engage-success-curve" viewBox="0 0 700 180" preserveAspectRatio="none" aria-hidden="true">
             <path class="engage-success-blue" d="M20 125 C 170 25, 320 175, 470 78 S 620 42, 680 90"></path>
             <path class="engage-success-coral" d="M470 78 C 535 35, 585 42, 630 68"></path>

@@ -11,13 +11,6 @@
 </section>
 
 <main class="client-dashboard">
-    <section class="dashboard-stats" aria-label="{% trans 'Request summary' %}">
-        <article><span>{% trans "Total Requests" %}</span><strong>{{ total_requests }}</strong></article>
-        <article><span>{% trans "Pending" %}</span><strong>{{ pending_count }}</strong></article>
-        <article><span>{% trans "Approved / Active" %}</span><strong>{{ approved_count }}</strong></article>
-        <article><span>{% trans "Rejected" %}</span><strong>{{ rejected_count }}</strong></article>
-    </section>
-
     <section class="dashboard-request-section">
         <header><span>{% trans "Space Bookings" %}</span><h2>{% trans "Meeting Rooms & Offices" %}</h2></header>
         <div class="dashboard-request-grid">
@@ -36,7 +29,7 @@
                 </dl>
             </article>
             {% empty %}
-            <div class="dashboard-empty"><h3>{% trans "No booking requests yet." %}</h3><div><a href="{% url 'rooms' %}" class="btn">{% trans "Explore Meeting Rooms" %}</a><a href="{% url 'offices' %}" class="dashboard-outline-link">{% trans "Explore Offices" %}</a></div></div>
+            <div class="dashboard-empty"><h3>{% trans "No booking requests yet." %}</h3><div><a href="{% url 'spaces' %}" class="btn">{% trans "Explore Our Spaces" %}</a></div></div>
             {% endfor %}
         </div>
     </section>
@@ -49,7 +42,7 @@
                 <div class="dashboard-card-heading"><div><small>{{ registration.get_request_type_display }}</small><h3>{{ registration.company_name }}</h3></div><span class="request-status status-{{ registration.status }}">{{ registration.get_status_display }}</span></div>
                 <dl><div><dt>{% trans "Business Type" %}</dt><dd>{{ registration.business_type }}</dd></div><div><dt>{% trans "Submitted" %}</dt><dd>{{ registration.submitted_at|date:"M j, Y" }}</dd></div></dl>
             </article>
-            {% empty %}<div class="dashboard-empty"><h3>{% trans "No business registration applications yet." %}</h3><a href="{% url 'business_register' %}" class="btn">{% trans "Start Business Registration" %}</a></div>{% endfor %}
+            {% empty %}<div class="dashboard-empty"><h3>{% trans "No CR support requests yet." %}</h3><a href="{% url 'cr_support' %}" class="btn">{% trans "Request CR Support" %}</a></div>{% endfor %}
         </div>
     </section>
 

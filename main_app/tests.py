@@ -113,7 +113,7 @@ class RequestWorkflowTests(TestCase):
     def test_cr_support_initial_submission_emails_admin_and_client(self):
         self.client.force_login(self.user)
         mail.outbox.clear()
-        response = self.client.post(reverse("business_register"), {
+        response = self.client.post(reverse("cr_support"), {
             "request_type": "new",
             "company_name": "Example CR",
             "owner_name": "Client",
@@ -121,7 +121,7 @@ class RequestWorkflowTests(TestCase):
             "business_type": "Consulting",
             "cpr_number": "",
         })
-        self.assertRedirects(response, reverse("business_success"))
+        self.assertRedirects(response, reverse("cr_support_success"))
         registration = BusinessRegistration.objects.get(company_name="Example CR")
         self.assertEqual(registration.status, "pending")
         self.assertEqual(len(mail.outbox), 2)
@@ -233,3 +233,66 @@ class RequestWorkflowTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, mine.client_name)
         self.assertNotContains(response, other.client_name)
+
+
+class SpacesPageTests(TestCase):
+    def setUp(self):
+        self.head_office = Branch.objects.create(
+            name="Progress Business Center Head Office",
+            address="Seef",
+            phone="1",
+            email="head@example.com",
+            opening_hours="8-6",
+        )
+        self.al_raya = Branch.objects.create(
+            name="Al Raya Branch",
+            address="Bahrain",
+            phone="2",
+            email="raya@example.com",
+            opening_hours="8-6",
+        )
+        self.room = MeetingRoom.objects.create(
+            branch=self.head_office,
+            name="Executive Boardroom",
+            capacity=10,
+            price_per_hour=Decimal("20.000"),
+        )
+        self.head_office_space = Office.objects.create(
+            branch=self.head_office,
+            name="Head Office Suite",
+            description="Private workspace",
+            price_per_month=Decimal("500.000"),
+        )
+        self.al_raya_space = Office.objects.create(
+            branch=self.al_raya,
+            name="Al Raya Suite",
+            description="Private workspace",
+            price_per_month=Decimal("450.000"),
+        )
+
+    def test_spaces_page_groups_records_by_their_branch_relationship(self):
+        response = self.client.get(reverse("spaces"))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, self.room.name)
+        self.assertEqual(list(response.context["head_office_offices"]), [self.head_office_space])
+        self.assertEqual(list(response.context["al_raya_offices"]), [self.al_raya_space])
+
+    def test_old_listing_and_cr_paths_redirect_to_canonical_routes(self):
+        self.assertRedirects(
+            self.client.get(reverse("rooms")),
+            reverse("spaces"),
+            status_code=301,
+            fetch_redirect_response=False,
+        )
+        self.assertRedirects(
+            self.client.get(reverse("offices")),
+            reverse("spaces"),
+            status_code=301,
+            fetch_redirect_response=False,
+        )
+        self.assertRedirects(
+            self.client.get(reverse("business_register")),
+            reverse("cr_support"),
+            status_code=301,
+            fetch_redirect_response=False,
+        )

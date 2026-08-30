@@ -1,0 +1,24 @@
+{% load i18n %}
+<article class="space-card space-card-office">
+    <div class="space-card-media">
+        {% if office.image %}
+        <img src="{{ office.image.url }}" alt="{{ office.name }}" loading="lazy">
+        {% else %}
+        <div class="space-image-placeholder" aria-hidden="true"></div>
+        {% endif %}
+        <span class="space-branch-badge">{{ office.branch.name }}</span>
+        <div class="space-price-badge">
+            <small>{% trans "Starting from" %}</small>
+            <strong>{{ office.price_per_month }} BHD</strong>
+            <span>{% trans "/ month" %}</span>
+        </div>
+    </div>
+    <div class="space-card-content">
+        <h3>{{ office.name }}</h3>
+        {% if office.description %}<p>{{ office.description }}</p>{% endif %}
+        <a class="btn space-card-action" href="{% url 'office_detail' office.pk %}">
+            {% trans "View Space" %}
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg>
+        </a>
+    </div>
+</article>

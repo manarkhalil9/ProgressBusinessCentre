@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Progress Business Centre\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-26 14:22+0300\n"
+"POT-Creation-Date: 2026-08-30 11:17+0300\n"
 "PO-Revision-Date: 2026-08-23 11:40+0300\n"
 "Last-Translator: Progress Business Centre\n"
 "Language-Team: Arabic\n"
@@ -12,1045 +12,1770 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
+#: .\main_app\forms.py:22 .\main_app\templates\business\register.html:38
 msgid "Request Type"
 msgstr "نوع الطلب"
 
+#: .\main_app\forms.py:23
 msgid "Company Name"
 msgstr "اسم الشركة"
 
+#: .\main_app\forms.py:24
 msgid "Owner Name"
 msgstr "اسم المالك"
 
+#: .\main_app\forms.py:25
 msgid "Commercial Registration"
 msgstr "السجل التجاري"
 
+#: .\main_app\forms.py:26 .\main_app\forms.py:66
+#: .\main_app\templates\bookings\create.html:101
+#: .\main_app\templates\dashboard\index.html:27
+#: .\main_app\templates\dashboard\index.html:43
 msgid "Business Type"
 msgstr "نوع النشاط التجاري"
 
+#: .\main_app\forms.py:27 .\main_app\templates\business\register.html:66
 msgid "CPR Number"
 msgstr "الرقم الشخصي"
 
+#: .\main_app\forms.py:28
 msgid "Upload CPR"
 msgstr "تحميل البطاقة الشخصية"
 
+#: .\main_app\forms.py:29
 msgid "Upload Passport"
 msgstr "تحميل جواز السفر"
 
+#: .\main_app\forms.py:45 .\main_app\forms.py:167
+#: .\main_app\templates\bookings\create.html:66
 msgid "Full Name"
 msgstr "الاسم الكامل"
 
+#: .\main_app\forms.py:46 .\main_app\forms.py:109 .\main_app\forms.py:168
+#: .\main_app\templates\bookings\create.html:82
 msgid "Email Address"
 msgstr "البريد الإلكتروني"
 
+#: .\main_app\forms.py:47 .\main_app\forms.py:108 .\main_app\forms.py:169
+#: .\main_app\templates\bookings\create.html:73
 msgid "Phone Number"
 msgstr "رقم الهاتف"
 
+#: .\main_app\forms.py:48
 msgid "Preferred Date"
 msgstr "التاريخ المفضل"
 
+#: .\main_app\forms.py:49 .\main_app\templates\dashboard\index.html:55
 msgid "Preferred Time"
 msgstr "الوقت المفضل"
 
+#: .\main_app\forms.py:50
 msgid "Notes"
 msgstr "ملاحظات"
 
+#: .\main_app\forms.py:67
 msgid "Describe your business or activity."
 msgstr "صف نشاطك التجاري أو مجال عملك."
 
+#: .\main_app\forms.py:70
 msgid "e.g. Consulting, Technology, Trading, Marketing"
 msgstr "مثال: الاستشارات، التقنية، التجارة، التسويق"
 
+#: .\main_app\forms.py:75 .\main_app\templates\bookings\create.html:107
 msgid "Reason for Booking"
 msgstr "سبب الحجز"
 
+#: .\main_app\forms.py:76 .\main_app\forms.py:80
 msgid "Tell us briefly how you plan to use the space."
 msgstr "أخبرنا باختصار كيف تخطط لاستخدام المساحة."
 
+#: .\main_app\forms.py:107
 msgid "Client Name"
 msgstr "اسم العميل"
 
+#: .\main_app\forms.py:110 .\main_app\templates\bookings\create.html:91
 msgid "Commercial Registration (CR)"
 msgstr "السجل التجاري (CR)"
 
+#: .\main_app\forms.py:111 .\main_app\templates\bookings\create.html:356
 msgid "Start Date"
 msgstr "تاريخ البداية"
 
+#: .\main_app\forms.py:112 .\main_app\templates\bookings\create.html:360
 msgid "End Date"
 msgstr "تاريخ النهاية"
 
+#: .\main_app\forms.py:113 .\main_app\templates\bookings\create.html:202
 msgid "Start Time"
 msgstr "وقت البداية"
 
+#: .\main_app\forms.py:114 .\main_app\templates\bookings\create.html:206
 msgid "End Time"
 msgstr "وقت النهاية"
 
+#: .\main_app\forms.py:136
 msgid "This time slot is already booked."
 msgstr "هذه الفترة الزمنية محجوزة بالفعل."
 
+#: .\main_app\forms.py:137
 msgid "Please choose an available slot."
 msgstr "يرجى اختيار فترة زمنية متاحة."
 
+#: .\main_app\forms.py:150
 msgid "End date cannot be earlier than start date."
 msgstr "لا يمكن أن يكون تاريخ النهاية سابقاً لتاريخ البداية."
 
+#: .\main_app\forms.py:152
 msgid "This date or date range is not fully available."
 msgstr "هذا التاريخ أو الفترة الزمنية غير متاحة بالكامل."
 
+#: .\main_app\forms.py:170
 msgid "Referred Company Name"
 msgstr "اسم الشركة المُحالة"
 
+#: .\main_app\forms.py:173
 msgid "Enter full name"
 msgstr "أدخل الاسم الكامل"
 
-msgid "name@example.com"
-msgstr "name@example.com"
-
-msgid "+973 ..."
-msgstr "+973 ..."
-
+#: .\main_app\forms.py:176
 msgid "Enter company name"
 msgstr "أدخل اسم الشركة"
 
+#: .\main_app\models.py:153 .\main_app\models.py:323
 msgid "Pending"
 msgstr "قيد المراجعة"
 
+#: .\main_app\models.py:154 .\main_app\models.py:324
 msgid "Approved"
 msgstr "موافق عليه"
 
+#: .\main_app\models.py:155 .\main_app\models.py:325 .\main_app\models.py:349
 msgid "Rejected"
 msgstr "مرفوض"
 
+#: .\main_app\models.py:156
 msgid "Cancelled"
 msgstr "ملغى"
 
+#: .\main_app\models.py:345
 msgid "Pending Review"
 msgstr "قيد المراجعة"
 
+#: .\main_app\models.py:346
 msgid "Approved for CR Support"
 msgstr "تمت الموافقة على دعم السجل التجاري"
 
+#: .\main_app\models.py:347
 msgid "CR Support in Progress"
 msgstr "دعم السجل التجاري قيد التنفيذ"
 
+#: .\main_app\models.py:348
 msgid "Completed"
 msgstr "مكتمل"
 
+#: .\main_app\templates\about.html:12 .\main_app\templates\base.html:71
+#: .\main_app\templates\base.html:130 .\main_app\templates\base.html:215
 msgid "About Us"
 msgstr "من نحن"
 
+#: .\main_app\templates\about.html:16
 msgid "Professional workspaces and business support designed to help companies establish and grow in Bahrain."
 msgstr "مساحات عمل احترافية ودعم للأعمال لمساعدة الشركات على التأسيس والنمو في البحرين."
 
+#: .\main_app\templates\about.html:27
 msgid "Who We Are"
 msgstr "من نحن"
 
+#: .\main_app\templates\about.html:28
 msgid "Built for Business in Bahrain"
 msgstr "مصمم للأعمال في البحرين"
 
+#: .\main_app\templates\about.html:29
 msgid "Flexible workspaces, professional support, and a business environment designed for growth."
 msgstr "مساحات عمل مرنة، ودعم مهني، وبيئة أعمال مصممة للنمو."
 
+#: .\main_app\templates\about.html:43
 msgid "Our Mission"
 msgstr "رسالتنا"
 
+#: .\main_app\templates\about.html:44
 msgid "We provide flexible workspaces and professional support that help businesses operate smoothly and grow with confidence."
 msgstr "نوفر مساحات عمل مرنة ودعماً مهنياً يساعدان الشركات على العمل بسلاسة والنمو بثقة."
 
+#: .\main_app\templates\about.html:56
 msgid "Our Vision"
 msgstr "رؤيتنا"
 
+#: .\main_app\templates\about.html:57
 msgid "To be a trusted business hub in Bahrain for companies seeking a professional and seamless setup experience."
 msgstr "أن نكون مركز أعمال موثوقاً في البحرين للشركات التي تبحث عن تجربة تأسيس احترافية وسلسة."
 
+#: .\main_app\templates\about.html:70
 msgid "Who We Serve"
 msgstr "من نخدم"
 
+#: .\main_app\templates\about.html:71
 msgid "We support startups, entrepreneurs, SMEs, remote teams, and international businesses entering Bahrain."
 msgstr "ندعم الشركات الناشئة ورواد الأعمال والمؤسسات الصغيرة والمتوسطة والفرق العاملة عن بُعد والشركات الدولية الداخلة إلى سوق البحرين."
 
+#: .\main_app\templates\about.html:73
 msgid "Entrepreneurs & Startups"
 msgstr "رواد الأعمال والشركات الناشئة"
 
+#: .\main_app\templates\about.html:74
 msgid "Freelancers & Teams"
 msgstr "المستقلون والفرق"
 
+#: .\main_app\templates\about.html:75
 msgid "Growing SMEs"
 msgstr "المؤسسات الصغيرة والمتوسطة النامية"
 
+#: .\main_app\templates\about.html:76
 msgid "International Companies"
 msgstr "الشركات الدولية"
 
+#: .\main_app\templates\about.html:88
 msgid "Our Commitment"
 msgstr "التزامنا"
 
+#: .\main_app\templates\about.html:89
 msgid "We focus on reliability, flexibility, privacy, and responsive support to create a smooth client experience."
 msgstr "نركز على الموثوقية والمرونة والخصوصية وسرعة الاستجابة لتقديم تجربة سلسة لعملائنا."
 
+#: .\main_app\templates\about.html:91
 msgid "Flexible solutions"
 msgstr "حلول مرنة"
 
+#: .\main_app\templates\about.html:92
 msgid "Reliable support"
 msgstr "دعم موثوق"
 
+#: .\main_app\templates\about.html:93
 msgid "Professional environment"
 msgstr "بيئة احترافية"
 
+#: .\main_app\templates\about.html:94
 msgid "Client privacy"
 msgstr "خصوصية العملاء"
 
+#: .\main_app\templates\about.html:105
 msgid "Workspace Features"
 msgstr "مزايا مساحات العمل"
 
+#: .\main_app\templates\about.html:106
 msgid "Everything You Need to Work Professionally"
 msgstr "كل ما تحتاج إليه للعمل باحترافية"
 
+#: .\main_app\templates\about.html:107
 msgid "Thoughtfully equipped spaces and services that make everyday business easier."
 msgstr "مساحات وخدمات مجهزة بعناية لتسهيل أعمالك اليومية."
 
+#: .\main_app\templates\about.html:144
 msgid "No facilities are currently available."
 msgstr "لا توجد مرافق متاحة حالياً."
 
+#: .\main_app\templates\about.html:156
 msgid "Ready to Find Your Workspace?"
 msgstr "هل أنت مستعد للعثور على مساحة عملك؟"
 
+#: .\main_app\templates\about.html:157
 msgid "Explore flexible solutions designed around your business."
 msgstr "استكشف حلولاً مرنة مصممة لتناسب احتياجات أعمالك."
 
+#: .\main_app\templates\about.html:159
+#: .\main_app\templates\contact\detail.html:149
 msgid "Explore Our Solutions"
 msgstr "استكشف حلولنا"
 
+#: .\main_app\templates\base.html:13
 msgid "Progress Business Centre - Premium private offices, co-working spaces, and meeting rooms for your business success."
 msgstr "مركز بروجريس للأعمال - مكاتب خاصة متميزة، ومساحات عمل مشتركة، وغرف اجتماعات لنجاح أعمالك."
 
+#: .\main_app\templates\base.html:15
 msgid "Progress Business Center"
 msgstr "مركز بروجريس للأعمال"
 
+#: .\main_app\templates\base.html:31
 msgid "Menu"
 msgstr "القائمة"
 
+#: .\main_app\templates\base.html:41
+msgid "Progress Business Centre home"
+msgstr "الصفحة الرئيسية لمركز بروجريس للأعمال"
+
+#: .\main_app\templates\base.html:43
+#: .\main_app\templates\registration\signup.html:9
 msgid "Progress Business Centre"
 msgstr "مركز بروجريس للأعمال"
 
+#: .\main_app\templates\base.html:70 .\main_app\templates\base.html:129
+#: .\main_app\templates\base.html:214
 msgid "Home"
 msgstr "الرئيسية"
 
+#: .\main_app\templates\base.html:73 .\main_app\templates\base.html:132
 msgid "Explore"
 msgstr "استكشف"
 
+#: .\main_app\templates\base.html:75 .\main_app\templates\base.html:134
+#: .\main_app\templates\base.html:216 .\main_app\templates\base.html:224
+#: .\main_app\templates\services\index.html:10
 msgid "Services"
 msgstr "الخدمات"
 
-msgid "Meeting Rooms"
-msgstr "غرف الاجتماعات"
+#: .\main_app\templates\base.html:76 .\main_app\templates\base.html:135
+#: .\main_app\templates\base.html:217 .\main_app\templates\index.html:46
+#: .\main_app\templates\spaces\index.html:9
+msgid "Our Spaces"
+msgstr "مساحاتنا"
 
-msgid "Serviced Offices"
-msgstr "المكاتب المخدومة"
-
-msgid "Gallery"
-msgstr "معرض الصور"
-
+#: .\main_app\templates\base.html:79 .\main_app\templates\base.html:138
 msgid "FAQs"
 msgstr "الأسئلة الشائعة"
 
+#: .\main_app\templates\base.html:80 .\main_app\templates\base.html:139
+#: .\main_app\templates\base.html:237 .\main_app\templates\index.html:208
+#: .\main_app\templates\services\index.html:90
+#: .\main_app\templates\services\index.html:105
+#: .\main_app\templates\spaces\index.html:107
 msgid "Contact Us"
 msgstr "اتصل بنا"
 
-msgid "My Bookings"
-msgstr "حجوزاتي"
-
+#: .\main_app\templates\base.html:82 .\main_app\templates\base.html:141
 msgid "Engage"
 msgstr "تفاعل"
 
-msgid "Visit"
-msgstr "زيارة"
+#: .\main_app\templates\base.html:84 .\main_app\templates\base.html:143
+msgid "Visit Us"
+msgstr "زرنا"
 
-msgid "Referral"
-msgstr "الإحالة"
-
+#: .\main_app\templates\base.html:85 .\main_app\templates\base.html:144
+#: .\main_app\templates\base.html:218 .\main_app\templates\base.html:229
+#: .\main_app\templates\business\register.html:21
 msgid "CR Support"
 msgstr "دعم السجل التجاري"
 
+#: .\main_app\templates\base.html:86 .\main_app\templates\base.html:145
+#: .\main_app\templates\base.html:240
+msgid "Referral"
+msgstr "الإحالة"
+
+#: .\main_app\templates\base.html:94 .\main_app\templates\base.html:150
+#: .\main_app\templates\dashboard\index.html:8
+msgid "My Bookings"
+msgstr "حجوزاتي"
+
+#: .\main_app\templates\base.html:97 .\main_app\templates\base.html:155
 msgid "Logout"
 msgstr "تسجيل الخروج"
 
+#: .\main_app\templates\base.html:100 .\main_app\templates\base.html:162
+#: .\main_app\templates\registration\login.html:59
+#: .\main_app\templates\registration\signup.html:78
 msgid "Login"
 msgstr "تسجيل الدخول"
 
+#: .\main_app\templates\base.html:101 .\main_app\templates\base.html:166
 msgid "Sign Up"
 msgstr "إنشاء حساب"
 
+#: .\main_app\templates\base.html:104 .\main_app\templates\base.html:171
+msgid "Request a Space"
+msgstr "اطلب مساحة"
+
+#: .\main_app\templates\base.html:183 .\main_app\templates\base.html:188
 msgid "Back to Top"
 msgstr "العودة إلى الأعلى"
 
-msgid "Helping businesses establish and grow in Bahrain."
-msgstr "نساعد الشركات على التأسيس والنمو في البحرين."
+#: .\main_app\templates\base.html:197
+msgid "Business Centre"
+msgstr "مركز الأعمال"
 
+#: .\main_app\templates\base.html:199
+msgid "Your launchpad to business in the GCC. Premium workspaces and practical business support from Bahrain."
+msgstr "منطلقك للأعمال في دول الخليج، مع مساحات عمل متميزة ودعم عملي للأعمال من البحرين."
+
+#: .\main_app\templates\base.html:212
 msgid "Quick Links"
 msgstr "روابط سريعة"
 
-msgid "CR & Business Setup Support"
-msgstr "دعم السجل التجاري وتأسيس الأعمال"
-
+#: .\main_app\templates\base.html:219
 msgid "Contact"
 msgstr "اتصل بنا"
 
-msgid "© 2026 Progress Business Centre."
-msgstr "© 2026 مركز بروجريس للأعمال."
-
-msgid "All Rights Reserved."
-msgstr "جميع الحقوق محفوظة."
-
-msgid "Meeting Room Booking"
-msgstr "حجز غرفة اجتماعات"
-
-msgid "Private Office Reservation"
-msgstr "حجز مكتب خاص"
-
-msgid "Complete Your Booking"
-msgstr "أكمل حجزك"
-
-msgid "Starting from"
-msgstr "يبدأ السعر من"
-
-msgid "hour"
-msgstr "ساعة"
-
-msgid "month"
-msgstr "شهر"
-
-msgid "Please review the highlighted issues:"
-msgstr "يرجى مراجعة المشكلات الموضحة أدناه:"
-
-msgid "Step 01"
-msgstr "الخطوة 01"
-
-msgid "Your Contact Information"
-msgstr "معلومات الاتصال الخاصة بك"
-
-msgid "Optional for corporate office rentals."
-msgstr "اختياري لتأجير المكاتب المؤسسية."
-
-msgid "Step 02"
-msgstr "الخطوة 02"
-
-msgid "Select Date & Time Slot"
-msgstr "اختر التاريخ والفترة الزمنية"
-
-msgid "Select Rental Duration"
-msgstr "اختر مدة الإيجار"
-
-msgid "1. Select Meeting Date"
-msgstr "١. اختر تاريخ الاجتماع"
-
-msgid "Previous month"
-msgstr "الشهر السابق"
-
-msgid "Next month"
-msgstr "الشهر التالي"
-
-msgid "Sun"
-msgstr "الأحد"
-
-msgid "Mon"
-msgstr "الإثنين"
-
-msgid "Tue"
-msgstr "الثلاثاء"
-
-msgid "Wed"
-msgstr "الأربعاء"
-
-msgid "Thu"
-msgstr "الخميس"
-
-msgid "Fri"
-msgstr "الجمعة"
-
-msgid "Sat"
-msgstr "السبت"
-
-msgid "Selected Date:"
-msgstr "التاريخ المحدد:"
-
-msgid "2. Select Time Slot"
-msgstr "٢. اختر الفترة الزمنية"
-
-msgid "No preset slots for this day. Enter custom hours below."
-msgstr "لا توجد فترات زمنية محددة مسبقاً لهذا اليوم. أدخل الساعات يدوياً أدناه."
-
-msgid "1. Lease Start Date"
-msgstr "١. تاريخ بدء الإيجار"
-
-msgid "Start Date:"
-msgstr "تاريخ البداية:"
-
-msgid "2. Lease End Date"
-msgstr "٢. تاريخ انتهاء الإيجار"
-
-msgid "Confirm End Date:"
-msgstr "تأكيد تاريخ النهاية:"
-
-msgid "Note: The office space must remain unreserved for all consecutive days within your selected date range."
-msgstr "ملاحظة: يجب أن تكون مساحة المكتب غير محجوزة طوال الأيام المتتالية ضمن الفترة الزمنية التي اخترتها."
-
-msgid "Booking Summary"
-msgstr "ملخص الحجز"
-
-msgid "Location"
-msgstr "الموقع"
-
-msgid "Selected Date"
-msgstr "التاريخ المحدد"
-
-msgid "Submit Booking Request"
-msgstr "إرسال طلب الحجز"
-
-msgid "Pricing is flexible. Final rates will be confirmed after our team reviews your request."
-msgstr "الأسعار مرنة، وسيؤكد فريقنا الأسعار النهائية بعد مراجعة طلبك."
-
-msgid "Confirmation"
-msgstr "تأكيد"
-
-msgid "Booking Request Received"
-msgstr "تم استلام طلب الحجز"
-
-msgid "Booking Request Submitted"
-msgstr "تم إرسال طلب الحجز"
-
-msgid "Your booking request has been received and is Pending. Our team will review it and send you an email when its status changes."
-msgstr "تم استلام طلب الحجز وهو قيد المراجعة. سيراجعه فريقنا وسنرسل إليك بريداً إلكترونياً عند تغير حالته."
-
-msgid "View My Dashboard"
-msgstr "عرض لوحة طلباتي"
-
-msgid "Professional CR & Business Setup Support"
-msgstr "دعم احترافي للسجل التجاري وتأسيس الأعمال"
-
-msgid "We assist with new Commercial Registration applications, CR renewals, and flexible monthly workspace solutions for businesses in Bahrain."
-msgstr "نساعد في طلبات إصدار سجلات تجارية جديدة وتجديد السجلات التجارية، ونوفر حلول مساحات عمل شهرية مرنة للشركات في البحرين."
-
-msgid "Application Form"
-msgstr "نموذج الطلب"
-
-msgid "Please provide your corporate and personal details below to initiate your setup."
-msgstr "يرجى تقديم تفاصيل شركتك وتفاصيلك الشخصية أدناه لبدء عملية التأسيس."
-
-msgid "Progress Business Centre provides support and assistance with obtaining or renewing a Commercial Registration (CR). We are not a government authority, and final decisions remain with the relevant authorities."
-msgstr "يقدم مركز بروغرس للأعمال الدعم والمساعدة في الحصول على سجل تجاري أو تجديده. ولسنا جهة حكومية، وتبقى القرارات النهائية من اختصاص الجهات المعنية."
-
-msgid "Please upload clear copies of your CPR and Passport."
-msgstr "يرجى تحميل نسخ واضحة من البطاقة الشخصية وجواز السفر."
-
-msgid "Please correct the errors above."
-msgstr "يرجى تصحيح الأخطاء أعلاه."
-
-msgid "Submit CR Support Request"
-msgstr "إرسال طلب دعم السجل التجاري"
-
-msgid "Virtual Office Application Received!"
-msgstr "تم استلام طلب المكتب الافتراضي!"
-
-msgid "Your application for professional business services has been successfully submitted."
-msgstr "تم تقديم طلبك للحصول على خدمات الأعمال الاحترافية بنجاح."
-
-msgid "Application Under Review"
-msgstr "الطلب قيد المراجعة"
-
-msgid "Our corporate setup team is reviewing your documents and application details. We will contact you shortly to complete the process."
-msgstr "يقوم فريق التأسيس المؤسسي بمراجعة مستنداتك وتفاصيل طلبك. سنتواصل معك قريباً لإكمال العملية."
-
-msgid "Back To Home"
-msgstr "العودة إلى الرئيسية"
-
-msgid "Contact Progress Business Centre"
-msgstr "اتصل بمركز بروجريس للأعمال"
-
-msgid "Speak with our team, discover our locations, and find the workspace solution that fits your business."
-msgstr "تحدث مع فريقنا، وتعرّف على مواقعنا، واختر حل مساحة العمل المناسب لأعمالك."
-
-msgid "We're here to help"
-msgstr "نحن هنا لمساعدتك"
-
-msgid "Get in Touch"
-msgstr "تواصل معنا"
-
-msgid "Call Us Directly"
-msgstr "اتصل بنا مباشرة"
-
-msgid "Talk to our workspace consultants and get tailored guidance for your business."
-msgstr "تحدث مع مستشاري مساحات العمل لدينا واحصل على إرشاد مخصص لأعمالك."
-
-msgid "Email Us"
-msgstr "راسلنا عبر البريد الإلكتروني"
-
-msgid "Send us an email and we'll get back to you within 24 hours."
-msgstr "أرسل إلينا بريداً إلكترونياً وسنرد عليك خلال 24 ساعة."
-
-msgid "Chat on WhatsApp"
-msgstr "دردش عبر واتساب"
-
-msgid "Send us a message and our team will respond as soon as possible."
-msgstr "أرسل إلينا رسالة وسيرد عليك فريقنا في أقرب وقت ممكن."
-
-msgid "Message Us"
-msgstr "أرسل لنا رسالة"
-
-msgid "Visit us in Bahrain"
-msgstr "تفضل بزيارتنا في البحرين"
-
-msgid "Our Locations"
-msgstr "مواقعنا"
-
-msgid "Choose the location most convenient for you, then get directions in one click."
-msgstr "اختر الموقع الأنسب لك، ثم احصل على الاتجاهات بنقرة واحدة."
-
-msgid "Click to open in Google Maps"
-msgstr "انقر للفتح في خرائط Google"
-
-msgid "Head Office"
-msgstr "المكتب الرئيسي"
-
-msgid "Branch"
-msgstr "الفرع"
-
-msgid "Find our exact location below and get directions directly to our doorstep."
-msgstr "اعثر على موقعنا الدقيق أدناه واحصل على الاتجاهات للوصول إلينا مباشرة."
-
-msgid "No branches are available at the moment."
-msgstr "لا توجد فروع متاحة في الوقت الحالي."
-
-msgid "Let's Find Your Perfect Workspace"
-msgstr "لنجد مساحة العمل المثالية لك"
-
-msgid "Connect with our team to find the ideal workspace solution for your business."
-msgstr "تواصل مع فريقنا للعثور على حل مساحة العمل المثالي لأعمالك."
-
-msgid "Client Portal"
-msgstr "بوابة العملاء"
-
-msgid "Track your workspace, business registration, and visit requests in one place."
-msgstr "تابع طلبات مساحات العمل وتسجيل الأعمال والزيارات في مكان واحد."
-
-msgid "Request summary"
-msgstr "ملخص الطلبات"
-
-msgid "Total Requests"
-msgstr "إجمالي الطلبات"
-
-msgid "Approved / Active"
-msgstr "موافق عليه / نشط"
-
-msgid "Space Bookings"
-msgstr "طلبات حجز المساحات"
-
-msgid "Meeting Rooms & Offices"
-msgstr "غرف الاجتماعات والمكاتب"
-
-msgid "Meeting Room"
-msgstr "غرفة اجتماعات"
-
-msgid "Office"
-msgstr "مكتب"
-
-msgid "Requested Date"
-msgstr "التاريخ المطلوب"
-
-msgid "Time"
-msgstr "الوقت"
-
-msgid "Not provided"
-msgstr "غير متوفر"
-
-msgid "Submitted"
-msgstr "تاريخ التقديم"
-
-msgid "No booking requests yet."
-msgstr "لا توجد طلبات حجز حتى الآن."
-
-msgid "Explore Meeting Rooms"
-msgstr "استكشف غرف الاجتماعات"
-
-msgid "Explore Offices"
-msgstr "استكشف المكاتب"
-
-msgid "Business Services"
-msgstr "خدمات الأعمال"
-
-msgid "CR Applications"
-msgstr "طلبات السجل التجاري"
-
-msgid "No business registration applications yet."
-msgstr "لا توجد طلبات تسجيل أعمال حتى الآن."
-
-msgid "Start Business Registration"
-msgstr "ابدأ تسجيل الأعمال"
-
-msgid "Visits"
-msgstr "الزيارات"
-
-msgid "Visit Requests"
-msgstr "طلبات الزيارة"
-
-msgid "Visit Request"
-msgstr "طلب زيارة"
-
-msgid "No visit requests yet."
-msgstr "لا توجد طلبات زيارة حتى الآن."
-
-msgid "Arrange a Visit"
-msgstr "رتّب زيارة"
-
-msgid "FAQ"
-msgstr "الأسئلة الشائعة"
-
-msgid "Quick Answers"
-msgstr "إجابات سريعة"
-
-msgid "Explore flexible office solutions and booking procedures at Progress Business Centre."
-msgstr "استكشف حلول المكاتب المرنة وإجراءات الحجز في مركز بروجريس للأعمال."
-
-msgid "Frequently Asked Questions"
-msgstr "الأسئلة الأكثر شيوعاً"
-
-msgid "No questions available."
-msgstr "لا توجد أسئلة متاحة."
-
-msgid "Still have questions?"
-msgstr "هل لا تزال لديك أسئلة؟"
-
-msgid "Reach out to our support team for personalized assistance."
-msgstr "تواصل مع فريق الدعم لدينا للحصول على مساعدة مخصصة."
-
-msgid "Contact Support"
-msgstr "اتصل بالدعم"
-
-msgid "Form"
-msgstr "نموذج"
-
-msgid "Submit"
-msgstr "إرسال"
-
-msgid "A closer look at our workspace and facilities."
-msgstr "نظرة عن قرب على مساحة العمل والمرافق لدينا."
-
-msgid "Back to Gallery"
-msgstr "العودة إلى معرض الصور"
-
-msgid "Explore our workspace, facilities, and events through our image collection."
-msgstr "استكشف مساحات العمل والمرافق والفعاليات من خلال مجموعة صورنا."
-
-msgid "Inside Progress"
-msgstr "داخل بروجريس"
-
-msgid "Spaces made for ambitious work"
-msgstr "مساحات صُممت للأعمال الطموحة"
-
-msgid "A closer look at the spaces, details, and atmosphere behind your next business address."
-msgstr "نظرة أقرب إلى المساحات والتفاصيل والأجواء التي ستجدها في عنوان أعمالك القادم."
-
-msgid "View Image"
-msgstr "عرض الصورة"
-
-msgid "No images available yet."
-msgstr "لا توجد صور متاحة حالياً."
-
-msgid "Your Gateway to Doing Business in Bahrain"
-msgstr "بوابتك لممارسة الأعمال في البحرين"
-
-msgid "Establish your business in Seef District with flexible, fully supported workspace solutions designed for professional growth."
-msgstr "أسّس أعمالك في منطقة السيف مع حلول مساحات عمل مرنة ومدعومة بالكامل، صُممت لتحقيق النمو المهني."
-
-msgid "Explore Solutions"
-msgstr "استكشف الحلول"
-
-msgid "Establish Your Presence"
-msgstr "أسس حضورك"
-
-msgid "Tailored Workspace Solutions"
-msgstr "حلول مساحات عمل مخصصة"
-
-msgid "Virtual Offices"
-msgstr "المكاتب الافتراضية"
-
-msgid "A prestigious Seef address, dedicated phone line, and professional mail handling without the physical lease overhead."
-msgstr "عنوان متميز في السيف، وخط هاتف مخصص، ومعالجة احترافية للبريد دون تكاليف الإيجار الفعلية."
-
-msgid "Serviced Suites"
-msgstr "المكاتب المخدومة"
-
-msgid "Fully furnished private suites with flexible monthly options, high-speed Wi-Fi, maintenance, and utilities included."
-msgstr "أجنحة خاصة مفروشة بالكامل بخيارات شهرية مرنة، تشمل الإنترنت عالي السرعة والصيانة والمرافق."
-
-msgid "Meeting & Boardrooms"
-msgstr "غرف الاجتماعات ومجالس الإدارة"
-
-msgid "Equipped conference facilities available on-demand for client meetings and seamless team collaborations."
-msgstr "مرافق مؤتمرات مجهزة متاحة عند الطلب لاجتماعات العملاء والتعاون الجماعي بسلاسة."
-
-msgid "The Progress Way"
-msgstr "طريقة بروجريس"
-
-msgid "Business Made Simple from Day One"
-msgstr "أعمال أبسط منذ اليوم الأول"
-
-msgid "From CR support to flexible monthly workspaces, we help businesses start faster, operate smoothly, and grow with confidence."
-msgstr "من دعم السجل التجاري إلى مساحات العمل الشهرية المرنة، نساعد الشركات على الانطلاق بسرعة والعمل بسلاسة والنمو بثقة."
-
-msgid "Prime Location"
-msgstr "موقع متميز"
-
-msgid "Professional workspace in Bahrain's Seef business district."
-msgstr "مساحة عمل احترافية في منطقة السيف التجارية بمملكة البحرين."
-
+#: .\main_app\templates\base.html:226
+msgid "Private Offices"
+msgstr "مكاتب خاصة"
+
+#: .\main_app\templates\base.html:227 .\main_app\templates\spaces\index.html:20
+msgid "Meeting Rooms"
+msgstr "غرف الاجتماعات"
+
+#: .\main_app\templates\base.html:228 .\main_app\templates\index.html:91
+#: .\main_app\templates\services\index.html:21
+msgid "Virtual Office"
+msgstr "المكتب الافتراضي"
+
+#: .\main_app\templates\base.html:230
 msgid "Business Support"
 msgstr "دعم الأعمال"
 
-msgid "Practical support with new CR applications, renewals, and day-to-day administration."
-msgstr "دعم عملي لطلبات السجل التجاري الجديدة والتجديدات والإدارة اليومية."
+#: .\main_app\templates\base.html:235
+msgid "Connect"
+msgstr "تواصل معنا"
 
-msgid "Ready to Operate"
-msgstr "جاهز لبدء العمل"
+#: .\main_app\templates\base.html:238 .\main_app\templates\index.html:209
+msgid "Request a Visit"
+msgstr "اطلب زيارة"
 
-msgid "Fully equipped spaces and essential support prepared from day one."
-msgstr "مساحات مجهزة بالكامل ودعم أساسي متاحان منذ اليوم الأول."
+#: .\main_app\templates\base.html:239 .\main_app\templates\faq\index.html:10
+msgid "FAQ"
+msgstr "الأسئلة الشائعة"
 
-msgid "Why Choose Bahrain?"
-msgstr "لماذا تختار البحرين؟"
+#: .\main_app\templates\base.html:246
+msgid "Copyright 2026 Progress Business Centre. All Rights Reserved."
+msgstr "حقوق النشر 2026 مركز بروجريس للأعمال. جميع الحقوق محفوظة."
 
-msgid "The Middle East's most favorable economic environment for foreign investors."
-msgstr "البيئة الاقتصادية الأكثر تفضيلاً في الشرق الأوسط للمستثمرين الأجانب."
+#: .\main_app\templates\base.html:247
+msgid "Progress Business Centre provides support services, not government approvals."
+msgstr "يقدم مركز بروجريس للأعمال خدمات الدعم، وليس الموافقات الحكومية."
 
+#: .\main_app\templates\bookings\create.html:12
+msgid "Meeting Room Booking"
+msgstr "حجز غرفة اجتماعات"
+
+#: .\main_app\templates\bookings\create.html:14
+msgid "Private Office Reservation"
+msgstr "حجز مكتب خاص"
+
+#: .\main_app\templates\bookings\create.html:17
+msgid "Complete Your Booking"
+msgstr "أكمل حجزك"
+
+#: .\main_app\templates\bookings\create.html:20
+#: .\main_app\templates\bookings\create.html:338
+#: .\main_app\templates\index.html:64 .\main_app\templates\index.html:80
+#: .\main_app\templates\spaces\_office_card.html:11
+#: .\main_app\templates\spaces\index.html:37
+msgid "Starting from"
+msgstr "يبدأ السعر من"
+
+#: .\main_app\templates\bookings\create.html:23
+#: .\main_app\templates\bookings\create.html:341
+#: .\main_app\templates\index.html:64
+msgid "hour"
+msgstr "ساعة"
+
+#: .\main_app\templates\bookings\create.html:25
+#: .\main_app\templates\bookings\create.html:343
+#: .\main_app\templates\index.html:80
+msgid "month"
+msgstr "شهر"
+
+#: .\main_app\templates\bookings\create.html:43
+msgid "Please review the highlighted issues:"
+msgstr "يرجى مراجعة المشكلات الموضحة أدناه:"
+
+#: .\main_app\templates\bookings\create.html:60
+msgid "Step 01"
+msgstr "الخطوة 01"
+
+#: .\main_app\templates\bookings\create.html:61
+msgid "Your Contact Information"
+msgstr "معلومات الاتصال الخاصة بك"
+
+#: .\main_app\templates\bookings\create.html:96
+msgid "Optional for corporate office rentals."
+msgstr "اختياري لتأجير المكاتب المؤسسية."
+
+#: .\main_app\templates\bookings\create.html:117
+msgid "Step 02"
+msgstr "الخطوة 02"
+
+#: .\main_app\templates\bookings\create.html:120
+msgid "Select Date & Time Slot"
+msgstr "اختر التاريخ والفترة الزمنية"
+
+#: .\main_app\templates\bookings\create.html:122
+msgid "Select Rental Duration"
+msgstr "اختر مدة الإيجار"
+
+#: .\main_app\templates\bookings\create.html:131
+msgid "1. Select Meeting Date"
+msgstr "١. اختر تاريخ الاجتماع"
+
+#: .\main_app\templates\bookings\create.html:134
+msgid "Previous month"
+msgstr "الشهر السابق"
+
+#: .\main_app\templates\bookings\create.html:146
+msgid "Next month"
+msgstr "الشهر التالي"
+
+#: .\main_app\templates\bookings\create.html:151
+#: .\main_app\templates\bookings\create.html:240
+#: .\main_app\templates\bookings\create.html:290
+msgid "Sun"
+msgstr "الأحد"
+
+#: .\main_app\templates\bookings\create.html:151
+#: .\main_app\templates\bookings\create.html:240
+#: .\main_app\templates\bookings\create.html:290
+msgid "Mon"
+msgstr "الإثنين"
+
+#: .\main_app\templates\bookings\create.html:151
+#: .\main_app\templates\bookings\create.html:240
+#: .\main_app\templates\bookings\create.html:290
+msgid "Tue"
+msgstr "الثلاثاء"
+
+#: .\main_app\templates\bookings\create.html:151
+#: .\main_app\templates\bookings\create.html:240
+#: .\main_app\templates\bookings\create.html:290
+msgid "Wed"
+msgstr "الأربعاء"
+
+#: .\main_app\templates\bookings\create.html:151
+#: .\main_app\templates\bookings\create.html:240
+#: .\main_app\templates\bookings\create.html:290
+msgid "Thu"
+msgstr "الخميس"
+
+#: .\main_app\templates\bookings\create.html:151
+#: .\main_app\templates\bookings\create.html:240
+#: .\main_app\templates\bookings\create.html:290
+msgid "Fri"
+msgstr "الجمعة"
+
+#: .\main_app\templates\bookings\create.html:151
+#: .\main_app\templates\bookings\create.html:240
+#: .\main_app\templates\bookings\create.html:290
+msgid "Sat"
+msgstr "السبت"
+
+#: .\main_app\templates\bookings\create.html:173
+msgid "Selected Date:"
+msgstr "التاريخ المحدد:"
+
+#: .\main_app\templates\bookings\create.html:181
+msgid "2. Select Time Slot"
+msgstr "٢. اختر الفترة الزمنية"
+
+#: .\main_app\templates\bookings\create.html:196
+msgid "No preset slots for this day. Enter custom hours below."
+msgstr "لا توجد فترات زمنية محددة مسبقاً لهذا اليوم. أدخل الساعات يدوياً أدناه."
+
+#: .\main_app\templates\bookings\create.html:220
+msgid "1. Lease Start Date"
+msgstr "١. تاريخ بدء الإيجار"
+
+#: .\main_app\templates\bookings\create.html:262
+msgid "Start Date:"
+msgstr "تاريخ البداية:"
+
+#: .\main_app\templates\bookings\create.html:270
+msgid "2. Lease End Date"
+msgstr "٢. تاريخ انتهاء الإيجار"
+
+#: .\main_app\templates\bookings\create.html:312
+msgid "Confirm End Date:"
+msgstr "تأكيد تاريخ النهاية:"
+
+#: .\main_app\templates\bookings\create.html:320
+msgid "Note: The office space must remain unreserved for all consecutive days within your selected date range."
+msgstr "ملاحظة: يجب أن تكون مساحة المكتب غير محجوزة طوال الأيام المتتالية ضمن الفترة الزمنية التي اخترتها."
+
+#: .\main_app\templates\bookings\create.html:329
+msgid "Booking Summary"
+msgstr "ملخص الحجز"
+
+#: .\main_app\templates\bookings\create.html:333
+#: .\main_app\templates\offices\detail.html:42
+#: .\main_app\templates\rooms\detail.html:44
+msgid "Location"
+msgstr "الموقع"
+
+#: .\main_app\templates\bookings\create.html:350
+msgid "Selected Date"
+msgstr "التاريخ المحدد"
+
+#: .\main_app\templates\bookings\create.html:367
+msgid "Submit Booking Request"
+msgstr "إرسال طلب الحجز"
+
+#: .\main_app\templates\bookings\create.html:369
+msgid "Pricing is flexible. Final rates will be confirmed after our team reviews your request."
+msgstr "الأسعار مرنة، وسيؤكد فريقنا الأسعار النهائية بعد مراجعة طلبك."
+
+#: .\main_app\templates\bookings\success.html:10
+msgid "Confirmation"
+msgstr "تأكيد"
+
+#: .\main_app\templates\bookings\success.html:11
+msgid "Booking Request Received"
+msgstr "تم استلام طلب الحجز"
+
+#: .\main_app\templates\bookings\success.html:28
+msgid "Booking Request Submitted"
+msgstr "تم إرسال طلب الحجز"
+
+#: .\main_app\templates\bookings\success.html:31
+msgid "Your booking request has been received and is Pending. Our team will review it and send you an email when its status changes."
+msgstr "تم استلام طلب الحجز وهو قيد المراجعة. سيراجعه فريقنا وسنرسل إليك بريداً إلكترونياً عند تغير حالته."
+
+#: .\main_app\templates\bookings\success.html:35
+msgid "View My Dashboard"
+msgstr "عرض لوحة طلباتي"
+
+#: .\main_app\templates\business\register.html:11
+msgid "Professional CR & Business Setup Support"
+msgstr "دعم احترافي للسجل التجاري وتأسيس الأعمال"
+
+#: .\main_app\templates\business\register.html:12
+msgid "We assist with new Commercial Registration applications, CR renewals, and flexible monthly workspace solutions for businesses in Bahrain."
+msgstr "نساعد في طلبات إصدار سجلات تجارية جديدة وتجديد السجلات التجارية، ونوفر حلول مساحات عمل شهرية مرنة للشركات في البحرين."
+
+#: .\main_app\templates\business\register.html:22
+msgid "Application Form"
+msgstr "نموذج الطلب"
+
+#: .\main_app\templates\business\register.html:23
+msgid "Please provide your corporate and personal details below to initiate your setup."
+msgstr "يرجى تقديم تفاصيل شركتك وتفاصيلك الشخصية أدناه لبدء عملية التأسيس."
+
+#: .\main_app\templates\business\register.html:24
+msgid "Progress Business Centre provides support and assistance with obtaining or renewing a Commercial Registration (CR). We are not a government authority, and final decisions remain with the relevant authorities."
+msgstr "يقدم مركز بروغرس للأعمال الدعم والمساعدة في الحصول على سجل تجاري أو تجديده. ولسنا جهة حكومية، وتبقى القرارات النهائية من اختصاص الجهات المعنية."
+
+#: .\main_app\templates\business\register.html:27
+msgid "How CR support works"
+msgstr "كيف تعمل خدمة دعم السجل التجاري"
+
+#: .\main_app\templates\business\register.html:28
+msgid "Submit your request"
+msgstr "أرسل طلبك"
+
+#: .\main_app\templates\business\register.html:29
+msgid "Our team reviews your requirements"
+msgstr "يراجع فريقنا متطلباتك"
+
+#: .\main_app\templates\business\register.html:30
+msgid "We assist with the appropriate process"
+msgstr "نساعدك في الإجراءات المناسبة"
+
+#: .\main_app\templates\business\register.html:31
+msgid "Track progress through your dashboard"
+msgstr "تابع التقدم من خلال لوحة التحكم"
+
+#: .\main_app\templates\business\register.html:83
+msgid "Please upload clear copies of your CPR and Passport."
+msgstr "يرجى تحميل نسخ واضحة من البطاقة الشخصية وجواز السفر."
+
+#: .\main_app\templates\business\register.html:88
+msgid "Please correct the errors above."
+msgstr "يرجى تصحيح الأخطاء أعلاه."
+
+#: .\main_app\templates\business\register.html:92
+msgid "Submit CR Support Request"
+msgstr "إرسال طلب دعم السجل التجاري"
+
+#: .\main_app\templates\business\success.html:11
+msgid "Virtual Office Application Received!"
+msgstr "تم استلام طلب المكتب الافتراضي!"
+
+#: .\main_app\templates\business\success.html:12
+msgid "Your application for professional business services has been successfully submitted."
+msgstr "تم تقديم طلبك للحصول على خدمات الأعمال الاحترافية بنجاح."
+
+#: .\main_app\templates\business\success.html:26
+msgid "Application Under Review"
+msgstr "الطلب قيد المراجعة"
+
+#: .\main_app\templates\business\success.html:29
+msgid "Our corporate setup team is reviewing your documents and application details. We will contact you shortly to complete the process."
+msgstr "يقوم فريق التأسيس المؤسسي بمراجعة مستنداتك وتفاصيل طلبك. سنتواصل معك قريباً لإكمال العملية."
+
+#: .\main_app\templates\business\success.html:33
+msgid "Back To Home"
+msgstr "العودة إلى الرئيسية"
+
+#: .\main_app\templates\contact\detail.html:9
+msgid "Contact Progress Business Centre"
+msgstr "اتصل بمركز بروجريس للأعمال"
+
+#: .\main_app\templates\contact\detail.html:10
+msgid "Speak with our team, discover our locations, and find the workspace solution that fits your business."
+msgstr "تحدث مع فريقنا، وتعرّف على مواقعنا، واختر حل مساحة العمل المناسب لأعمالك."
+
+#: .\main_app\templates\contact\detail.html:21
+msgid "We're here to help"
+msgstr "نحن هنا لمساعدتك"
+
+#: .\main_app\templates\contact\detail.html:22
+msgid "Get in Touch"
+msgstr "تواصل معنا"
+
+#: .\main_app\templates\contact\detail.html:35
+msgid "Call Us Directly"
+msgstr "اتصل بنا مباشرة"
+
+#: .\main_app\templates\contact\detail.html:36
+msgid "Talk to our workspace consultants and get tailored guidance for your business."
+msgstr "تحدث مع مستشاري مساحات العمل لدينا واحصل على إرشاد مخصص لأعمالك."
+
+#: .\main_app\templates\contact\detail.html:51
+msgid "Email Us"
+msgstr "راسلنا عبر البريد الإلكتروني"
+
+#: .\main_app\templates\contact\detail.html:52
+msgid "Send us an email and we'll get back to you within 24 hours."
+msgstr "أرسل إلينا بريداً إلكترونياً وسنرد عليك خلال 24 ساعة."
+
+#: .\main_app\templates\contact\detail.html:66
+msgid "Chat on WhatsApp"
+msgstr "دردش عبر واتساب"
+
+#: .\main_app\templates\contact\detail.html:67
+msgid "Send us a message and our team will respond as soon as possible."
+msgstr "أرسل إلينا رسالة وسيرد عليك فريقنا في أقرب وقت ممكن."
+
+#: .\main_app\templates\contact\detail.html:69
+msgid "Message Us"
+msgstr "أرسل لنا رسالة"
+
+#: .\main_app\templates\contact\detail.html:81
+msgid "Visit us in Bahrain"
+msgstr "تفضل بزيارتنا في البحرين"
+
+#: .\main_app\templates\contact\detail.html:82
+#: .\main_app\templates\index.html:178
+msgid "Our Locations"
+msgstr "مواقعنا"
+
+#: .\main_app\templates\contact\detail.html:83
+msgid "Choose the location most convenient for you, then get directions in one click."
+msgstr "اختر الموقع الأنسب لك، ثم احصل على الاتجاهات بنقرة واحدة."
+
+#: .\main_app\templates\contact\detail.html:107
+msgid "Click to open in Google Maps"
+msgstr "انقر للفتح في خرائط Google"
+
+#: .\main_app\templates\contact\detail.html:111
+#: .\main_app\templates\index.html:189
+#: .\main_app\templates\spaces\index.html:66
+msgid "Head Office"
+msgstr "المكتب الرئيسي"
+
+#: .\main_app\templates\contact\detail.html:111
+#: .\main_app\templates\dashboard\index.html:24
+#: .\main_app\templates\index.html:189
+msgid "Branch"
+msgstr "الفرع"
+
+#: .\main_app\templates\contact\detail.html:117
+msgid "Find our exact location below and get directions directly to our doorstep."
+msgstr "اعثر على موقعنا الدقيق أدناه واحصل على الاتجاهات للوصول إلينا مباشرة."
+
+#: .\main_app\templates\contact\detail.html:137
+msgid "No branches are available at the moment."
+msgstr "لا توجد فروع متاحة في الوقت الحالي."
+
+#: .\main_app\templates\contact\detail.html:147
+msgid "Let's Find Your Perfect Workspace"
+msgstr "لنجد مساحة العمل المثالية لك"
+
+#: .\main_app\templates\contact\detail.html:148
+msgid "Connect with our team to find the ideal workspace solution for your business."
+msgstr "تواصل مع فريقنا للعثور على حل مساحة العمل المثالي لأعمالك."
+
+#: .\main_app\templates\dashboard\index.html:7
+msgid "Client Portal"
+msgstr "بوابة العملاء"
+
+#: .\main_app\templates\dashboard\index.html:9
+msgid "Track your workspace, business registration, and visit requests in one place."
+msgstr "تابع طلبات مساحات العمل وتسجيل الأعمال والزيارات في مكان واحد."
+
+#: .\main_app\templates\dashboard\index.html:15
+msgid "Space Bookings"
+msgstr "طلبات حجز المساحات"
+
+#: .\main_app\templates\dashboard\index.html:15
+msgid "Meeting Rooms & Offices"
+msgstr "غرف الاجتماعات والمكاتب"
+
+#: .\main_app\templates\dashboard\index.html:20
+#: .\main_app\templates\index.html:59 .\main_app\templates\rooms\detail.html:9
+msgid "Meeting Room"
+msgstr "غرفة اجتماعات"
+
+#: .\main_app\templates\dashboard\index.html:20
+msgid "Office"
+msgstr "مكتب"
+
+#: .\main_app\templates\dashboard\index.html:25
+msgid "Requested Date"
+msgstr "التاريخ المطلوب"
+
+#: .\main_app\templates\dashboard\index.html:26
+msgid "Time"
+msgstr "الوقت"
+
+#: .\main_app\templates\dashboard\index.html:27
+msgid "Not provided"
+msgstr "غير متوفر"
+
+#: .\main_app\templates\dashboard\index.html:28
+#: .\main_app\templates\dashboard\index.html:43
+#: .\main_app\templates\dashboard\index.html:55
+msgid "Submitted"
+msgstr "تاريخ التقديم"
+
+#: .\main_app\templates\dashboard\index.html:32
+msgid "No booking requests yet."
+msgstr "لا توجد طلبات حجز حتى الآن."
+
+#: .\main_app\templates\dashboard\index.html:32
+#: .\main_app\templates\index.html:12
+#: .\main_app\templates\services\index.html:95
+#: .\main_app\templates\services\index.html:100
+msgid "Explore Our Spaces"
+msgstr "استكشف مساحاتنا"
+
+#: .\main_app\templates\dashboard\index.html:38
+msgid "Business Services"
+msgstr "خدمات الأعمال"
+
+#: .\main_app\templates\dashboard\index.html:38
+msgid "CR Applications"
+msgstr "طلبات السجل التجاري"
+
+#: .\main_app\templates\dashboard\index.html:45
+msgid "No CR support requests yet."
+msgstr "لا توجد طلبات دعم للسجل التجاري حتى الآن."
+
+#: .\main_app\templates\dashboard\index.html:45
+#: .\main_app\templates\index.html:133
+msgid "Request CR Support"
+msgstr "اطلب دعم السجل التجاري"
+
+#: .\main_app\templates\dashboard\index.html:50
+msgid "Visits"
+msgstr "الزيارات"
+
+#: .\main_app\templates\dashboard\index.html:50
+msgid "Visit Requests"
+msgstr "طلبات الزيارة"
+
+#: .\main_app\templates\dashboard\index.html:54
+msgid "Visit Request"
+msgstr "طلب زيارة"
+
+#: .\main_app\templates\dashboard\index.html:57
+msgid "No visit requests yet."
+msgstr "لا توجد طلبات زيارة حتى الآن."
+
+#: .\main_app\templates\dashboard\index.html:57
+msgid "Arrange a Visit"
+msgstr "رتّب زيارة"
+
+#: .\main_app\templates\faq\index.html:9
+msgid "Frequently Asked Questions"
+msgstr "الأسئلة الأكثر شيوعاً"
+
+#: .\main_app\templates\faq\index.html:11
+msgid "Quick Answers"
+msgstr "إجابات سريعة"
+
+#: .\main_app\templates\faq\index.html:12
+msgid "Explore flexible office solutions and booking procedures at Progress Business Centre."
+msgstr "استكشف حلول المكاتب المرنة وإجراءات الحجز في مركز بروجريس للأعمال."
+
+#: .\main_app\templates\faq\index.html:35
+msgid "No questions available."
+msgstr "لا توجد أسئلة متاحة."
+
+#: .\main_app\templates\faq\index.html:43
+msgid "Still have questions?"
+msgstr "هل لا تزال لديك أسئلة؟"
+
+#: .\main_app\templates\faq\index.html:44
+msgid "Reach out to our support team for personalized assistance."
+msgstr "تواصل مع فريق الدعم لدينا للحصول على مساعدة مخصصة."
+
+#: .\main_app\templates\faq\index.html:46
+msgid "Contact Support"
+msgstr "اتصل بالدعم"
+
+#: .\main_app\templates\form.html:11
+msgid "Form"
+msgstr "نموذج"
+
+#: .\main_app\templates\form.html:26
+msgid "Submit"
+msgstr "إرسال"
+
+#: .\main_app\templates\gallery\detail.html:12
+msgid "A closer look at our workspace and facilities."
+msgstr "نظرة عن قرب على مساحة العمل والمرافق لدينا."
+
+#: .\main_app\templates\gallery\detail.html:26
+msgid "Back to Gallery"
+msgstr "العودة إلى معرض الصور"
+
+#: .\main_app\templates\index.html:8
+msgid "Bahrain · GCC"
+msgstr "البحرين · دول الخليج"
+
+#: .\main_app\templates\index.html:9
+msgid "Your Launchpad to Business in the GCC"
+msgstr "منطلقك للأعمال في دول الخليج"
+
+#: .\main_app\templates\index.html:10
+msgid "Flexible workspaces and business support designed to help you establish, operate, and grow from Bahrain across the GCC."
+msgstr "مساحات عمل مرنة ودعم للأعمال لمساعدتك على التأسيس والتشغيل والنمو من البحرين إلى مختلف دول الخليج."
+
+#: .\main_app\templates\index.html:13
+msgid "Get Business Support"
+msgstr "احصل على دعم الأعمال"
+
+#: .\main_app\templates\index.html:17
+msgid "Progress Business Centre workspace"
+msgstr "مساحة عمل مركز بروجريس للأعمال"
+
+#: .\main_app\templates\index.html:24
+#: .\main_app\templates\services\index.html:11
+msgid "What We Offer"
+msgstr "ما نقدمه"
+
+#: .\main_app\templates\index.html:25
+msgid "Workspace and support, built around your business"
+msgstr "مساحات عمل ودعم مصممان حول احتياجات أعمالك"
+
+#: .\main_app\templates\index.html:26
+msgid "Practical solutions for establishing your presence, running your business, and working professionally in Bahrain."
+msgstr "حلول عملية لتأسيس حضورك وإدارة أعمالك والعمل باحترافية في البحرين."
+
+#: .\main_app\templates\index.html:37
+msgid "Our service information is being updated."
+msgstr "يجري تحديث معلومات خدماتنا."
+
+#: .\main_app\templates\index.html:40
+msgid "Explore all services"
+msgstr "استكشف جميع الخدمات"
+
+#: .\main_app\templates\index.html:47
+msgid "Professional spaces for focused work"
+msgstr "مساحات احترافية للعمل بتركيز"
+
+#: .\main_app\templates\index.html:48
+msgid "Discover meeting rooms and private offices across our two Bahrain locations."
+msgstr "اكتشف غرف الاجتماعات والمكاتب الخاصة في موقعينا بالبحرين."
+
+#: .\main_app\templates\index.html:50
+msgid "View all spaces"
+msgstr "عرض جميع المساحات"
+
+#: .\main_app\templates\index.html:56 .\main_app\templates\index.html:72
 #, python-format
-msgid "100%% Foreign Ownership"
-msgstr "ملكية أجنبية بنسبة ١٠٠٪"
+msgid "View %(name)s"
+msgstr "عرض %(name)s"
 
-msgid "Enjoy full commercial ownership of your enterprise without requiring a local partner. Bahrain acts as your direct gateway to Saudi Arabia and rapid connections to all major Middle Eastern markets."
-msgstr "تمتع بالملكية التجارية الكاملة لمؤسستك دون الحاجة إلى شريك محلي. تشكل البحرين بوابتك المباشرة إلى المملكة العربية السعودية وروابط سريعة لجميع أسواق الشرق الأوسط الرئيسية."
+#: .\main_app\templates\index.html:75
+msgid "Private Office"
+msgstr "مكتب خاص"
 
-msgid "Unmatched Profitability"
-msgstr "ربحية لا مثيل لها"
+#: .\main_app\templates\index.html:86
+msgid "Indicative rates are flexible. Final pricing is confirmed after reviewing your duration and requirements."
+msgstr "الأسعار الاسترشادية مرنة، ويُؤكد السعر النهائي بعد مراجعة المدة والمتطلبات."
 
-#, python-format
-msgid "Maximize profitability in a 0%% corporate and personal income tax environment, paired with highly competitive setup, rental, and utility costs compared to neighboring GCC business hubs."
-msgstr "عزز ربحيتك في بيئة ضريبية بنسبة ٠٪ على الشركات والدخل الشخصي، بالإضافة إلى تكاليف تأسيس وإيجار ومرافق تنافسية للغاية مقارنة بمراكز الأعمال المجاورة في الخليج."
+#: .\main_app\templates\index.html:92
+msgid "Establish Your Business Presence Without a Traditional Office"
+msgstr "أسّس حضور أعمالك دون الحاجة إلى مكتب تقليدي"
 
-msgid "Ready to Establish Your Business?"
-msgstr "هل أنت مستعد لتأسيس عملك؟"
+#: .\main_app\templates\index.html:96
+msgid "Create a professional presence in Bahrain with business address and administrative support tailored to your requirements."
+msgstr "أنشئ حضوراً مهنياً في البحرين مع عنوان أعمال ودعم إداري مصممين وفق متطلباتك."
 
-msgid "Contact our team today to find the ideal workspace for your growth."
-msgstr "تواصل مع فريقنا اليوم للعثور على مساحة العمل المثالية لنموك."
+#: .\main_app\templates\index.html:99
+msgid "Professional business address"
+msgstr "عنوان أعمال احترافي"
 
-msgid "Talk to Our Consultants"
-msgstr "تحدث مع مستشارينا"
+#: .\main_app\templates\index.html:100
+#: .\main_app\templates\services\index.html:25
+msgid "Mail and call handling support"
+msgstr "دعم التعامل مع البريد والمكالمات"
 
+#: .\main_app\templates\index.html:101
+msgid "Flexible workspace access"
+msgstr "وصول مرن إلى مساحات العمل"
+
+#: .\main_app\templates\index.html:102
+msgid "Administrative support when needed"
+msgstr "دعم إداري عند الحاجة"
+
+#: .\main_app\templates\index.html:104
+#: .\main_app\templates\services\index.html:29
+msgid "Enquire About Virtual Office"
+msgstr "استفسر عن المكتب الافتراضي"
+
+#: .\main_app\templates\index.html:107
+msgid "Virtual office support at Progress Business Centre"
+msgstr "دعم المكتب الافتراضي في مركز بروجريس للأعمال"
+
+#: .\main_app\templates\index.html:113
+msgid "Professional workspace at Progress Business Centre"
+msgstr "مساحة عمل احترافية في مركز بروجريس للأعمال"
+
+#: .\main_app\templates\index.html:116
+msgid "Why Progress"
+msgstr "لماذا بروجريس"
+
+#: .\main_app\templates\index.html:117
+msgid "A practical base for doing business in Bahrain"
+msgstr "قاعدة عملية لممارسة الأعمال في البحرين"
+
+#: .\main_app\templates\index.html:118
+msgid "Professional spaces, responsive support, and flexible arrangements that adapt as your business evolves."
+msgstr "مساحات احترافية ودعم متجاوب وترتيبات مرنة تتكيف مع تطور أعمالك."
+
+#: .\main_app\templates\index.html:120
+msgid "Strategic locations"
+msgstr "مواقع استراتيجية"
+
+#: .\main_app\templates\index.html:120
+msgid "Work from established business locations in Bahrain."
+msgstr "اعمل من مواقع أعمال راسخة في البحرين."
+
+#: .\main_app\templates\index.html:121
+msgid "Flexible terms"
+msgstr "شروط مرنة"
+
+#: .\main_app\templates\index.html:121
+msgid "Choose arrangements shaped around your duration and requirements."
+msgstr "اختر ترتيبات مصممة وفق المدة والمتطلبات الخاصة بك."
+
+#: .\main_app\templates\index.html:122
+msgid "Professional support"
+msgstr "دعم احترافي"
+
+#: .\main_app\templates\index.html:122
+msgid "Access practical workspace and administrative support when needed."
+msgstr "استفد من مساحة عمل عملية ودعم إداري عند الحاجة."
+
+#: .\main_app\templates\index.html:129
+msgid "CR & Business Support"
+msgstr "دعم السجل التجاري وتأسيس الأعمال"
+
+#: .\main_app\templates\index.html:130
+msgid "Support for establishing and maintaining your business presence"
+msgstr "دعم لتأسيس حضور أعمالك والمحافظة عليه"
+
+#: .\main_app\templates\index.html:131
+msgid "We assist with new Commercial Registration applications and CR renewals through the appropriate authorities, alongside workspace and administrative support."
+msgstr "نساعد في طلبات السجل التجاري الجديدة وتجديد السجلات عبر الجهات المختصة، إلى جانب توفير مساحات العمل والدعم الإداري."
+
+#: .\main_app\templates\index.html:132
+msgid "Progress Business Centre provides assistance and is not the government authority responsible for issuing or approving a CR."
+msgstr "يقدم مركز بروجريس للأعمال المساعدة، وليس الجهة الحكومية المسؤولة عن إصدار السجل التجاري أو الموافقة عليه."
+
+#: .\main_app\templates\index.html:136
+msgid "Business support consultation"
+msgstr "استشارة دعم الأعمال"
+
+#: .\main_app\templates\index.html:141
+msgid "Tailored Arrangements"
+msgstr "ترتيبات مخصصة"
+
+#: .\main_app\templates\index.html:142
+msgid "Flexible Solutions. Flexible Terms."
+msgstr "حلول مرنة. شروط مرنة."
+
+#: .\main_app\templates\index.html:143
+msgid "Every business is different. Our workspace arrangements and pricing can be adjusted based on your requirements, duration, and selected services."
+msgstr "لكل عمل احتياجاته؛ لذا يمكن تعديل ترتيبات مساحات العمل والأسعار وفق متطلباتك والمدة والخدمات المختارة."
+
+#: .\main_app\templates\index.html:144
+msgid "Discuss your requirements"
+msgstr "ناقش متطلباتك معنا"
+
+#: .\main_app\templates\index.html:150
+msgid "Inside Progress"
+msgstr "داخل بروجريس"
+
+#: .\main_app\templates\index.html:151
+msgid "A closer look at where business happens"
+msgstr "نظرة عن قرب على المكان الذي تنمو فيه الأعمال"
+
+#: .\main_app\templates\index.html:152
+msgid "Explore our offices, meeting rooms, and professional environment through recent Progress photography."
+msgstr "استكشف مكاتبنا وغرف الاجتماعات وبيئتنا الاحترافية من خلال أحدث صور بروجريس."
+
+#: .\main_app\templates\index.html:155
+msgid "Gallery controls"
+msgstr "أدوات التحكم في معرض الصور"
+
+#: .\main_app\templates\index.html:156
+msgid "Previous image"
+msgstr "الصورة السابقة"
+
+#: .\main_app\templates\index.html:157
+msgid "Next image"
+msgstr "الصورة التالية"
+
+#: .\main_app\templates\index.html:163
+msgid "Progress workspace gallery"
+msgstr "معرض مساحات عمل بروجريس"
+
+#: .\main_app\templates\index.html:172
+msgid "More workspace photography will be available soon."
+msgstr "ستتوفر قريباً المزيد من صور مساحات العمل."
+
+#: .\main_app\templates\index.html:179
+msgid "Two locations. One professional standard."
+msgstr "موقعان. معيار احترافي واحد."
+
+#: .\main_app\templates\index.html:180
+msgid "Choose the Progress Business Centre location that best supports your day-to-day business needs."
+msgstr "اختر موقع مركز بروجريس للأعمال الأنسب لاحتياجات أعمالك اليومية."
+
+#: .\main_app\templates\index.html:192
+msgid "View location"
+msgstr "عرض الموقع"
+
+#: .\main_app\templates\index.html:196
+msgid "Location information is being updated."
+msgstr "يجري تحديث معلومات المواقع."
+
+#: .\main_app\templates\index.html:203
+msgid "Start a Conversation"
+msgstr "ابدأ محادثة"
+
+#: .\main_app\templates\index.html:204
+msgid "Find the right space and support for your business"
+msgstr "اعثر على المساحة والدعم المناسبين لأعمالك"
+
+#: .\main_app\templates\index.html:205
+msgid "Tell us what you need and our team will guide you toward a suitable solution."
+msgstr "أخبرنا بما تحتاج إليه، وسيرشدك فريقنا نحو الحل المناسب."
+
+#: .\main_app\templates\offices\detail.html:9
 msgid "Office Details"
 msgstr "تفاصيل المكتب"
 
+#: .\main_app\templates\offices\detail.html:11
 msgid "Professional serviced offices ready for immediate business operations."
 msgstr "مكاتب مخدومة احترافية جاهزة للعمليات التجارية الفورية."
 
-msgid "Back to Offices"
-msgstr "العودة إلى المكاتب"
+#: .\main_app\templates\offices\detail.html:21
+#: .\main_app\templates\rooms\detail.html:21
+msgid "Back to Our Spaces"
+msgstr "العودة إلى مساحاتنا"
 
+#: .\main_app\templates\offices\detail.html:53
+#: .\main_app\templates\rooms\detail.html:67
 msgid "Indicative rate"
 msgstr "سعر استرشادي"
 
+#: .\main_app\templates\offices\detail.html:54
 msgid "mo"
 msgstr "شهر"
 
+#: .\main_app\templates\offices\detail.html:61
 msgid "Availability & Booking"
 msgstr "التوفر والحجز"
 
+#: .\main_app\templates\offices\detail.html:63
+#: .\main_app\templates\rooms\detail.html:77
 msgid "Flexible pricing"
 msgstr "أسعار مرنة"
 
+#: .\main_app\templates\offices\detail.html:65
 msgid "/ mo"
 msgstr "/ شهرياً"
 
+#: .\main_app\templates\offices\detail.html:67
+#: .\main_app\templates\rooms\detail.html:81
 msgid "Rates may vary based on duration and requirements. Final pricing will be confirmed by our team after reviewing your request."
 msgstr "قد تختلف الأسعار حسب المدة والمتطلبات. سيؤكد فريقنا السعر النهائي بعد مراجعة طلبك."
 
+#: .\main_app\templates\offices\detail.html:68
 msgid "View real‑time availability and book your preferred dates using the calendar."
 msgstr "اطلع على التوفر الفعلي واحجز التواريخ التي تفضلها باستخدام التقويم."
 
+#: .\main_app\templates\offices\detail.html:70
+#: .\main_app\templates\rooms\detail.html:84
 msgid "Request This Space"
 msgstr "اطلب هذه المساحة"
 
-msgid "Workspaces"
-msgstr "مساحات العمل"
-
-msgid "Private Serviced Offices"
-msgstr "المكاتب الخاصة المخدومة"
-
-msgid "Discover fully furnished offices with flexible monthly options, premium facilities, and professional business support."
-msgstr "اكتشف مكاتب مفروشة بالكامل بخيارات شهرية مرنة ومرافق متميزة ودعم مهني للأعمال."
-
-msgid "Rates may vary based on duration, space, and requirements. Final pricing will be confirmed by our team."
-msgstr "قد تختلف الأسعار حسب المدة والمساحة والمتطلبات، وسيؤكد فريقنا السعر النهائي."
-
-msgid "View Office"
-msgstr "عرض المكتب"
-
-msgid "No offices are currently available."
-msgstr "لا توجد مكاتب متاحة حالياً."
-
+#: .\main_app\templates\referrals\index.html:11
 msgid "Refer a Business"
 msgstr "أحلِ نشاطاً تجارياً"
 
+#: .\main_app\templates\referrals\index.html:12
 msgid "Know someone looking for a professional workspace? Refer them to us!"
 msgstr "هل تعرف شخصاً يبحث عن مساحة عمل احترافية؟ أحله إلينا!"
 
+#: .\main_app\templates\referrals\index.html:21
 msgid "Business Referral"
 msgstr "إحالة أعمال"
 
+#: .\main_app\templates\referrals\index.html:22
 msgid "Referral Details"
 msgstr "تفاصيل الإحالة"
 
+#: .\main_app\templates\referrals\index.html:23
 msgid "Fill out the information below to introduce a new business to our network."
 msgstr "املأ المعلومات أدناه لتقديم نشاط تجاري جديد إلى شبكتنا."
 
+#: .\main_app\templates\referrals\index.html:49
 msgid "Submit Referral"
 msgstr "إرسال الإحالة"
 
+#: .\main_app\templates\referrals\success.html:11
 msgid "Referral Dashboard"
 msgstr "لوحة تحكم الإحالة"
 
+#: .\main_app\templates\referrals\success.html:12
 msgid "Thank you for helping our community grow."
 msgstr "شكراً لمساعدتك في نمو مجتمعنا."
 
+#: .\main_app\templates\referrals\success.html:26
 msgid "Referral Submitted!"
 msgstr "تم إرسال الإحالة!"
 
+#: .\main_app\templates\referrals\success.html:29
 msgid "Thank you for sharing. Our team will review your referral and contact them shortly."
 msgstr "شكراً لمشاركتك. سيقوم فريقنا بمراجعة الإحالة والتواصل معهم قريباً."
 
+#: .\main_app\templates\referrals\success.html:34
 msgid "Submit Another Referral"
 msgstr "إرسال إحالة أخرى"
 
+#: .\main_app\templates\referrals\success.html:38
+#: .\main_app\templates\visits\success.html:39
 msgid "Back Home"
 msgstr "العودة إلى الرئيسية"
 
+#: .\main_app\templates\registration\_password_toggle_script.html:10
 msgid "Hide password"
 msgstr "إخفاء كلمة المرور"
 
+#: .\main_app\templates\registration\_password_toggle_script.html:10
+#: .\main_app\templates\registration\login.html:52
+#: .\main_app\templates\registration\signup.html:50
+#: .\main_app\templates\registration\signup.html:66
 msgid "Show password"
 msgstr "إظهار كلمة المرور"
 
+#: .\main_app\templates\registration\_social_auth.html:10
 msgid "Continue with Google"
 msgstr "المتابعة باستخدام Google"
 
-msgid "Welcome Back"
-msgstr "مرحباً بعودتك"
-
-msgid "Sign in to access your dashboard, manage office bookings, and review registration progress."
-msgstr "سجل الدخول للوصول إلى لوحة التحكم وإدارة حجوزات المكاتب ومتابعة تقدم التسجيل."
-
+#: .\main_app\templates\registration\login.html:9
 msgid "Secure Account Access"
 msgstr "دخول آمن إلى الحساب"
 
+#: .\main_app\templates\registration\login.html:10
 msgid "Account Login"
 msgstr "تسجيل الدخول"
 
+#: .\main_app\templates\registration\login.html:11
 msgid "Enter your credentials to continue."
 msgstr "أدخل بيانات الاعتماد للمتابعة."
 
+#: .\main_app\templates\registration\login.html:16
+#: .\main_app\templates\registration\signup.html:16
 msgid "OR"
 msgstr "أو"
 
+#: .\main_app\templates\registration\login.html:29
 msgid "Username / Email"
 msgstr "اسم المستخدم / البريد الإلكتروني"
 
+#: .\main_app\templates\registration\login.html:43
+#: .\main_app\templates\registration\signup.html:43
 msgid "Password"
 msgstr "كلمة المرور"
 
+#: .\main_app\templates\registration\login.html:44
 msgid "Forgot password?"
 msgstr "هل نسيت كلمة المرور؟"
 
+#: .\main_app\templates\registration\login.html:63
 msgid "Don't have an account?"
 msgstr "ليس لديك حساب؟"
 
+#: .\main_app\templates\registration\login.html:63
 msgid "Sign up"
 msgstr "إنشاء حساب"
 
-msgid "Create Account"
-msgstr "إنشاء حساب"
-
-msgid "Join our community and get access to professional workspaces, virtual offices, and meeting rooms."
-msgstr "انضم إلى مجتمعنا واحصل على إمكانية الوصول إلى مساحات عمل احترافية ومكاتب افتراضية وغرف اجتماعات."
-
+#: .\main_app\templates\registration\signup.html:10
 msgid "Get Started"
 msgstr "ابدأ الآن"
 
+#: .\main_app\templates\registration\signup.html:11
 msgid "Create your account to manage bookings and applications."
 msgstr "أنشئ حسابك لإدارة الحجوزات والطلبات."
 
+#: .\main_app\templates\registration\signup.html:29
 msgid "Username"
 msgstr "اسم المستخدم"
 
+#: .\main_app\templates\registration\signup.html:59
 msgid "Confirm Password"
 msgstr "تأكيد كلمة المرور"
 
+#: .\main_app\templates\registration\signup.html:74
+msgid "Create Account"
+msgstr "إنشاء حساب"
+
+#: .\main_app\templates\registration\signup.html:78
 msgid "Already have an account?"
 msgstr "هل لديك حساب بالفعل؟"
 
+#: .\main_app\templates\rooms\detail.html:11
 msgid "Professional meeting facilities designed for productive business discussions."
 msgstr "مرافق اجتماعات احترافية مصممة للمناقشات التجارية المثمرة."
 
-msgid "Back to Meeting Rooms"
-msgstr "العودة إلى غرف الاجتماعات"
-
+#: .\main_app\templates\rooms\detail.html:56
+#: .\main_app\templates\spaces\index.html:49
 msgid "Capacity"
 msgstr "السعة"
 
+#: .\main_app\templates\rooms\detail.html:57
+#: .\main_app\templates\spaces\index.html:49
 msgid "People"
 msgstr "أشخاص"
 
+#: .\main_app\templates\rooms\detail.html:75
 msgid "Availability"
 msgstr "التوفر"
 
+#: .\main_app\templates\rooms\detail.html:79
+#: .\main_app\templates\spaces\index.html:39
 msgid "/ hour"
 msgstr "/ ساعة"
 
+#: .\main_app\templates\rooms\detail.html:82
 msgid "View real‑time availability and book your preferred time slot using the calendar."
 msgstr "اطلع على التوفر الفعلي واحجز الفترة الزمنية التي تفضلها باستخدام التقويم."
 
-msgid "Professional Meeting Rooms"
-msgstr "غرف اجتماعات احترافية"
-
-msgid "Book fully equipped meeting spaces designed for client meetings, presentations, interviews, training sessions and corporate discussions."
-msgstr "احجز مساحات اجتماعات مجهزة بالكامل مصممة لاجتماعات العملاء والعروض التقديمية والمقابلات والدورات التدريبية والمناقشات المؤسسية."
-
-msgid "Meeting Spaces"
-msgstr "مساحات الاجتماعات"
-
-msgid "/ HR"
-msgstr "/ ساعة"
-
-msgid "View Room"
-msgstr "عرض الغرفة"
-
-msgid "No meeting rooms are currently available."
-msgstr "لا توجد غرف اجتماعات متاحة حالياً."
-
-msgid "Workspace & Corporate Solutions in Bahrain"
-msgstr "حلول مساحات العمل والمؤسسات في البحرين"
-
-msgid "Flexible, premium environments engineered for global enterprises, startups, and agile founders."
-msgstr "بيئات مرنة ومتميزة مصممة للمؤسسات العالمية والشركات الناشئة والمؤسسين المرنين."
-
-msgid "Our Services"
-msgstr "خدماتنا"
-
-msgid "Flexible Solutions for Every Stage of Business"
-msgstr "حلول مرنة لكل مرحلة من مراحل الأعمال"
-
+#: .\main_app\templates\services\index.html:12
 msgid "From CR and business setup support to flexible monthly workspaces, our services are designed to make operating in Bahrain simpler."
 msgstr "من دعم السجل التجاري وتأسيس الأعمال إلى مساحات العمل الشهرية المرنة، صُممت خدماتنا لتسهيل مزاولة الأعمال في البحرين."
 
+#: .\main_app\templates\services\index.html:20
+msgid "Featured Service"
+msgstr "خدمة مميزة"
+
+#: .\main_app\templates\services\index.html:24
+msgid "Professional business presence"
+msgstr "حضور أعمال احترافي"
+
+#: .\main_app\templates\services\index.html:26
+msgid "Flexible monthly arrangements"
+msgstr "ترتيبات شهرية مرنة"
+
+#: .\main_app\templates\services\index.html:27
+msgid "Access to workspace solutions"
+msgstr "الوصول إلى حلول مساحات العمل"
+
+#: .\main_app\templates\services\index.html:55
 msgid "Business Solution"
 msgstr "حل أعمال"
 
+#: .\main_app\templates\services\index.html:63
 msgid "Prestigious business address"
 msgstr "عنوان عمل متميز"
 
+#: .\main_app\templates\services\index.html:64
 msgid "Expert mail & call routing"
 msgstr "توجيه احترافي للبريد والمكالمات"
 
+#: .\main_app\templates\services\index.html:65
 msgid "Zero real estate upkeep"
 msgstr "بدون تكاليف صيانة عقارية"
 
+#: .\main_app\templates\services\index.html:67
 msgid "Fully furnished private layouts"
 msgstr "تصاميم خاصة مفروشة بالكامل"
 
+#: .\main_app\templates\services\index.html:68
 msgid "Dedicated front desk reception"
 msgstr "استقبال مخصص في مكتب الاستقبال"
 
+#: .\main_app\templates\services\index.html:69
 msgid "High-speed secure internet"
 msgstr "إنترنت عالي السرعة وآمن"
 
+#: .\main_app\templates\services\index.html:71
 msgid "State-of-the-art tech"
 msgstr "أحدث التقنيات"
 
+#: .\main_app\templates\services\index.html:72
 msgid "Acoustic privacy & comfort"
 msgstr "خصوصية صوتية وراحة"
 
+#: .\main_app\templates\services\index.html:73
 msgid "Flexible hourly scheduling"
 msgstr "جدولة مرنة بالساعة"
 
+#: .\main_app\templates\services\index.html:75
 msgid "Tailored business support"
 msgstr "دعم تجاري مخصص"
 
+#: .\main_app\templates\services\index.html:76
 msgid "Scalable terms"
 msgstr "شروط قابلة للتوسع"
 
+#: .\main_app\templates\services\index.html:77
 msgid "Experienced local team"
 msgstr "فريق محلي ذو خبرة"
 
+#: .\main_app\templates\services\index.html:85
 msgid "Start Application"
 msgstr "بدء التقديم"
 
-msgid "Book a Room"
-msgstr "احجز غرفة"
-
-msgid "Browse Offices"
-msgstr "تصفح المكاتب"
-
+#: .\main_app\templates\services\index.html:115
 msgid "No services are available at the moment."
 msgstr "لا توجد خدمات متاحة حالياً."
 
+#: .\main_app\templates\services\index.html:123
 msgid "Built to Grow"
 msgstr "مصمم للنمو"
 
+#: .\main_app\templates\services\index.html:124
 msgid "Solutions That Grow With Your Business"
 msgstr "حلول تنمو مع أعمالك"
 
+#: .\main_app\templates\services\index.html:125
 msgid "Start with what you need today and scale your workspace and support as your business evolves."
 msgstr "ابدأ بما تحتاج إليه اليوم، ووسّع مساحة عملك وخدمات الدعم مع تطور أعمالك."
 
+#: .\main_app\templates\services\index.html:128
 msgid "Office Space View"
 msgstr "عرض مساحة المكتب"
 
+#: .\main_app\templates\services\index.html:135
 msgid "Ready to Get Started?"
 msgstr "هل أنت مستعد للبدء؟"
 
+#: .\main_app\templates\services\index.html:136
 msgid "Find the Right Solution for Your Business"
 msgstr "اعثر على الحل المناسب لأعمالك"
 
+#: .\main_app\templates\services\index.html:137
 msgid "Tell us what you need and our team will help you choose the right workspace or support service."
 msgstr "أخبرنا بما تحتاج إليه، وسيساعدك فريقنا في اختيار مساحة العمل أو خدمة الدعم المناسبة."
 
+#: .\main_app\templates\services\index.html:139
 msgid "Contact Our Team"
 msgstr "تواصل مع فريقنا"
 
+#: .\main_app\templates\services\index.html:140
+msgid "Establish Your Presence"
+msgstr "أسس حضورك"
+
+#: .\main_app\templates\spaces\_office_card.html:13
+msgid "/ month"
+msgstr "/ شهرياً"
+
+#: .\main_app\templates\spaces\_office_card.html:20
+#: .\main_app\templates\spaces\index.html:52
+msgid "View Space"
+msgstr "عرض المساحة"
+
+#: .\main_app\templates\spaces\index.html:8
+msgid "Workspace Collection"
+msgstr "مجموعة مساحات العمل"
+
+#: .\main_app\templates\spaces\index.html:10
+msgid "Explore flexible meeting rooms and workspace solutions across our branches, designed to support businesses at every stage."
+msgstr "استكشف غرف اجتماعات وحلول مساحات عمل مرنة في فرعينا، صُممت لدعم الشركات في مختلف مراحلها."
+
+#: .\main_app\templates\spaces\index.html:11
+msgid "Flexible spaces. Flexible terms. Pricing tailored to your requirements."
+msgstr "مساحات مرنة. شروط مرنة. أسعار مصممة وفق متطلباتك."
+
+#: .\main_app\templates\spaces\index.html:19
+msgid "Across Our Locations"
+msgstr "في جميع مواقعنا"
+
+#: .\main_app\templates\spaces\index.html:21
+msgid "Professional meeting spaces available across both Progress Business Centre locations."
+msgstr "مساحات اجتماعات احترافية متاحة في موقعي مركز بروغرس للأعمال."
+
+#: .\main_app\templates\spaces\index.html:23
+msgid "Final pricing may vary based on duration and requirements."
+msgstr "قد يختلف السعر النهائي حسب المدة والمتطلبات."
+
+#: .\main_app\templates\spaces\index.html:58
+msgid "No meeting rooms are currently available."
+msgstr "لا توجد غرف اجتماعات متاحة حالياً."
+
+#: .\main_app\templates\spaces\index.html:67
+msgid "Head Office Spaces"
+msgstr "مساحات المكتب الرئيسي"
+
+#: .\main_app\templates\spaces\index.html:68
+msgid "Professional private workspaces with flexible monthly arrangements at our Head Office."
+msgstr "مساحات عمل خاصة واحترافية بترتيبات شهرية مرنة في مكتبنا الرئيسي."
+
+#: .\main_app\templates\spaces\index.html:70
+#: .\main_app\templates\spaces\index.html:89
+msgid "Final pricing is confirmed after reviewing your requirements."
+msgstr "يتم تأكيد السعر النهائي بعد مراجعة متطلباتك."
+
+#: .\main_app\templates\spaces\index.html:77
+msgid "No Head Office spaces are currently available."
+msgstr "لا توجد مساحات متاحة حالياً في المكتب الرئيسي."
+
+#: .\main_app\templates\spaces\index.html:85
+msgid "Al Raya Branch"
+msgstr "فرع الراية"
+
+#: .\main_app\templates\spaces\index.html:86
+msgid "Al Raya Branch Spaces"
+msgstr "مساحات فرع الراية"
+
+#: .\main_app\templates\spaces\index.html:87
+msgid "Flexible private workspace solutions designed for focused, professional day-to-day operations."
+msgstr "حلول مساحات عمل خاصة ومرنة مصممة لعمليات يومية احترافية ومركزة."
+
+#: .\main_app\templates\spaces\index.html:96
+msgid "No Al Raya Branch spaces are currently available."
+msgstr "لا توجد مساحات متاحة حالياً في فرع الراية."
+
+#: .\main_app\templates\spaces\index.html:103
+msgid "Personal Guidance"
+msgstr "توجيه شخصي"
+
+#: .\main_app\templates\spaces\index.html:104
+msgid "Not sure which space is right for you?"
+msgstr "ألست متأكداً من المساحة المناسبة لك؟"
+
+#: .\main_app\templates\spaces\index.html:105
+msgid "Our team can help you find a workspace or meeting solution that fits your business needs."
+msgstr "يمكن لفريقنا مساعدتك في إيجاد مساحة عمل أو حل اجتماعات يناسب احتياجات أعمالك."
+
+#: .\main_app\templates\visits\register.html:11
 msgid "Arrange a Meeting"
 msgstr "ترتيب اجتماع"
 
+#: .\main_app\templates\visits\register.html:12
 msgid "Complete the form below and choose your preferred meeting date and time."
 msgstr "أكمل النموذج أدناه واختر تاريخ ووقت الاجتماع المفضل لديك."
 
+#: .\main_app\templates\visits\register.html:22
 msgid "Book a Visit"
 msgstr "احجز زيارة"
 
+#: .\main_app\templates\visits\register.html:23
 msgid "Schedule Your Visit"
 msgstr "حدد موعد زيارتك"
 
+#: .\main_app\templates\visits\register.html:24
 msgid "We look forward to showing you our workspace solutions."
 msgstr "نتطلع إلى عرض حلول مساحات العمل لدينا عليك."
 
+#: .\main_app\templates\visits\register.html:45
 msgid "Arrange Meeting"
 msgstr "ترتيب الاجتماع"
 
+#: .\main_app\templates\visits\success.html:12
 msgid "Request Received"
 msgstr "تم استلام الطلب"
 
+#: .\main_app\templates\visits\success.html:13
 msgid "You're one step closer to your new workspace."
 msgstr "أنت على بعد خطوة واحدة من مساحة عملك الجديدة."
 
+#: .\main_app\templates\visits\success.html:34
 msgid "Meeting Request Submitted"
 msgstr "تم إرسال طلب الاجتماع"
 
+#: .\main_app\templates\visits\success.html:35
 msgid "Thank you for your submission. Our team will contact you shortly to confirm your booking details."
 msgstr "شكراً لتقديمك. سيتواصل معك فريقنا قريباً لتأكيد تفاصيل حجزك."
+
+#~ msgid "name@example.com"
+#~ msgstr "name@example.com"
+
+#~ msgid "+973 ..."
+#~ msgstr "+973 ..."
+
+#~ msgid "Visit"
+#~ msgstr "زيارة"
+
+#~ msgid "Request summary"
+#~ msgstr "ملخص الطلبات"
+
+#~ msgid "Total Requests"
+#~ msgstr "إجمالي الطلبات"
+
+#~ msgid "Approved / Active"
+#~ msgstr "موافق عليه / نشط"
+
+#~ msgid "Welcome Back"
+#~ msgstr "مرحباً بعودتك"
+
+#~ msgid "Sign in to access your dashboard, manage office bookings, and review registration progress."
+#~ msgstr "سجل الدخول للوصول إلى لوحة التحكم وإدارة حجوزات المكاتب ومتابعة تقدم التسجيل."
+
+#~ msgid "Join our community and get access to professional workspaces, virtual offices, and meeting rooms."
+#~ msgstr "انضم إلى مجتمعنا واحصل على إمكانية الوصول إلى مساحات عمل احترافية ومكاتب افتراضية وغرف اجتماعات."
+
+#~ msgid "Helping businesses establish and grow in Bahrain."
+#~ msgstr "نساعد الشركات على التأسيس والنمو في البحرين."
+
+#~ msgid "CR & Business Setup Support"
+#~ msgstr "دعم السجل التجاري وتأسيس الأعمال"
+
+#~ msgid "All Rights Reserved."
+#~ msgstr "جميع الحقوق محفوظة."
+
+#~ msgid "Workspace & Corporate Solutions in Bahrain"
+#~ msgstr "حلول مساحات العمل والمؤسسات في البحرين"
+
+#~ msgid "Flexible, premium environments engineered for global enterprises, startups, and agile founders."
+#~ msgstr "بيئات مرنة ومتميزة مصممة للمؤسسات العالمية والشركات الناشئة والمؤسسين المرنين."
+
+#~ msgid "Our Services"
+#~ msgstr "خدماتنا"
+
+#~ msgid "Flexible Solutions for Every Stage of Business"
+#~ msgstr "حلول مرنة لكل مرحلة من مراحل الأعمال"
+
+#~ msgid "Explore our workspace, facilities, and events through our image collection."
+#~ msgstr "استكشف مساحات العمل والمرافق والفعاليات من خلال مجموعة صورنا."
+
+#~ msgid "Spaces made for ambitious work"
+#~ msgstr "مساحات صُممت للأعمال الطموحة"
+
+#~ msgid "A closer look at the spaces, details, and atmosphere behind your next business address."
+#~ msgstr "نظرة أقرب إلى المساحات والتفاصيل والأجواء التي ستجدها في عنوان أعمالك القادم."
+
+#~ msgid "No images available yet."
+#~ msgstr "لا توجد صور متاحة حالياً."
+
+#~ msgid "Establish your business in Seef District with flexible, fully supported workspace solutions designed for professional growth."
+#~ msgstr "أسّس أعمالك في منطقة السيف مع حلول مساحات عمل مرنة ومدعومة بالكامل، صُممت لتحقيق النمو المهني."
+
+#~ msgid "Explore Solutions"
+#~ msgstr "استكشف الحلول"
+
+#~ msgid "A prestigious Seef address, dedicated phone line, and professional mail handling without the physical lease overhead."
+#~ msgstr "عنوان متميز في السيف، وخط هاتف مخصص، ومعالجة احترافية للبريد دون تكاليف الإيجار الفعلية."
+
+#~ msgid "Serviced Suites"
+#~ msgstr "المكاتب المخدومة"
+
+#~ msgid "Fully furnished private suites with flexible monthly options, high-speed Wi-Fi, maintenance, and utilities included."
+#~ msgstr "أجنحة خاصة مفروشة بالكامل بخيارات شهرية مرنة، تشمل الإنترنت عالي السرعة والصيانة والمرافق."
+
+#~ msgid "Meeting & Boardrooms"
+#~ msgstr "غرف الاجتماعات ومجالس الإدارة"
+
+#~ msgid "Equipped conference facilities available on-demand for client meetings and seamless team collaborations."
+#~ msgstr "مرافق مؤتمرات مجهزة متاحة عند الطلب لاجتماعات العملاء والتعاون الجماعي بسلاسة."
+
+#~ msgid "Business Made Simple from Day One"
+#~ msgstr "أعمال أبسط منذ اليوم الأول"
+
+#~ msgid "From CR support to flexible monthly workspaces, we help businesses start faster, operate smoothly, and grow with confidence."
+#~ msgstr "من دعم السجل التجاري إلى مساحات العمل الشهرية المرنة، نساعد الشركات على الانطلاق بسرعة والعمل بسلاسة والنمو بثقة."
+
+#~ msgid "Professional workspace in Bahrain's Seef business district."
+#~ msgstr "مساحة عمل احترافية في منطقة السيف التجارية بمملكة البحرين."
+
+#~ msgid "Practical support with new CR applications, renewals, and day-to-day administration."
+#~ msgstr "دعم عملي لطلبات السجل التجاري الجديدة والتجديدات والإدارة اليومية."
+
+#~ msgid "Ready to Operate"
+#~ msgstr "جاهز لبدء العمل"
+
+#~ msgid "Fully equipped spaces and essential support prepared from day one."
+#~ msgstr "مساحات مجهزة بالكامل ودعم أساسي متاحان منذ اليوم الأول."
+
+#~ msgid "Why Choose Bahrain?"
+#~ msgstr "لماذا تختار البحرين؟"
+
+#~ msgid "The Middle East's most favorable economic environment for foreign investors."
+#~ msgstr "البيئة الاقتصادية الأكثر تفضيلاً في الشرق الأوسط للمستثمرين الأجانب."
+
+#, python-format
+#~ msgid "100%% Foreign Ownership"
+#~ msgstr "ملكية أجنبية بنسبة ١٠٠٪"
+
+#~ msgid "Enjoy full commercial ownership of your enterprise without requiring a local partner. Bahrain acts as your direct gateway to Saudi Arabia and rapid connections to all major Middle Eastern markets."
+#~ msgstr "تمتع بالملكية التجارية الكاملة لمؤسستك دون الحاجة إلى شريك محلي. تشكل البحرين بوابتك المباشرة إلى المملكة العربية السعودية وروابط سريعة لجميع أسواق الشرق الأوسط الرئيسية."
+
+#~ msgid "Unmatched Profitability"
+#~ msgstr "ربحية لا مثيل لها"
+
+#, python-format
+#~ msgid "Maximize profitability in a 0%% corporate and personal income tax environment, paired with highly competitive setup, rental, and utility costs compared to neighboring GCC business hubs."
+#~ msgstr "عزز ربحيتك في بيئة ضريبية بنسبة ٠٪ على الشركات والدخل الشخصي، بالإضافة إلى تكاليف تأسيس وإيجار ومرافق تنافسية للغاية مقارنة بمراكز الأعمال المجاورة في الخليج."
+
+#~ msgid "Ready to Establish Your Business?"
+#~ msgstr "هل أنت مستعد لتأسيس عملك؟"
+
+#~ msgid "Contact our team today to find the ideal workspace for your growth."
+#~ msgstr "تواصل مع فريقنا اليوم للعثور على مساحة العمل المثالية لنموك."
+
+#~ msgid "Talk to Our Consultants"
+#~ msgstr "تحدث مع مستشارينا"
+
+#~ msgid "Serviced Offices"
+#~ msgstr "المكاتب المخدومة"
+
+#~ msgid "Explore Meeting Rooms"
+#~ msgstr "استكشف غرف الاجتماعات"
+
+#~ msgid "No business registration applications yet."
+#~ msgstr "لا توجد طلبات تسجيل أعمال حتى الآن."
+
+#~ msgid "Start Business Registration"
+#~ msgstr "ابدأ تسجيل الأعمال"
+
+#~ msgid "Workspaces"
+#~ msgstr "مساحات العمل"
+
+#~ msgid "Discover fully furnished offices with flexible monthly options, premium facilities, and professional business support."
+#~ msgstr "اكتشف مكاتب مفروشة بالكامل بخيارات شهرية مرنة ومرافق متميزة ودعم مهني للأعمال."
+
+#~ msgid "Rates may vary based on duration, space, and requirements. Final pricing will be confirmed by our team."
+#~ msgstr "قد تختلف الأسعار حسب المدة والمساحة والمتطلبات، وسيؤكد فريقنا السعر النهائي."
+
+#~ msgid "View Office"
+#~ msgstr "عرض المكتب"
+
+#~ msgid "Back to Meeting Rooms"
+#~ msgstr "العودة إلى غرف الاجتماعات"
+
+#~ msgid "Professional Meeting Rooms"
+#~ msgstr "غرف اجتماعات احترافية"
+
+#~ msgid "Book fully equipped meeting spaces designed for client meetings, presentations, interviews, training sessions and corporate discussions."
+#~ msgstr "احجز مساحات اجتماعات مجهزة بالكامل مصممة لاجتماعات العملاء والعروض التقديمية والمقابلات والدورات التدريبية والمناقشات المؤسسية."
+
+#~ msgid "Meeting Spaces"
+#~ msgstr "مساحات الاجتماعات"
+
+#~ msgid "/ HR"
+#~ msgstr "/ ساعة"
+
+#~ msgid "View Room"
+#~ msgstr "عرض الغرفة"
+
+#~ msgid "Book a Room"
+#~ msgstr "احجز غرفة"
+
+#~ msgid "Browse Offices"
+#~ msgstr "تصفح المكاتب"
 
 #~ msgid "CR Registration"
 #~ msgstr "تسجيل السجل التجاري"
@@ -1066,9 +1791,6 @@ msgstr "شكراً لتقديمك. سيتواصل معك فريقنا قريبا
 
 #~ msgid "Submit Legal Application"
 #~ msgstr "تقديم الطلب القانوني"
-
-#~ msgid "Reception, call handling, and administrative assistance when you need it."
-#~ msgstr "خدمات استقبال وإدارة مكالمات ومساعدة إدارية عند الحاجة."
 
 #~ msgid "Pending Government Approval"
 #~ msgstr "بانتظار الموافقة الحكومية"
