@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Progress Business Centre\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-30 11:17+0300\n"
+"POT-Creation-Date: 2026-08-30 12:22+0300\n"
 "PO-Revision-Date: 2026-08-23 11:40+0300\n"
 "Last-Translator: Progress Business Centre\n"
 "Language-Team: Arabic\n"
@@ -335,7 +335,7 @@ msgid "FAQs"
 msgstr "الأسئلة الشائعة"
 
 #: .\main_app\templates\base.html:80 .\main_app\templates\base.html:139
-#: .\main_app\templates\base.html:237 .\main_app\templates\index.html:208
+#: .\main_app\templates\base.html:236 .\main_app\templates\index.html:208
 #: .\main_app\templates\services\index.html:90
 #: .\main_app\templates\services\index.html:105
 #: .\main_app\templates\spaces\index.html:107
@@ -357,7 +357,7 @@ msgid "CR Support"
 msgstr "دعم السجل التجاري"
 
 #: .\main_app\templates\base.html:86 .\main_app\templates\base.html:145
-#: .\main_app\templates\base.html:240
+#: .\main_app\templates\base.html:239
 msgid "Referral"
 msgstr "الإحالة"
 
@@ -371,9 +371,7 @@ msgid "Logout"
 msgstr "تسجيل الخروج"
 
 #: .\main_app\templates\base.html:100 .\main_app\templates\base.html:162
-#: .\main_app\templates\registration\login.html:59
-#: .\main_app\templates\registration\signup.html:78
-msgid "Login"
+msgid "Log In"
 msgstr "تسجيل الدخول"
 
 #: .\main_app\templates\base.html:101 .\main_app\templates\base.html:166
@@ -417,27 +415,23 @@ msgstr "غرف الاجتماعات"
 msgid "Virtual Office"
 msgstr "المكتب الافتراضي"
 
-#: .\main_app\templates\base.html:230
-msgid "Business Support"
-msgstr "دعم الأعمال"
-
-#: .\main_app\templates\base.html:235
+#: .\main_app\templates\base.html:234
 msgid "Connect"
 msgstr "تواصل معنا"
 
-#: .\main_app\templates\base.html:238 .\main_app\templates\index.html:209
+#: .\main_app\templates\base.html:237 .\main_app\templates\index.html:209
 msgid "Request a Visit"
 msgstr "اطلب زيارة"
 
-#: .\main_app\templates\base.html:239 .\main_app\templates\faq\index.html:10
+#: .\main_app\templates\base.html:238 .\main_app\templates\faq\index.html:10
 msgid "FAQ"
 msgstr "الأسئلة الشائعة"
 
-#: .\main_app\templates\base.html:246
+#: .\main_app\templates\base.html:245
 msgid "Copyright 2026 Progress Business Centre. All Rights Reserved."
 msgstr "حقوق النشر 2026 مركز بروجريس للأعمال. جميع الحقوق محفوظة."
 
-#: .\main_app\templates\base.html:247
+#: .\main_app\templates\base.html:246
 msgid "Progress Business Centre provides support services, not government approvals."
 msgstr "يقدم مركز بروجريس للأعمال خدمات الدعم، وليس الموافقات الحكومية."
 
@@ -609,23 +603,23 @@ msgstr "إرسال طلب الحجز"
 msgid "Pricing is flexible. Final rates will be confirmed after our team reviews your request."
 msgstr "الأسعار مرنة، وسيؤكد فريقنا الأسعار النهائية بعد مراجعة طلبك."
 
-#: .\main_app\templates\bookings\success.html:10
+#: .\main_app\templates\bookings\success.html:8
 msgid "Confirmation"
 msgstr "تأكيد"
 
-#: .\main_app\templates\bookings\success.html:11
+#: .\main_app\templates\bookings\success.html:9
 msgid "Booking Request Received"
 msgstr "تم استلام طلب الحجز"
 
-#: .\main_app\templates\bookings\success.html:28
+#: .\main_app\templates\bookings\success.html:21
 msgid "Booking Request Submitted"
 msgstr "تم إرسال طلب الحجز"
 
-#: .\main_app\templates\bookings\success.html:31
+#: .\main_app\templates\bookings\success.html:24
 msgid "Your booking request has been received and is Pending. Our team will review it and send you an email when its status changes."
 msgstr "تم استلام طلب الحجز وهو قيد المراجعة. سيراجعه فريقنا وسنرسل إليك بريداً إلكترونياً عند تغير حالته."
 
-#: .\main_app\templates\bookings\success.html:35
+#: .\main_app\templates\bookings\success.html:28
 msgid "View My Dashboard"
 msgstr "عرض لوحة طلباتي"
 
@@ -681,23 +675,23 @@ msgstr "يرجى تصحيح الأخطاء أعلاه."
 msgid "Submit CR Support Request"
 msgstr "إرسال طلب دعم السجل التجاري"
 
-#: .\main_app\templates\business\success.html:11
+#: .\main_app\templates\business\success.html:9
 msgid "Virtual Office Application Received!"
 msgstr "تم استلام طلب المكتب الافتراضي!"
 
-#: .\main_app\templates\business\success.html:12
+#: .\main_app\templates\business\success.html:10
 msgid "Your application for professional business services has been successfully submitted."
 msgstr "تم تقديم طلبك للحصول على خدمات الأعمال الاحترافية بنجاح."
 
-#: .\main_app\templates\business\success.html:26
+#: .\main_app\templates\business\success.html:18
 msgid "Application Under Review"
 msgstr "الطلب قيد المراجعة"
 
-#: .\main_app\templates\business\success.html:29
+#: .\main_app\templates\business\success.html:21
 msgid "Our corporate setup team is reviewing your documents and application details. We will contact you shortly to complete the process."
 msgstr "يقوم فريق التأسيس المؤسسي بمراجعة مستنداتك وتفاصيل طلبك. سنتواصل معك قريباً لإكمال العملية."
 
-#: .\main_app\templates\business\success.html:33
+#: .\main_app\templates\business\success.html:25
 msgid "Back To Home"
 msgstr "العودة إلى الرئيسية"
 
@@ -760,7 +754,7 @@ msgstr "اختر الموقع الأنسب لك، ثم احصل على الات�
 
 #: .\main_app\templates\contact\detail.html:107
 msgid "Click to open in Google Maps"
-msgstr "انقر للفتح في خرائط Google"
+msgstr "انقر للفتح في خرائط جوجل"
 
 #: .\main_app\templates\contact\detail.html:111
 #: .\main_app\templates\index.html:189
@@ -1234,28 +1228,28 @@ msgstr "املأ المعلومات أدناه لتقديم نشاط تجاري 
 msgid "Submit Referral"
 msgstr "إرسال الإحالة"
 
-#: .\main_app\templates\referrals\success.html:11
+#: .\main_app\templates\referrals\success.html:9
 msgid "Referral Dashboard"
 msgstr "لوحة تحكم الإحالة"
 
-#: .\main_app\templates\referrals\success.html:12
+#: .\main_app\templates\referrals\success.html:10
 msgid "Thank you for helping our community grow."
 msgstr "شكراً لمساعدتك في نمو مجتمعنا."
 
-#: .\main_app\templates\referrals\success.html:26
+#: .\main_app\templates\referrals\success.html:18
 msgid "Referral Submitted!"
 msgstr "تم إرسال الإحالة!"
 
-#: .\main_app\templates\referrals\success.html:29
+#: .\main_app\templates\referrals\success.html:21
 msgid "Thank you for sharing. Our team will review your referral and contact them shortly."
 msgstr "شكراً لمشاركتك. سيقوم فريقنا بمراجعة الإحالة والتواصل معهم قريباً."
 
-#: .\main_app\templates\referrals\success.html:34
+#: .\main_app\templates\referrals\success.html:26
 msgid "Submit Another Referral"
 msgstr "إرسال إحالة أخرى"
 
-#: .\main_app\templates\referrals\success.html:38
-#: .\main_app\templates\visits\success.html:39
+#: .\main_app\templates\referrals\success.html:30
+#: .\main_app\templates\visits\success.html:30
 msgid "Back Home"
 msgstr "العودة إلى الرئيسية"
 
@@ -1303,6 +1297,11 @@ msgstr "كلمة المرور"
 #: .\main_app\templates\registration\login.html:44
 msgid "Forgot password?"
 msgstr "هل نسيت كلمة المرور؟"
+
+#: .\main_app\templates\registration\login.html:59
+#: .\main_app\templates\registration\signup.html:78
+msgid "Login"
+msgstr "تسجيل الدخول"
 
 #: .\main_app\templates\registration\login.html:63
 msgid "Don't have an account?"
@@ -1585,21 +1584,24 @@ msgstr "نتطلع إلى عرض حلول مساحات العمل لدينا ع�
 msgid "Arrange Meeting"
 msgstr "ترتيب الاجتماع"
 
-#: .\main_app\templates\visits\success.html:12
+#: .\main_app\templates\visits\success.html:9
 msgid "Request Received"
 msgstr "تم استلام الطلب"
 
-#: .\main_app\templates\visits\success.html:13
+#: .\main_app\templates\visits\success.html:10
 msgid "You're one step closer to your new workspace."
 msgstr "أنت على بعد خطوة واحدة من مساحة عملك الجديدة."
 
-#: .\main_app\templates\visits\success.html:34
+#: .\main_app\templates\visits\success.html:25
 msgid "Meeting Request Submitted"
 msgstr "تم إرسال طلب الاجتماع"
 
-#: .\main_app\templates\visits\success.html:35
+#: .\main_app\templates\visits\success.html:26
 msgid "Thank you for your submission. Our team will contact you shortly to confirm your booking details."
 msgstr "شكراً لتقديمك. سيتواصل معك فريقنا قريباً لتأكيد تفاصيل حجزك."
+
+#~ msgid "Business Support"
+#~ msgstr "دعم الأعمال"
 
 #~ msgid "name@example.com"
 #~ msgstr "name@example.com"
