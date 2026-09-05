@@ -22,14 +22,14 @@
     </a>
 
     <article class="office-detail-card">
-        {% if office.image %}
-        <div class="office-detail-media">
-            <img class="office-image detail-office-image" src="{{ office.image.url }}" alt="{{ office.name }}">
-        </div>
-        {% endif %}
-
         <div class="office-detail-layout">
             <div class="office-detail-info">
+                {% if office.image %}
+                <div class="office-detail-media">
+                    <img class="office-image detail-office-image" src="{{ office.image.url }}" alt="{{ office.name }}">
+                </div>
+                {% endif %}
+
                 <p class="office-detail-description">{{ office.description }}</p>
 
                 <div class="office-detail-meta">

@@ -22,14 +22,14 @@
     </a>
 
     <article class="room-detail-card">
-        {% if room.image %}
-        <div class="room-detail-media">
-            <img class="room-image detail-room-image" src="{{ room.image.url }}" alt="{{ room.name }}">
-        </div>
-        {% endif %}
-
         <div class="room-detail-layout">
             <div class="room-detail-info">
+                {% if room.image %}
+                <div class="room-detail-media">
+                    <img class="room-image detail-room-image" src="{{ room.image.url }}" alt="{{ room.name }}">
+                </div>
+                {% endif %}
+
                 {% if room.description %}
                 <p class="room-detail-description">{{ room.description }}</p>
                 {% endif %}

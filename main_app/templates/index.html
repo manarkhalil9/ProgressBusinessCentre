@@ -151,22 +151,22 @@
                 <h2 id="gallery-title">{% trans "A closer look at where business happens" %}</h2>
                 <p>{% trans "Explore our offices, meeting rooms, and professional environment through recent Progress photography." %}</p>
             </div>
-            {% if all_images %}
+        </header>
+
+        {% if all_images %}
+        <div class="home-gallery-stage">
+            <div class="home-gallery-track" data-gallery-track tabindex="0" aria-label="{% trans 'Progress workspace gallery' %}">
+                {% for image in all_images %}
+                <figure class="home-gallery-slide">
+                    <img src="{{ image.image.url }}" alt="{{ image.title }}" loading="lazy">
+                    <figcaption>{{ image.title }}</figcaption>
+                </figure>
+                {% endfor %}
+            </div>
             <div class="home-gallery-controls" aria-label="{% trans 'Gallery controls' %}">
                 <button type="button" class="home-gallery-button" data-gallery-prev aria-label="{% trans 'Previous image' %}">←</button>
                 <button type="button" class="home-gallery-button" data-gallery-next aria-label="{% trans 'Next image' %}">→</button>
             </div>
-            {% endif %}
-        </header>
-
-        {% if all_images %}
-        <div class="home-gallery-track" data-gallery-track tabindex="0" aria-label="{% trans 'Progress workspace gallery' %}">
-            {% for image in all_images %}
-            <figure class="home-gallery-slide">
-                <img src="{{ image.image.url }}" alt="{{ image.title }}" loading="lazy">
-                <figcaption>{{ image.title }}</figcaption>
-            </figure>
-            {% endfor %}
         </div>
         {% else %}
         <div class="home-gallery-empty">{% trans "More workspace photography will be available soon." %}</div>

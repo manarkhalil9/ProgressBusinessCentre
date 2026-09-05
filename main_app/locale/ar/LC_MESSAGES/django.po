@@ -1600,9 +1600,6 @@ msgstr "تم إرسال طلب الاجتماع"
 msgid "Thank you for your submission. Our team will contact you shortly to confirm your booking details."
 msgstr "شكراً لتقديمك. سيتواصل معك فريقنا قريباً لتأكيد تفاصيل حجزك."
 
-#~ msgid "Business Support"
-#~ msgstr "دعم الأعمال"
-
 #~ msgid "name@example.com"
 #~ msgstr "name@example.com"
 
@@ -1820,3 +1817,24 @@ msgstr "شكراً لتقديمك. سيتواصل معك فريقنا قريبا
 
 #~ msgid "Check Availability & Book"
 #~ msgstr "تحقق من التوفر واحجز"
+
+msgid "Common Questions"
+msgstr "الأسئلة الشائعة"
+
+msgid "Let's Talk"
+msgstr "لنتحدث"
+
+msgid "Business Support"
+msgstr "دعم الأعمال"
+
+msgid "Corporate Registration Support"
+msgstr "دعم التسجيل التجاري"
+
+msgid "Connect & Refer"
+msgstr "تواصل وأحِل إلينا"
+
+msgid "Book Your Space"
+msgstr "احجز مساحتك"
+
+msgid "CR Support Request Received"
+msgstr "تم استلام طلب دعم السجل التجاري"

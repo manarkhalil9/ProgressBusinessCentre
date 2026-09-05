@@ -39,12 +39,14 @@
 
 
         <div class="card-image-left">
-            {% if "Virtual" in service.title or "افتراضي" in service.title or "CR" in service.title %}
+            {% if "CR" in service.title or "Registration" in service.title or "تسجيل" in service.title %}
+                <img src="{% static 'images/service-corporate-registration.png' %}" alt="{{ service.title }}">
+            {% elif "Virtual" in service.title or "افتراضي" in service.title %}
                 <img src="{% static 'images/virtual-offices.png' %}" alt="{{ service.title }}">
             {% elif "Meeting" in service.title or "اجتماعات" in service.title %}
-                <img src="{% static 'images/meeting-rooms.png' %}" alt="{{ service.title }}">
+                <img src="{% static 'images/service-meeting-room.png' %}" alt="{{ service.title }}">
             {% elif "Office" in service.title or "Private" in service.title or "مكاتب" in service.title or "خاصة" in service.title %}
-                <img src="{% static 'images/private-offices.png' %}" alt="{{ service.title }}">
+                <img src="{% static 'images/service-private-office.png' %}" alt="{{ service.title }}">
             {% else %}
                 <img src="{% static 'images/virtual-offices.png' %}" alt="{{ service.title }}">
             {% endif %}
